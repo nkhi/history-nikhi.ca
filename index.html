@@ -1,17 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!-- Setup --> 
+    <!-- Setup -->
     <title>Nikhi Bhambra | Software Developer</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.1/css/all.css" integrity="sha384-O8whS3fhG2OnA5Kas0Y9l3cfpmYjapjI0E4theH4iuMD+pLhbf6JI0jIMfYcK3yZ" crossorigin="anonymous">
-    
+
     <!-- Settings -->
     <meta charset="UTF-8">
     <meta name="description" content="Nikhi Bhambra, Software Developer and Designer">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="referrer" content="none">
-    
+    <canvas id='map'></canvas> <!-- Minimap -->
+
     <!-- Favicon Compatibility-->
     <link rel="apple-touch-icon" sizes="76x76" href="/icons/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon-32x32.png">
@@ -23,7 +24,7 @@
     <meta name="msapplication-config" content="/icons/browserconfig.xml">
     <meta name="theme-color" content="#ffffff">
 </head>
-        
+
 <body>
   <img src="images/me.png" alt="My face!">
   <h1 id="name">Nikhi Bhambra</h1>
@@ -31,7 +32,7 @@
     <div class="socials">
       <div onmouseover="hover('/nikhibhambra')">
         <a href="https://www.linkedin.com/in/nikhibhambra" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin"></i></a>
-      </div>    
+      </div>
       <div onmouseover="hover('@nkhi')">
         <a href="https://github.com/nkhi" target="blank" rel="noopener noreferrer"><i class="fab fa-github-square"></i></a>
       </div>
@@ -44,23 +45,23 @@
     </div>
     <div id="content"></div>
   </div>
-    
+
   &#62;
-    
+
   <span id="intro">
     <span id="text"></span>
     <span class='console-underscore' id='console'>&nbsp;&#95;</span>
   </span>
   <p id="desc">I am a third year <b>CS, Statistics, and Math student at the University of Toronto</b> with a fascination for data science, software engineering, and practical applications of machine learning. <br><br> I am also a multi-disciplinary designer with a background in UI Design, Product Design, and UX Writing because even the smartest programs need to be beautiful. <br><br> Currently looking for Summer 2020 internships (Canada, USA, Remote) as a Software Engineer or Web Developer, please reach out!</p>
 
-  <!-- 
+  <!--
 
   I really liked this tr command for revealing email, but not mobile friendly :(
 
   <p style="margin-bottom: 50px;"> email: <a class="tooltip-right" data-tooltip="Psst...bash this!">echo pkmjkn.djcodtc@ockn.wvqtqpvq.ec | tr '[c-}]' '[a-z]'</a></p>
-  
+
   -->
-    
+
   <div class="card-holder">
   <div id="web" class="box">
       <div>
@@ -96,7 +97,7 @@
           <li>Sketch &amp; Invision</li>
         </ul>
       </div>
-    </div>  
+    </div>
   </div>
 
   <section style="padding-bottom: 5px;" id="education">
@@ -120,7 +121,7 @@
             <li><span class="course">CSC343</span> Introduction to Databases</li>
         </ul>
         </details>
-        
+
         <details class="classes">
         <summary>Mathematics</summary>
         <ul>
@@ -158,7 +159,7 @@
     </ul>
     </div>
   </section>
-    
+
   <section style="padding-bottom: 15px;" id="work">
     <h2 style="font-family: 'Avenir';">Design ✒️</h2>
     <div>
@@ -174,7 +175,7 @@
     </div>
   </section>
 
-    
+
   <section style="padding-bottom: 15px;" id="work">
     <h2 style="font-family: 'Avenir';">Writing 📝</h2>
     <div>
@@ -199,7 +200,7 @@
     </ul>
     </div>
   </section>
-    
+
   <footer>Last Updated on <a href="https://github.com/nkhi/nkhi.github.io">February 3rd, 2020</a></footer>
   <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="script.js" type="b9ba561f46c0fd8e6d74c122-text/javascript"></script>
   <script src="https://unpkg.com/clipboard@2/dist/clipboard.min.js"></script>
