@@ -80,7 +80,7 @@ p {
 }
 
 p#desc {
-	margin: 50px 0 50px 0;
+	margin: 50px 0 40px 0;
 	text-align: justify;
 }
 
@@ -206,7 +206,7 @@ img{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 50px;
+    margin-bottom: 40px;
 }
 
 
