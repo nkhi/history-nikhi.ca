@@ -2,7 +2,7 @@
 
 let terminal = document.getElementById('console');
 
-let word1 = "SWE Intern @ MedMe";
+let word1 = "SWE Intern at MedMe";
 let word2 = 'Software Developer & Designer';
 
 let letterCount = 0;
