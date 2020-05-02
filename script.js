@@ -1,32 +1,21 @@
-"use strict";
-
-let terminal = document.getElementById('console');
-
-let word1 = "hello world";
-let word2 = 'Software Developer & Designer';
-
-let letterCount = 0;
-let letterDelete = 0;
-let visible = true;
+"use strict"; // single JS file, not dangerous
+var terminal = document.getElementById('console');
+var word1 = "hello world";
+var word2 = 'Software Developer & Designer';
+var letterCount = 0;
+var letterDelete = 0;
+var visible = true;
 
 // constant blinking cursor
 window.setInterval(function () {
-	if (visible) {
-		terminal.className = 'console-underscore hidden';
-		visible = false;
-	} else {
-		terminal.className = 'console-underscore';
-		visible = true;
-	}
+    if (visible) {
+        terminal.className = 'console-underscore hidden';
+        visible = false;
+    } else {
+        terminal.className = 'console-underscore';
+        visible = true;
+    }
 }, 300);
-
-// first executes writing typo after 1.5 seconds
-terminalText(word1);
-
-// second executes writing 'progress' after 5 seconds
-window.setTimeout(function () {
-	terminalText(word2);
-}, 3000);
 
 // write and delete words
 function terminalText(word) {
@@ -72,6 +61,14 @@ function terminalText(word) {
 	}, 1500);
 }
 
+// first executes writing typo after 1.5 seconds
+terminalText(word1);
+
+// second executes writing 'progress' after 3 seconds
+window.setTimeout(function () {
+	terminalText(word2);
+}, 3000);
+
 // Adapted from indubitablee on SO
 function hover(description) {
     document.getElementById('content').innerHTML = description;
@@ -84,16 +81,3 @@ function ClipBoard()
     Copied = holdtext.createTextRange();
     Copied.execCommand("Copy");
 }
-
-pagemap(document.querySelector('#map'), {
-    viewport: null,
-    styles: {
-        'header,footer,section,article': 'rgba(0,0,0,0.08)',
-        'h1,a': 'rgba(0,0,0,0.10)',
-        'h2,h3,h4': 'rgba(0,0,0,0.08)'
-    },
-    back: 'rgba(0,0,0,0.02)',
-    view: 'rgba(0,0,0,0.05)',
-    drag: 'rgba(0,0,0,0.10)',
-    interval: null
-});
