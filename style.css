@@ -21,6 +21,7 @@ body {
     padding: 10px;
 	position: relative;
 	width: 720px;
+    overflow-x: hidden;
 }
 
 footer {
@@ -107,7 +108,7 @@ li#body{
 }
 
 #education ul { padding: 0 30px; }
-#education details { padding: 0 15px; }
+#education details { padding: 5px 15px; }
 #education details summary:hover {
 	opacity: 0.5;
 	cursor: pointer;
