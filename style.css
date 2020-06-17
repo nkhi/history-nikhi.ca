@@ -107,8 +107,9 @@ li#body{
 	border-left: 2px solid rgb(50, 50, 50);
 }
 
-#education ul { padding: 0 30px; }
-#education details { padding: 5px 15px; }
+#education ul { padding: 5px 0 0 30px; }
+#education li { padding: 5px 0 0 0; }
+#education details { padding: 10px 0 0 15px;}
 #education details summary:hover {
 	opacity: 0.5;
 	cursor: pointer;
@@ -129,16 +130,22 @@ li#body{
 	color:rgb(170, 170, 170);
 }
 
-.desc, .course {
+.desc {
 	font-size: 0.7em;
+	color: rgb(200, 200, 200);
+}
+
+.course {
+    font-size: 0.7em;
+	text-transform: uppercase;
 	color: rgb(200, 200, 200);
 }
 
 /* Social Elements */
 img{
     float: left;
-    width: 85px;
-    height: 85px;
+    width: 75px;
+    height: 75px;
     margin: 12px 12px 12px 0px;
 }
 
