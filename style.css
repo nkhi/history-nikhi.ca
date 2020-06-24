@@ -190,12 +190,13 @@ img{
 	background-color: #121212;
 	border-radius: 10px;
 	box-shadow: 0 5px 10px rgba(0,0,0,0.2);
-	-webkit-transition: .1s ease-in-out;
-	transition: .1s ease-in-out;
+	-webkit-transition: .2s ease-in-out;
+	transition: .2s ease-in-out;
 }
 
 .card#web{
-    background-color: red;
+    background-color: linear-gradient(#f2709c, #ff9472);
+    background-color: -webkit-linear-gradient(#f2709c, #ff9472);
 }
 
 .card#code{
@@ -203,7 +204,7 @@ img{
 }
 
 .card#design{
-    background-color: green;
+    background-color: blue;
 }
 
 .card:hover{
@@ -235,7 +236,9 @@ img{
   border-bottom-left-radius: 10px;
   animation-name: example;
   animation-duration: 0.1s;
-  border-left: 8px solid red;
+  border-left: 8px solid;
+  border-image-source: linear-gradient(#ED213A, #93291E);
+  border-image-slice: 1;
   box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
 }
 
@@ -244,7 +247,9 @@ img{
   border-bottom-left-radius: 10px;
   animation-name: example;
   animation-duration: 0.1s;
-  border-left: 8px solid blue;
+  border-left: 8px solid;
+  border-image-source: linear-gradient(#00B4DB, #0083B0);
+  border-image-slice: 1;
   box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
 }
 
@@ -253,7 +258,9 @@ img{
   border-bottom-left-radius: 10px;
   animation-name: example;
   animation-duration: 0.1s;
-  border-left: 8px solid green;
+  border-left: 8px solid;
+  border-image-source: linear-gradient(#38ef7d, #11998e);
+  border-image-slice: 1;
   box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
 }
 
