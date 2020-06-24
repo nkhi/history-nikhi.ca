@@ -28,7 +28,7 @@ footer {
 	margin-top: 50px;
     margin-bottom: 50px;
 	text-align: center;
-	font-size: 0.7em;
+	font-size: 0.8em;
 }
 
 ::-moz-selection {
@@ -47,7 +47,7 @@ h1#name {
 
 h2#cards {
     font-family: 'Chivo', sans-serif;
-    font-size: 1em;
+    font-size: 1.10em;
 }
 
 h2#space {
@@ -195,8 +195,7 @@ img{
 }
 
 .card#web{
-    background-color: linear-gradient(#f2709c, #ff9472);
-    background-color: -webkit-linear-gradient(#f2709c, #ff9472);
+    background-color: red;
 }
 
 .card#code{
@@ -204,7 +203,7 @@ img{
 }
 
 .card#design{
-    background-color: blue;
+    background-color: green;
 }
 
 .card:hover{
@@ -237,7 +236,7 @@ img{
   animation-name: example;
   animation-duration: 0.1s;
   border-left: 8px solid;
-  border-image-source: linear-gradient(#ED213A, #93291E);
+  border-image-source: linear-gradient(#dd1818, #CB356B);
   border-image-slice: 1;
   box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
 }
