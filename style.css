@@ -224,7 +224,7 @@ img{
     width: 25%;
     overflow: hidden;
     background-color: #1d1d1d;
-    border-radius: 10px;
+    border-radius: 0 10px 10px 0;
     margin: auto;
     padding: 10px 25px 10px 25px;
     box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
@@ -232,36 +232,33 @@ img{
 }
 
 .box:hover#web {
-  border-top-left-radius: 10px;
-  border-bottom-left-radius: 10px;
   animation-name: example;
   animation-duration: 0.1s;
   border-left: 8px solid;
   border-image-source: linear-gradient(#ED213A, #93291E);
   border-image-slice: 1;
   box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+  background: linear-gradient(180deg, rgba(40,40,40,1) 0%, rgba(29,29,29,1) 85%);
 }
 
 .box:hover#code {
-  border-top-left-radius: 10px;
-  border-bottom-left-radius: 10px;
   animation-name: example;
   animation-duration: 0.1s;
   border-left: 8px solid;
   border-image-source: linear-gradient(#00B4DB, #0083B0);
   border-image-slice: 1;
   box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+  background: linear-gradient(180deg, rgba(40,40,40,1) 0%, rgba(29,29,29,1) 85%);
 }
 
 .box:hover#design {
-  border-top-left-radius: 10px;
-  border-bottom-left-radius: 10px;
   animation-name: example;
   animation-duration: 0.1s;
   border-left: 8px solid;
   border-image-source: linear-gradient(#38ef7d, #11998e);
   border-image-slice: 1;
   box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+  background: linear-gradient(180deg, rgba(40,40,40,1) 0%, rgba(29,29,29,1) 85%);
 }
 
 /**
