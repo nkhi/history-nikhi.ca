@@ -234,7 +234,7 @@ img{
   animation-name: example;
   animation-duration: 0.1s;
   border-left: 8px solid;
-  border-image-source: linear-gradient(#dd1818, #CB356B);
+  border-image-source: linear-gradient(#CB356B, #e11038);
   border-image-slice: 1;
   box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
   background: linear-gradient(180deg, rgba(40,40,40,1) 0%, rgba(29,29,29,1) 85%);
@@ -244,7 +244,7 @@ img{
   animation-name: example;
   animation-duration: 0.1s;
   border-left: 8px solid;
-  border-image-source: linear-gradient(#00B4DB, #0083B0);
+  border-image-source: linear-gradient(#00B4DB, #004DB0);
   border-image-slice: 1;
   box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
   background: linear-gradient(180deg, rgba(40,40,40,1) 0%, rgba(29,29,29,1) 85%);
@@ -254,7 +254,7 @@ img{
   animation-name: example;
   animation-duration: 0.1s;
   border-left: 8px solid;
-  border-image-source: linear-gradient(#38ef7d, #11998e);
+  border-image-source: linear-gradient(#38ef7d, #008e59);
   border-image-slice: 1;
   box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
   background: linear-gradient(180deg, rgba(40,40,40,1) 0%, rgba(29,29,29,1) 85%);
