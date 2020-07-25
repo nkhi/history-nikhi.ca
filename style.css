@@ -82,7 +82,8 @@ p {
 p#desc {
 	margin: 35px 0;
 	text-align: justify;
-    line-height: 1.25em
+    line-height: 1.25em;
+    font-size: 15px;
 }
 
 /* Sections Elements */
