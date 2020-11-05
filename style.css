@@ -181,6 +181,10 @@ img{
   opacity: 0.8;
 }
 
+.upcoming {
+  opacity: 0.5
+}
+
 .socials i:hover { margin-top: 7px; }
 
 /* Structural Elements */
