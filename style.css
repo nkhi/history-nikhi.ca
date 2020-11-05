@@ -162,7 +162,8 @@ img{
 	flex-direction: row;
 	justify-content: space-between;
 	align-items: center;
-	align-content: center;
+	align-
+	: center;
 }
 .socials i {
 	width: 30px;
@@ -173,10 +174,11 @@ img{
 
 #content {
   position: absolute;
-    top: 30px; right: 10px;
-	margin: 0;
-	text-align: right;
-	opacity: 0.8;
+  top: 34px; 
+  right: 13px;
+  margin: 0;
+  text-align: right;
+  opacity: 0.8;
 }
 
 .socials i:hover { margin-top: 7px; }
@@ -186,13 +188,13 @@ img{
 .card{
     height: 175px;
     width: 25%;
-	overflow: hidden;
+    overflow: hidden;
     padding: 10px 25px 10px 25px;
-	background-color: #121212;
-	border-radius: 10px;
-	box-shadow: 0 5px 10px rgba(0,0,0,0.2);
-	-webkit-transition: .2s ease-in-out;
-	transition: .2s ease-in-out;
+    background-color: #121212;
+    border-radius: 10px;
+    box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+    -webkit-transition: .2s ease-in-out;
+    transition: .2s ease-in-out;
 }
 
 .card#web{
