@@ -32,10 +32,10 @@ footer {
 }
 
 ::-moz-selection {
-	background: rgba(28, 3, 252, .5);
+	color: #ffdd00;
 }
 ::selection {
-	background: rgba(28, 3, 252, .5);
+	color: #ffdd00;
 }
 
 /* Text Elements */
