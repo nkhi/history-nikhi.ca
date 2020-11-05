@@ -185,6 +185,11 @@ img{
   opacity: 0.5
 }
 
+#picons {
+    padding-right: 5px;
+    padding-top: 4px
+}
+
 .socials i:hover { margin-top: 7px; }
 
 /* Structural Elements */
