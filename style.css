@@ -32,10 +32,10 @@ footer {
 }
 
 ::-moz-selection {
-	color: #02cca0;
+	color: #0297db;
 }
 ::selection {
-	color: #02cca0;
+	color: #0297db;
 }
 
 /* Text Elements */
