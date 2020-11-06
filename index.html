@@ -22,8 +22,9 @@
     <meta name="msapplication-config" content="/icons/browserconfig.xml">
     <meta name="theme-color" content="#ffffff">
     
-    <!-- Phosphor Icons -->
+    <!-- Icons and DM Mono -->
     <script src="https://unpkg.com/phosphor-icons"></script>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&display=swap" rel="stylesheet"> 
 </head>
 
 <body>
@@ -53,7 +54,7 @@
     <span id="text"></span>
     <span class='console-underscore' id='console'>&nbsp;&#95;</span>
   </span>
-  <p id="desc">I am a fourth year <b>CS, Statistics, and Math student at the University of Toronto</b> with a fascination for software engineering, artificial intelligence, neural networks for research on  cognition, and statistical data analysis. <br><br> I am also a multi-disciplinary designer with a background in UI Design, Product Design, and UX Writing — because even the smartest programs should be beautiful. <br><br> When I'm not studying, I work as a Database Developer for the UofT Operations department, designing and maintaining database systems and producing reports and data visualizations. This previous summer I was a Full-Stack Software Engineering Intern at MedMe Health, an early-stage healthtech start-up in Toronto. Currently seeking Internships for Summer 2021! </p>
+  <p id="desc">I am a fourth year <i>CS, Statistics, and Math student at the University of Toronto</i> with a fascination for software engineering, artificial intelligence, neural networks for research on  cognition, and data science. <br><br> I am also a multi-disciplinary designer with a background in UI Design, Product Design, and UX Writing — because even the smartest programs should be beautiful. <br><br> When I'm not studying, I work as a Database Developer for the UofT Operations department, designing and maintaining database systems and producing reports and data visualizations. This previous summer I was a Full-Stack Software Engineering Intern at MedMe Health, an early-stage healthtech start-up in Toronto. Currently seeking Internships for Summer 2021! </p>
 
   <div class="card-holder">
   <div id="web" class="box">
@@ -86,23 +87,24 @@
           <li>Photoshop</li>
           <li>Illustrator</li>
           <li>Figma, XD</li>
+          <li>Swift UI</li>
         </ul>
       </div>
     </div>
   </div>
 
   <section style="padding-bottom: 5px;" id="education">
-    <h2 class='section-div' style="font-family: 'Chivo';">
-        <i class="ph-book-bookmark-light" id="picons"></i> Education 
+    <h2 class='section-div'>
+        <i class="ph-sm ph-book-bookmark-light" id="picons"></i>
+        Education 
     </h2>
     <div>
         <p class="date">September 2017 - April 2022</p>
         <h3>University of Toronto, St. George (BSc)</h3>
-        <ul>
+        <ul id='school-desc'>
             <li><span class="course">Focus Areas:</span> Computer Science, Artificial Intelligence, Data Analysis</li>
             <li><span class="course">Majors/Minor:</span> Computational Cognitive Science, Statistics &amp;  Math</li>
         </ul>
-        <br>
         Courses:
         <details class="classes">
             <summary>Computer Science </summary>
@@ -157,23 +159,23 @@
   </section>
     
   <section style="padding-bottom: 15px;" id="work">
-    <h2 class='section-div' style="font-family: 'Chivo';"><i class="ph-pen-nib-light" id="picons"></i> Writing</h2>
+    <h2 class='section-div'><i class="ph-sm ph-pen-nib-light" id="picons"></i> Writing</h2>
     <div>
-    <a href="https://thevarsity.ca/2019/09/15/nest-demo-day-2019/"><h3>Entrepreneurship Hatchery hosts Demo Day 2019</h3></a>
+    <a id='external-tile' href="https://thevarsity.ca/2019/09/15/nest-demo-day-2019/"><h3>Entrepreneurship Hatchery hosts Demo Day 2019</h3></a>
     <p class="date">The Varsity Newspaper (Sept. 2019)</p>
     <ul>
     <li id="body">Coverage of the Hatchery incubator's annual start-up demo day.</li>
     </ul>
     </div>
     <div>
-    <a href="https://magazine.thevarsity.ca/2018/12/10/the-dark-web/"><h3>The dark web: drugs, hitmen, and the future of online privacy</h3></a>
+    <a id='external-tile' href="https://magazine.thevarsity.ca/2018/12/10/the-dark-web/"><h3>The dark web: drugs, hitmen, and the future of online privacy</h3></a>
     <p class="date">The Varsity Magazine (Dec. 2018)</p>
     <ul>
     <li id="body">Op-ed feature exploring the implications of a fully anonymous internet and the importance of protecting online privacy.</li>
     </ul>
     </div>
     <div>
-    <a href="http://var.st/47j"><h3>Rotman hosts AI industry leaders for machine learning conference</h3></a>
+    <a id='external-tile' href="http://var.st/47j"><h3>Rotman hosts AI industry leaders for machine learning conference</h3></a>
     <p class="date">The Varsity Newspaper (Oct. 2018)</p>
     <ul>
     <li id="body">Coverage of the 'Machine Learning and Market for Intelligence' conference hosted by the Creative Destruction Lab at the Rotman School of Management.</li>
@@ -181,18 +183,18 @@
     </div>
   </section>
   <section style="padding-bottom: 15px;" id="work">
-    <h2 class='section-div' style="font-family: 'Chivo';"><i class="ph-code" id="picons"></i> Code</h2>
+    <h2 class='section-div' style="font-family: 'Chivo';"><i class="ph-sm ph-code" id="picons"></i> Code</h2>
     <div>
-        <a href='http://uofcov.id'><h3 >COVID-19 University Response Consolidation</h3></a>
+        <a id='external-tile' href='http://uofcov.id'><h3 >COVID-19 University Response Consolidation</h3></a>
         <p class="date">React, Leaflet.js, Node, mySQL </p>
         <ul>
-            <li id="body">An interactive corpus of global university responses to the coronavirus pandemic through policy and student impact assessment. </li>
-            <li id="body">Designed and developed the project website and data visualizations in React.</li>
-            <li id="body">Funded by the <a href="https://global.utoronto.ca/u-of-t-covid-19-student-engagement-award/">U of T COVID-19 Student Engagement Award</a><a href="https://global.utoronto.ca/u-of-t-covid-19-student-engagement-award-winners/"> grant.</a></li>
+            <li id="desc">An interactive corpus of global university responses to the coronavirus pandemic through policy and student impact assessment. </li>
+            <li id="desc">Designed and developed the project website and data visualizations in React.</li>
+            <li id="desc">Funded by the <a href="https://global.utoronto.ca/u-of-t-covid-19-student-engagement-award/">U of T COVID-19 Student Engagement Award</a><a href="https://global.utoronto.ca/u-of-t-covid-19-student-engagement-award-winners/"> grant.</a></li>
         </ul>
     </div>
           <div>
-    <a href='https://ubcclimatehub.ca/projects/'><h3 >Database Engineer @ UBC Climate Hub</h3></a>
+    <a id='external-tile' href='https://ubcclimatehub.ca/projects/'><h3 >Database Engineer @ UBC Climate Hub</h3></a>
     <p class="date">Python/Flask, MongoDB, Javascript </p>
     <ul>
         <li id="body">Implemented backend infrastructure and database architecture for a <a href='https://ubcclimatehub.ca/project/climate-teaching-connector/'>UBC Climate Hub Web App</a> which connects climate experts with university professors to enable climate science related guest lectures across UBC classes.</li>
@@ -201,9 +203,9 @@
   </section>
 
   <section style="padding-bottom: 15px;" id="work">
-    <h2 class='section-div' style="font-family: 'Chivo';"><i class="ph-stack-light" id="picons"></i> Design</h2>
+    <h2 class='section-div' style="font-family: 'Chivo';"><i class="ph-sm ph-stack-light" id="picons"></i> Design</h2>
     <div>
-    <a href="https://magazine.thevarsity.ca/"><h3>The Varsity Magazine</h3></a>
+    <a id='external-tile' href="https://magazine.thevarsity.ca/"><h3>The Varsity Magazine</h3></a>
     <p class="date">Sept. 2018 - April 2019</p>
     <ul>
     <li id="body">Designed and implemented the online version of the semesterly magazine. Awarded Best Campus Website by the Canadian Community Newspaper Awards 2019, and runner-up for Best Media Website by the Emerge Media Awards 2020.</li>
@@ -211,7 +213,7 @@
     </div>
   </section>
 
-  <footer>Last Updated on October 8th. Check out the <a href="https://github.com/nkhi/nkhi.github.io">source code</a>.</footer>
+  <footer>Last Updated on November 5th, 2020. Check out the <a href="https://github.com/nkhi/nkhi.github.io">source code</a>.</footer>
   <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="script.js" type="b9ba561f46c0fd8e6d74c122-text/javascript"></script>
   <script src="https://unpkg.com/clipboard@2/dist/clipboard.min.js"></script>
   <script src="https://ajax.cloudflare.com/cdn-cgi/scripts/95c75768/cloudflare-static/rocket-loader.min.js" data-cf-settings="b9ba561f46c0fd8e6d74c122-|49" defer=""></script>
