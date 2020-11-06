@@ -273,6 +273,17 @@ img{
     margin-top: 7px; 
 }
 
+.section-icon {
+    height: 24px;
+    width: 24px;
+    filter: invert(99%) sepia(4%) saturate(2%) hue-rotate(175deg) brightness(113%) contrast(100%);
+    margin-left: 12px;
+}
+
+img#book {
+    margin-left: 10px;
+}
+
 /* Structural Elements */
 
 .card{
