@@ -207,22 +207,22 @@ li#desc {
 
 #education div.dot#edu {
     background-color: #BF1A2F;
-    border: 2px solid #96091b;
+    border: 3px solid #96091b;
 }
 
 #work div.dot#write {
     background-color: #ff9900;
-    border: 2px solid #d46d00;
+    border: 3px solid #d46d00;
 }
 
 #work div.dot#code {
     background-color: #004DB0;
-    border: 2px solid #013094;
+    border: 3px solid #013094;
 }
 
 #work div.dot#design {
     background-color: #008e59;
-    border: 2px solid #006349;
+    border: 3px solid #006349;
 }
 
 /* Social Elements */
