@@ -5,11 +5,26 @@
   src: url('/fonts/Chivo/Chivo-Regular.ttf') format('truetype');
 }
 
+@font-face {
+  font-family: 'DM Mono Regular';
+  src: url('/fonts/DM_Mono/DMMono-Regular.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'DM Mono Italic';
+  src: url('/fonts/DM_Mono/DMMono-Italic.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'DM Mono Medium';
+  src: url('/fonts/DM_Mono/DMMono-Medium.ttf') format('truetype');
+}
+
 /* Base Elements */
 
 * {
 	color: #fff;
-	font-family: 'DM Mono', 'Consolas', monospace;
+	font-family: 'DM Mono Regular', 'Consolas', monospace;
 }
 
 html {
@@ -47,14 +62,17 @@ h1#name {
 
 h2#cards {
     font-family: 'Chivo', sans-serif;
-    font-size: 1.10em;
+    font-size: 1.2em;
 }
 
 h2#space {
     margin: 30px 0 0 0;
     text-decoration: underline;
 }
-h3 { margin: 0; }
+h3 { 
+    margin: 0;
+    font-family: 'DM Mono Medium';
+}
 
 h5 { margin: 10px 0; }
 
@@ -95,11 +113,19 @@ p {
     font-size: 14px;
 }
 
+li#card {
+    font-size: 1.1em;
+}
+
+ul#cards {
+    padding: 0 0 0 20px;
+}
+
 p#desc {
 	margin: 35px 0;
 	text-align: justify;
     line-height: 1.3em;
-    font-size: 15px;
+    font-size: 16.5px;
 }
 
 /* Sections Elements */
@@ -335,7 +361,7 @@ ul#school-desc {
 }
 
 .box {
-    height: 155px;
+    height: 160px;
     width: 25%;
     overflow: hidden;
     background-color: #1d1d1d;
