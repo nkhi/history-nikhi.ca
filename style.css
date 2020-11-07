@@ -63,6 +63,7 @@ h1#name {
 h2#cards {
     font-family: 'Chivo', sans-serif;
     font-size: 1.2em;
+    margin: 14px 0;
 }
 
 h2#space {
