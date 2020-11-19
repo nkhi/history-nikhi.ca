@@ -1,7 +1,7 @@
 "use strict"; // single JS file, not dangerous
 var terminal = document.getElementById('console');
 var word1 = "hello world";
-var word2 = 'Software Developer & Designer';
+var word2 = 'Software Engineer & Designer';
 var letterCount = 0;
 var letterDelete = 0;
 var visible = true;
