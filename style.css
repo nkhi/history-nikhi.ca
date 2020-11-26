@@ -28,7 +28,8 @@
 }
 
 html {
-    background-color: #131314;
+/*    background-color: #131314;*/
+    background-color: #091315;
 }
 
 body {
@@ -44,7 +45,45 @@ footer {
     margin-bottom: 50px;
     text-align: center;
     font-size: 0.85em;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-content: center;
+    place-items:center;
 }
+
+.ficon {
+    height: 25px;
+    width: 25px;
+    background-color: invert(97%) sepia(100%) saturate(0%) hue-rotate(37deg) brightness(103%) contrast(104%);
+    margin: 1.5rem 1rem;
+    
+}
+
+.sbox {
+ display: flex;
+  align-items: center;
+}
+
+.sbox-link {
+    color: white;
+    font-size: 0.95;
+}
+
+.sbox-tile {
+    margin: 0px 10px;
+}
+
+/*
+a.sbox-link:hover span {display: none;}
+a.sbox-link#linkdin:hover:before {content: '@nikhibhambra ▶';}
+a.sbox-link#gh:hover:before {
+    transition-duration: 2000ms 
+    transition-property: content;
+    content: '@nkhi ▶';}
+a.sbox-link#tw:hover:before {content: '@nikhibhambra ▶';}
+*/
+
 
 ::-moz-selection {
 /*    color: #0297db;*/
