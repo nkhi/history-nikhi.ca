@@ -322,9 +322,20 @@ img {
     margin: 12px 12px 12px 0px;
 }
 
+#pic {
+    border: 3px solid #515151;
+    border-radius: 45px;
+    transition: 1s;
+}
+
+#pic:hover {
+    border-color: #cccccc;
+    margin-right: 10px;
+}
+
 .socials-center {
     position: absolute;
-    top: 26px;
+    top: 30px;
     right: 0;
 }
 
@@ -345,7 +356,7 @@ img {
 
 #content {
     position: absolute;
-    top: 36px;
+    top: 42px;
     right: 13px;
     margin: 0;
     text-align: right;
