@@ -173,7 +173,7 @@ ul#cards {
 p#desc {
     margin: 35px 0;
     text-align: justify;
-    line-height: 1.3em;
+    line-height: 1.4em;
     font-size: 16.5px;
 }
 
@@ -323,14 +323,14 @@ img {
 }
 
 #pic {
-    border: 3px solid #515151;
+    border: 4px solid #515151;
     border-radius: 45px;
     transition: 1s;
 }
 
 #pic:hover {
-    border-color: #cccccc;
-    margin-right: 10px;
+    border-color: #fff;
+    margin-right: 10.5px;
 }
 
 .socials-center {
