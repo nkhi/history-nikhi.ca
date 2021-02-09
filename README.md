@@ -1,2 +1,2 @@
 # nikhi.ca
-My personal website code, written from scratch in HTML/CSS with a bit of JS. Less than 700kb!
+My personal website, just HTML/CSS with some JS. Totals less than 1 mb. 

@@ -439,6 +439,10 @@ ul#school-desc {
     padding: 5px 0 10px 30px
 }
 
+span#item {
+    padding-right: 6px;
+}
+
 .box {
     height: 160px;
     width: 25%;
