@@ -29,6 +29,9 @@
 
 html {
     background-color: #131314;
+    display: flex;
+    align-items: center;
+    height: 100%;
 }
 
 body {
