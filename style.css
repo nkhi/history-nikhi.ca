@@ -104,6 +104,7 @@ h1#name {
     font-family: 'Chivo', sans-serif;
     font-size: 1.85em;
     margin-bottom: 8px;
+    font-weight: bold;
 }
 
 h2#cards {
@@ -332,8 +333,8 @@ img {
 }
 
 #pic:hover {
-    border-color: rgba(255, 255, 255, 0.8);
-    margin-right: 10.5px;
+    border-color: rgba(255, 255, 255, 0.5);
+/*    margin-right: 10.5px;*/
 }
 
 .socials-center {
