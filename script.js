@@ -81,3 +81,21 @@ function ClipBoard()
     Copied = holdtext.createTextRange();
     Copied.execCommand("Copy");
 }
+
+// stupid cursor thing
+const targetElement = document.querySelector("html")
+const payload = {element: targetElement}
+x = getRandomInt(6)
+switch x:
+	case 0:
+		new fairyDustCursor(payload);
+	case 1:
+		new bubbleCursor(payload);
+	case 2:
+		new emojiCursor(payload);
+	case 3:
+		new ghostCursor(payload);
+	case 4:
+		new snowflakeCursor(payload);
+	case 5:
+		new springyEmojiCursor(payload);
