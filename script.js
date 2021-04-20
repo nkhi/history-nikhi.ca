@@ -86,16 +86,23 @@ function ClipBoard()
 const targetElement = document.querySelector("html")
 const payload = {element: targetElement}
 x = getRandomInt(6)
-switch x:
+switch(x){
 	case 0:
 		new fairyDustCursor(payload);
+		break;
 	case 1:
 		new bubbleCursor(payload);
+		break;
 	case 2:
 		new emojiCursor(payload);
+		break;
 	case 3:
 		new ghostCursor(payload);
+		break;
 	case 4:
 		new snowflakeCursor(payload);
+		break;
 	case 5:
 		new springyEmojiCursor(payload);
+		break;
+}
