@@ -85,8 +85,7 @@ function ClipBoard()
 // stupid cursor thing
 const targetElement = document.querySelector("html")
 const payload = {element: targetElement}
-x = getRandomInt(6)
-switch(x){
+switch(Math.floor(Math.random()*6)) {
 	case 0:
 		new fairyDustCursor(payload);
 		break;
