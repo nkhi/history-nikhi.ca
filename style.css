@@ -40,6 +40,7 @@ body {
     position: relative;
     width: 720px;
     overflow-x: hidden;
+    margin-top: 2rem;
 }
 
 body:hover{
