@@ -19,7 +19,7 @@ function springyEmojiCursor(options) {
   let BOUNCE = 0.7
 
   let width = document.body.clientWidth
-  let height = wdocument.body.clientHeight
+  let height = document.body.clientHeight
   let cursor = { x: width / 2, y: width / 2 }
   let particles = []
   let canvas, context
