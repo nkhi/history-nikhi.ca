@@ -2,8 +2,8 @@ function ghostCursor(options) {
   let hasWrapperEl = options && options.element
   let element = hasWrapperEl || document.body
 
-  let width = window.innerWidth
-  let height = window.innerHeight
+  let width = document.body.clientWidth
+  let height = document.body.clientHeight
   let cursor = { x: width / 2, y: width / 2 }
   let particles = []
   let canvas, context
@@ -44,8 +44,8 @@ function ghostCursor(options) {
   }
 
   function onWindowResize(e) {
-    width = window.innerWidth
-    height = window.innerHeight
+    width = wdocument.body.clientWidth
+    height = document.body.clientHeight
 
     if (hasWrapperEl) {
       canvas.width = element.clientWidth
