@@ -18,8 +18,8 @@ function springyEmojiCursor(options) {
   let DOTSIZE = 11
   let BOUNCE = 0.7
 
-  let width = window.innerWidth
-  let height = window.innerHeight
+  let width = document.body.clientWidth
+  let height = wdocument.body.clientHeight
   let cursor = { x: width / 2, y: width / 2 }
   let particles = []
   let canvas, context
@@ -86,8 +86,8 @@ function springyEmojiCursor(options) {
   }
 
   function onWindowResize(e) {
-    width = window.innerWidth
-    height = window.innerHeight
+    width = document.body.clientWidth
+    height = document.body.clientHeight
 
     if (hasWrapperEl) {
       canvas.width = element.clientWidth
