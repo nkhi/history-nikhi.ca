@@ -3,8 +3,8 @@ function emojiCursor(options) {
   let hasWrapperEl = options && options.element
   let element = hasWrapperEl || document.body
 
-  let width = window.innerWidth
-  let height = window.innerHeight
+  let width = document.body.clientWidth
+  let height = document.body.clientWidth
   const cursor = { x: width / 2, y: width / 2 }
   const lastPos = { x: width / 2, y: width / 2 }
   let lastTimestamp = 0
@@ -69,8 +69,8 @@ function emojiCursor(options) {
   }
 
   function onWindowResize(e) {
-    width = window.innerWidth
-    height = window.innerHeight
+    width = wdocument.body.clientWidth
+    height = document.body.clientWidth
 
     if (hasWrapperEl) {
       canvas.width = element.clientWidth
