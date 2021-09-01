@@ -2,7 +2,7 @@ function bubbleCursor(options) {
   let hasWrapperEl = options && options.element
   let element = hasWrapperEl || document.body
 
-  let width = document.body.clientHeight
+  let width = document.body.clientWidth
   let height = document.body.clientHeight
   let cursor = { x: width / 2, y: width / 2 }
   let particles = []
@@ -21,8 +21,8 @@ function bubbleCursor(options) {
     if (hasWrapperEl) {
       canvas.style.position = "absolute"
       element.appendChild(canvas)
-      canvas.width = element.clientWidth
-      canvas.height = element.clientHeight
+      canvas.width = width
+      canvas.height = height
     } else {
       canvas.style.position = "fixed"
       document.body.appendChild(canvas)
@@ -43,8 +43,8 @@ function bubbleCursor(options) {
   }
 
   function onWindowResize(e) {
-    width = window.innerWidth
-    height = window.innerHeight
+    width = document.body.clientWidth
+    height = document.body.clientWidth
 
     if (hasWrapperEl) {
       canvas.width = element.clientWidth
