@@ -2,8 +2,8 @@ function bubbleCursor(options) {
   let hasWrapperEl = options && options.element
   let element = hasWrapperEl || document.body
 
-  let width = window.innerWidth
-  let height = window.innerHeight
+  let width = document.body.clientHeight
+  let height = document.body.clientHeight
   let cursor = { x: width / 2, y: width / 2 }
   let particles = []
   let canvas, context
