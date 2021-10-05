@@ -82,8 +82,8 @@ function ClipBoard()
     Copied.execCommand("Copy");
 }
 
-// stupid cursor thing
-const targetElement = document.querySelector("html")
+// cursor thing, 1/6 chance to get it
+const targetElement = document.querySelector("html");
 const payload = {element: targetElement}
 setTimeout(() => {
 	switch(Math.floor(Math.random()*6)) {
@@ -91,20 +91,10 @@ setTimeout(() => {
 			new fairyDustCursor(payload);
 			break;
 		case 1:
-			new bubbleCursor(payload);
-			break;
-		case 2:
-			new emojiCursor(payload);
-			break;
-		case 3:
-			new ghostCursor(payload);
-			break;
-		case 4:
 			new snowflakeCursor(payload);
 			break;
-		case 5:
-			new springyEmojiCursor(payload);
-			break;
+        default:
+            console.log("unlucky. try refreshing the page :)");
+            break;
 	}
 } , 5000);
-

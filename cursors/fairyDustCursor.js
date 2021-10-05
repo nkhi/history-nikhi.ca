@@ -7,8 +7,8 @@ function fairyDustCursor(options) {
   let hasWrapperEl = options && options.element
   let element = hasWrapperEl || document.body
 
-  let width = document.body.clientWidth
-  let height = document.body.clientHeight
+  let width = window.innerWidth
+  let height = window.innerHeight
   const cursor = { x: width / 2, y: width / 2 }
   const lastPos = { x: width / 2, y: width / 2 }
   const particles = []
@@ -76,8 +76,8 @@ function fairyDustCursor(options) {
   }
 
   function onWindowResize(e) {
-    width = document.body.clientWidth
-    height = document.body.clientHeight
+    width = window.innerWidth
+    height = window.innerHeight
 
     if (hasWrapperEl) {
       canvas.width = element.clientWidth

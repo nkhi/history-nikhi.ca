@@ -1,301 +1,81 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-    <!-- Setup -->
-    <title>Nikhi Bhambra | Software Engineer & Designer</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.1/css/all.css" integrity="sha384-O8whS3fhG2OnA5Kas0Y9l3cfpmYjapjI0E4theH4iuMD+pLhbf6JI0jIMfYcK3yZ" crossorigin="anonymous">
+    <head>
+        <!-- Setup -->
+        <title>Nikhi Bhambra | Software Engineer & Designer</title>
+        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.1/css/all.css" integrity="sha384-O8whS3fhG2OnA5Kas0Y9l3cfpmYjapjI0E4theH4iuMD+pLhbf6JI0jIMfYcK3yZ" crossorigin="anonymous">
 
-    <!-- Settings -->
-    <meta charset="UTF-8">
-    <meta name="description" content="Nikhi Bhambra, Software Developer and Designer">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- Settings -->
+        <meta charset="UTF-8">
+        <meta name="description" content="Nikhi Bhambra, Software Developer and Designer">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <!-- Favicon Compatibility-->
+        <link rel="apple-touch-icon" sizes="76x76" href="/icons/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/icons/favicon-16x16.png">
+        <link rel="manifest" href="/icons/site.webmanifest">
+        <link rel="mask-icon" href="/icons/safari-pinned-tab.svg" color="#5bbad5">
+        <link rel="shortcut icon" href="/icons/favicon.ico">
+        <meta name="msapplication-TileColor" content="#ffc40d">
+        <meta name="msapplication-config" content="/icons/browserconfig.xml">
+        <meta name="theme-color" content="#ffffff">
+    </head>
+
+    <body>
+        <img id='pic' src="images/me.png" onmouseover="this.src='images/me_hat.png'" onmouseout="this.src='images/me.png'" alt="My face!">
+        <h1 id="name">Nikhi Bhambra</h1>
+        <div class="socials-center">
+            <div class="socials">
+                <div onmouseover="hover('/nikhibhambra')">
+                    <a title='LinkedIn' href="https://www.linkedin.com/in/nikhibhambra" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin"></i></a>
+                </div>
+                <div onmouseover="hover('@nkhi')">
+                    <a title='Github' href="https://github.com/nkhi" target="blank" rel="noopener noreferrer"><i class="fab fa-github-square"></i></a>
+                </div>
+                <div onmouseover="hover('@nikhibhambra')">
+                    <a title='Twitter' href="https://twitter.com/nikhibhambra" target="blank" rel="noopener noreferrer"><i class="fab fa-twitter-square"></i></a>
+                </div>
+                <div onmouseover="hover('/nikhi')">
+                    <a href="https://oku.club/user/nikhi" target="_blank" rel="noopener noreferrer" title="Oku"><i class="fas fa-book"></i></a>
+                </div>
+            </div>
+            <div id="content"></div>
+        </div>
+
+        &#62;
+
+        <span id="intro">
+            <span id="text"></span>
+            <span class='console-underscore' id='console'>&nbsp;&#95;</span>
+        </span>
+
+    <!--    TODO: figure out css animated text indent or last line text justify -->
+         <p id="desc">
+            I am a fifth year Computational Cognitive Science, Statistics, and Math student at the University of Toronto with a fascination for artifical intelligence, applied machine learning, and full-stack software engineering. 
+        </p>
+        <p id="desc"> 
+            I am also a multi-disciplinary digital designer with a background in UI/UX Design, Product Design, and Content Writing — because even the smartest programs should have an enjoyable user experience.
+        </p> 
+        <p id="desc">
+            When I'm not studying, I work as a Web Developer at the <a target="_blank" href="https://library.vicu.utoronto.ca/"> E.J. Pratt Library</a>, as an Interview Engineer at <a target="_blank" href="https://karat.com/"> Karat^</a>, and can be found hanging out at <a target="_blank" href="https://www.caffiendsvic.com/">Caffiends</a>.
+        </p> 
+
+        <p id="desc">
+            This summer I worked as a Software Engineering Intern at <a target="_blank" href="https://www.ibm.com/employment/extremeblue/index.html" title="Extreme Blue Technical Leadership Program">IBM</a>, where I created a <i>no-code</i> solution for the  the <a href="https://www.ibm.com/ca-en/cloud/automation/watson-orchestrate" target="_blank">Watson Orchestrate</a> AI automation platform to allow business users to train new abstract skills from a single example.
+        </p> 
+
+        <p id="desc">
+            Seeking full-time Software Engineering opportunities for May 2022.
+        </p> 
+
+        <!-- scripts after content -->
+        <script src="/cursors/snowflakeCursor.js"></script>
+        <script src="/cursors/fairyDustCursor.js"></script>
+        <script src="script.js" type="text/javascript"></script>
+        <script src="https://unpkg.com/clipboard@2/dist/clipboard.min.js"></script>
+    </body>
     
-
-    <!-- Favicon Compatibility-->
-    <link rel="apple-touch-icon" sizes="76x76" href="/icons/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/icons/favicon-16x16.png">
-    <link rel="manifest" href="/icons/site.webmanifest">
-    <link rel="mask-icon" href="/icons/safari-pinned-tab.svg" color="#5bbad5">
-    <link rel="shortcut icon" href="/icons/favicon.ico">
-    <meta name="msapplication-TileColor" content="#ffc40d">
-    <meta name="msapplication-config" content="/icons/browserconfig.xml">
-    <meta name="theme-color" content="#ffffff">
-</head>
-
-<body>
-    <img id='pic' src="images/me.png" onmouseover="this.src='images/me_hat.png'" onmouseout="this.src='images/me.png'" alt="My face!">
-    <h1 id="name">Nikhi Bhambra</h1>
-    <div class="socials-center">
-        <div class="socials">
-<!--
-            <div onmouseover="hover('/blog')">
-                <a title='Posts' href="https://www.nikhi.ca/blog" target="blank" rel="noopener noreferrer"><i class="fas fa-pen-square"></i></a>
-            </div>
--->
-            <div onmouseover="hover('/nikhibhambra')">
-                <a title='LinkedIn' href="https://www.linkedin.com/in/nikhibhambra" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin"></i></a>
-            </div>
-            <div onmouseover="hover('@nkhi')">
-                <a title='Github' href="https://github.com/nkhi" target="blank" rel="noopener noreferrer"><i class="fab fa-github-square"></i></a>
-            </div>
-            <div onmouseover="hover('@nikhibhambra')">
-                <a title='Twitter' href="https://twitter.com/nikhibhambra" target="blank" rel="noopener noreferrer"><i class="fab fa-twitter-square"></i></a>
-            </div>
-            <div onmouseover="hover('/nikhi')">
-                <a href="https://oku.club/user/nikhi" target="_blank" rel="noopener noreferrer" title="Oku"><i class="fas fa-book"></i></a>
-            </div>
-        </div>
-        <div id="content"></div>
-    </div>
-
-    &#62;
-
-    <span id="intro">
-        <span id="text"></span>
-        <span class='console-underscore' id='console'>&nbsp;&#95;</span>
-    </span>
-     <p id="desc">
-        I am a fifth year Computational Cognitive Science, Statistics, and Math student at the University of Toronto with a fascination for artifical intelligence research, applied machine learning, web programming, and full-stack software engineering. <br><br> I am also a multi-disciplinary digital designer with a background in UI/UX Design, Product Design, and Content Writing — because even the smartest programs should have an enjoyable user experience. <br><br> This summer I worked as an <a target="_blank" href="https://www.ibm.com/employment/extremeblue/index.html">Extreme Blue</a> Software Engineering Intern at IBM, where I created a new digital automation learning tool <i>Maestro</i> for the <a href="https://www.ibm.com/ca-en/cloud/automation/watson-orchestrate" target="_blank" title="watson orchestrate">Watson Orchestrate</a> Digital Employee SaaS platform. <br><br> Seeking full-time Software Engineering opportunities for May 2022.
-    </p> 
-<!--
-    <div class="card-holder">
-        <div id="web" class="box">
-            <div>
-                <h2 id="cards">Programming</h2>
-                <ul id='cards'>
-                    <li id='card'>Python, Java</li>
-                    <li id='card'>Java, Unix, C</li>
-                    <li id='card'>SQL, R, Git</li>
-                    <li id='card'>Tensorflow</li>
-                </ul>
-            </div>
-        </div>
-
-        <div id="code" class="box">
-            <div>
-                <h2 id="cards">Web Development</h2>
-                <ul id='cards'>
-                    <li id='card'>JS, CSS/Sass</li>
-                    <li id='card'>React, Node</li>
-                    <li id='card'>GraphQL, APIs</li>
-                    <li id='card'>PHP, Wordpress</li>
-                </ul>
-            </div>
-        </div>
-
-        <div id="design" class="box">
-            <div>
-                <h2 id="cards">Design</h2>
-                <ul id='cards'>
-                    <li id='card'>Photoshop</li>
-                    <li id='card'>Illustrator</li>
-                    <li id='card'>Figma, XD</li>
-                </ul>
-            </div>
-        </div>
-    </div>
- 
-    <section style="padding-bottom: 5px;" id="education">
-        <h2 class='section-div'>
-            <div class='dot' id='edu'>
-                <img class='section-icon' id='book' src='/svg/book-bookmark.svg'>
-            </div>
-            Education
-        </h2>
-        <div>
-            <p class="date">September 2017 - <b>April 2022</b></p>
-            <h3>University of Toronto, St. George (Hon. BSc)</h3>
-            <ul id='school-desc'>
-                <li><span class="course">Majors/Minor:</span> Computational Cognitive Science, Statistics &amp; Math</li>
-                <li><span id="item" class="course">Focus Areas:</span> AI & Cognition, Software Engineering, Statistical Analysis</li>
-            </ul>
-            Courses:
-            <details class="classes">
-                <summary>Computer Science </summary>
-                <ul>
-                    <li><span class="course">CSC108</span> Intro to Computer Programming</li>
-                    <li><span class="course">CSC148</span> Intro to Computer Science</li>
-                    <li><span class="course">CSC165</span> Mathematical Expression and Reasoning for CS</li>
-                    <li><span class="course">CSC207</span> Software Design</li>
-                    <li><span class="course">CSC209</span> Software Tools and Systems Programming</li>
-                    <li><span class="course">CSC236</span> Theory of Computation</li>
-                    <li><span class="course">CSC263</span> Data Structures &amp; Analysis</li>
-                    <li class='upcoming' title='in progress'><span class="course">CSC318</span> Design of Interactive Computational Media</li>
-                    <li><span class="course">CSC343</span> Intro to Databases</li>
-                    <li><span class="course">CSC384</span> Intro to Artificial Intelligence </li>
-                </ul>
-            </details>
-
-            <details class="classes">
-                <summary>Cognitive Science</summary>
-                <ul>
-                    <li><span class="course">COG250</span> Intro to Cognitive Science</li>
-                    <li><span class="course">COG260</span> Data, Computation, and the Mind</li>
-                    <li><span class="course">PSY270</span> Intro to Cognitive Psychology</li>
-                    <li><span class="course">PHL342</span> Minds &amp; Machines</li>
-                    <li><span class="course">COG403</span> Human Cognition and Artificial Intelligence</li>
-                    <li><span class="course">PSY493</span> Cognitive Neuroscience</li>
-                    <li class='upcoming' title='in progress'><span class="course">BPM333</span> Buddhism and Cognitive Science</li>
-                </ul>
-            </details>
-
-            <details class="classes">
-                <summary>Statistics</summary>
-                <ul>
-                    <li><span class="course">STA247</span> Probability with Computer Applications</li>
-                    <li><span class="course">STA248</span> Statistics for Computer Scientists</li>
-                    <li class='upcoming' title='in progress'><span class="course">STA302</span> Methods of Data Analysis I</li>
-                    <li class='upcoming' title='in progress'><span class="course">STA303</span> Methods of Data Analysis II</li>
-                    <li class='upcoming' title='in progress'><span class="course">STA304</span> Sampling and Observational Data</li>
-                    <li class='upcoming' title='in progress'><span class="course">STA305</span> Design of Experiments</li>
-                    <li class='upcoming' title='in progress'><span class="course">STA410</span> Statistical Computation</li>
-                </ul>
-            </details>
-
-            <details class="classes">
-                <summary>Mathematics</summary>
-                <ul>
-                    <li><span class="course">MAT135 &amp; MAT136</span> Calculus I</li>
-                    <li><span class="course">MAT235</span> Calculus II</li>
-                    <li><span class="course">MAT223</span> Linear Algebra I</li>
-                    <li><span class="course">MAT224</span> Linear Algebra II</li>
-                    <li><span class="course">PHL245</span> Symbolic Logic</li>
-                    <li><span class="course">PHL246</span> Probability & Inductive Logic</li>
-                </ul>
-            </details>
-          
-            <details class="classes">
-                <summary>Favourites</summary>
-                <ul>
-                    <li class='upcoming' title='in progress'><span class='course'>HPS300</span> The Limits of Machine Intelligence</li>
-                    <li class='upcoming' title='in progress'><span class='course'>HPS345</span> Ethical and Epistemic Implications of AI and Automation</li>
-                    <li class='upcoming' title='in progress'><span class='course'>DHU236</span> Virtual Worlds: Spacial Digital Humanities</li>
-                    <li><span class="course">WDW235</span> Intro to Digital Humanities</li>
-                </ul>
-            </details>
-        </div>
-    </section>
-
-    <section style="padding-bottom: 15px;" id="work">
-        <h2 class='section-div'>
-            <div class='dot' id='write'>
-                <img class='section-icon' src='/svg/pen.svg'>
-            </div>
-            Writing
-        </h2>
-        <div>
-            <a id='external-tile' href="https://thevarsity.ca/2019/09/15/nest-demo-day-2019/">
-                <h3>Entrepreneurship Hatchery hosts Demo Day 2019</h3>
-            </a>
-            <p class="date">The Varsity Newspaper (Sept. 2019)</p>
-            <ul>
-                <li id="body">Coverage of the Hatchery incubator's annual start-up demo day.</li>
-            </ul>
-        </div>
-        <div>
-            <a id='external-tile' href="https://magazine.thevarsity.ca/2018/12/10/the-dark-web/">
-                <h3>The dark web: drugs, hitmen, and the future of online privacy</h3>
-            </a>
-            <p class="date">The Varsity Magazine (Dec. 2018)</p>
-            <ul>
-                <li id="body">Op-ed feature exploring the implications of a fully anonymous internet and the importance of protecting online privacy.</li>
-            </ul>
-        </div>
-        <div>
-            <a id='external-tile' href="http://var.st/47j">
-                <h3>Rotman hosts AI industry leaders for machine learning conference</h3>
-            </a>
-            <p class="date">The Varsity Newspaper (Oct. 2018)</p>
-            <ul>
-                <li id="body">Coverage of the 'Machine Learning and Market for Intelligence' conference hosted by the Creative Destruction Lab at the Rotman School of Management.</li>
-            </ul>
-        </div>
-    </section>
-    
-    <section style="padding-bottom: 15px;" id="work">
-        <h2 class='section-div' style="font-family: 'Chivo';">
-            <div class='dot' id='code'>
-                <img class='section-icon' id='code' src='/svg/code.svg'>
-            </div>
-            Code
-        </h2>
-        <div>
-            <a id='external-tile' href='http://nikhi.ca/adorn-your-acorn'>
-                <h3>UofT Transcript Beautifier</h3>
-            </a>
-            <p class="date">Javascript, Sass </p>
-            <ul>
-                <li id="desc">A small applet which allows UofT student's to generate a beautiful version of their unofficial transcript.</li>
-            </ul>
-        </div>
-        <div>
-            <a id='external-tile' href='http://uofcov.id'>
-                <h3>COVID-19 University Response Consolidation</h3>
-            </a>
-            <p class="date">React, Leaflet.js, Node, mySQL </p>
-            <ul>
-                <li id="desc">An interactive corpus of global university responses to the coronavirus pandemic through policy and student impact assessment. </li>
-                <li id="desc">Designed and developed the project website and data visualizations in React.</li>
-                <li id="desc">Funded by the <a href="https://global.utoronto.ca/u-of-t-covid-19-student-engagement-award/">U of T COVID-19 Student Engagement Award</a><a href="https://global.utoronto.ca/u-of-t-covid-19-student-engagement-award-winners/"> grant.</a></li>
-            </ul>
-        </div>
-    </section>
-
-    <section style="padding-bottom: 15px;" id="work">
-        <h2 class='section-div' style="font-family: 'Chivo';">
-            <div class='dot' id='design'>
-                <img class='section-icon' src='/svg/stack.svg'>
-            </div>
-            Design
-        </h2>
-        <div>
-            <a id='external-tile' href="https://magazine.thevarsity.ca/">
-                <h3>The Varsity Magazine</h3>
-            </a>
-            <p class="date">Sept. 2018 - April 2019</p>
-            <ul>
-                <li id="body">Designed and implemented the online version of the semesterly magazine. Awarded Best Campus Website by the Canadian Community Newspaper Awards 2019, and runner-up for Best Media Website by the Emerge Media Awards 2020.</li>
-            </ul>
-        </div>
-    </section>
-
-    <footer>
-        <div>
-        Last Updated on Aug 31st, 2021 [<a href="https://github.com/nkhi/nkhi.github.io">👀</a>]</div>
-         <div class='sbox'>
-            <img class='ficon' src="/svg/socials/linkedin-brands.svg">
-            <div class='sbox-tile'>
-                <a class='sbox-link' id='linkdin' href="https://www.linkedin.com/in/nikhibhambra">
-                    <span>
-                        LinkedIn
-                    </span>
-                </a>
-            </div> 
-            <img class='ficon' src="/svg/socials/github-square-brands.svg">
-            <div class='sbox-tile'>
-                <a class='sbox-link' id='gh' href="https://github.com/nkhi/nkhi.github.io"><span>GitHub</span></a>
-            </div>
-            <img class='ficon' src="/svg/socials/twitter-square-brands.svg">
-            <div class='sbox-tile'>
-                <a class='sbox-link' id='tw' href="https://twitter.com/nikhibhambra"><span>Twitter</span></a>
-            </div>
-        </div> -->
-    </footer>
-    
-    <!-- importing cursor effect libraries and triggering a random one after 5s 
-    <script src="/cursors/fairyDustCursor.js"></script>
-    <script src="/cursors/emojiCursor.js"></script>
-    <script src="/cursors/ghostCursor.js"></script>
-    <script src="/cursors/bubbleCursor.js"></script>
-    <script src="/cursors/snowflakeCursor.js"></script>
-    <script src="/cursors/springyEmojiCursor.js"></script> -->
-    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
-    <script src="script.js" type="b9ba561f46c0fd8e6d74c122-text/javascript"></script>
-    <script src="https://unpkg.com/clipboard@2/dist/clipboard.min.js"></script>
-    <script src="https://ajax.cloudflare.com/cdn-cgi/scripts/95c75768/cloudflare-static/rocket-loader.min.js" data-cf-settings="b9ba561f46c0fd8e6d74c122-|49" defer=""></script>
-</body>
-
 </html>

@@ -31,6 +31,7 @@ html {
     background-color: #131314;
     display: flex;
     align-items: center;
+    justify-content: center;
     height: 100%;
 }
 
@@ -40,15 +41,16 @@ body {
     position: relative;
     width: 720px;
     overflow-x: hidden;
-    margin-top: 2rem;
+    margin-top: 10.8rem;
 }
 
 body:hover{
-    background-color: rgba(38, 38, 38, 0.25);
+    background-color: rgba(58, 58, 58, 0.25);
     border-radius: 45px;
     transition: background-color 0.25s ease;
 }
 
+/* as of oct 5
 footer {
     margin-top: 50px;
     margin-bottom: 50px;
@@ -58,8 +60,9 @@ footer {
     flex-flow: row wrap;
     justify-content: center;
     align-content: center;
-    place-items:center;
+    place-items: center;
 }
+*/
 
 .ficon {
     height: 25px;
@@ -141,6 +144,7 @@ ul {
 
 ul#desc {
     line-height: 110%;
+    line-height: 110%;
 }
 
 a {
@@ -181,12 +185,26 @@ ul#cards {
     padding: 0 0 0 20px;
 }
 
-p#desc {
-    margin: 35px 0;
-    text-align: justify;
-    line-height: 1.4em;
-    font-size: 16.5px;
+/* picture padding */
+p#desc:first-of-type {
+    margin: 28px 0 20px;
 }
+
+p#desc {
+    margin: 20px 0;
+    text-align: auto;
+    text-align-last: auto;
+/*    text-align: justify;*/
+    line-height: 1.4em;
+    font-size: .9147rem;
+}
+
+/*
+p#desc:hover{
+    text-align-last: right;
+    transition: text-align-last 12s cubic-bezier(0.55, 0.06, 0.68, 0.19);
+}
+*/
 
 /* Sections Elements */
 li#body {
