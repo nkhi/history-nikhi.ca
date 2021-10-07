@@ -41,7 +41,9 @@ body {
     position: relative;
     width: 720px;
     overflow-x: hidden;
-    margin-top: 10.8rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 body:hover{
