@@ -196,7 +196,7 @@ p#desc {
     margin: 20px 0;
     text-align: auto;
     text-align-last: auto;
-/*    text-align: justify;*/
+   text-align: justify;
     line-height: 1.4em;
     font-size: .9147rem;
 }
