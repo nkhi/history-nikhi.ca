@@ -192,7 +192,7 @@ p#desc:first-of-type {
     margin: 28px 0 20px;
 }
 
-p#desc:last-of-type {
+p:last-of-type {
     font-weight: bold;
 }
 
