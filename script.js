@@ -75,18 +75,16 @@ function hover(description) {
 }
 
 // htmlgoodies
-function ClipBoard()
-{
+function ClipBoard() {
     holdtext.innerText = copytext.innerText;
     Copied = holdtext.createTextRange();
     Copied.execCommand("Copy");
 }
 
-// cursor thing, 1/6 chance to get it
 const targetElement = document.querySelector("html");
-const payload = {element: targetElement}
+const payload = {element: targetElement};
+var num = Math.floor(Math.random()*6;
 setTimeout(() => {
-	var num = Math.floor(Math.random()*6;
 	switch(num)) {
 		case (num%2==0):
 			new fairyDustCursor(payload);
