@@ -89,7 +89,7 @@ setTimeout(() => {
 		case (num%2==0):
 			new fairyDustCursor(payload);
 			break;
-		case (n%2==1):
+		case (num%2==1):
 			new snowflakeCursor(payload);
 			break;
 	}
