@@ -85,7 +85,7 @@ const targetElement = document.querySelector("html");
 const payload = {element: targetElement};
 var num = Math.floor(Math.random()*6);
 setTimeout(() => {
-	switch(num)) {
+	switch(num) {
 		case (num%2==0):
 			new fairyDustCursor(payload);
 			break;
