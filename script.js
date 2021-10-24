@@ -86,15 +86,13 @@ function ClipBoard()
 const targetElement = document.querySelector("html");
 const payload = {element: targetElement}
 setTimeout(() => {
-	switch(Math.floor(Math.random()*6)) {
-		case 0:
+	var num = Math.floor(Math.random()*6;
+	switch(num)) {
+		case (num%2==0):
 			new fairyDustCursor(payload);
 			break;
-		case 1:
+		case (n%2==1):
 			new snowflakeCursor(payload);
 			break;
-        default:
-            console.log("unlucky. try refreshing the page :)");
-            break;
 	}
 } , 5000);
