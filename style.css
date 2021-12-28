@@ -207,7 +207,7 @@ p#desc {
 }
 
 p#desc:hover{
-    text-indent: 0px;
+    text-indent: -1px;
     transition: text-indent .5s cubic-bezier(0.55, 0.06, 0.68, 0.19);
 }
 
