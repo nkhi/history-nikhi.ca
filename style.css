@@ -201,16 +201,15 @@ p#desc {
     text-align: auto;
     text-align-last: auto;
    text-align: justify;
-    line-height: 1.4em;
+    line-height: 1.5em;
     font-size: .9147rem;
+    text-indent: -4px;
 }
 
-/*
 p#desc:hover{
-    text-align-last: right;
-    transition: text-align-last 12s cubic-bezier(0.55, 0.06, 0.68, 0.19);
+    text-indent: 0px;
+    transition: text-indent .5s cubic-bezier(0.55, 0.06, 0.68, 0.19);
 }
-*/
 
 /* Sections Elements */
 li#body {
