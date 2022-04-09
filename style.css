@@ -199,7 +199,6 @@ p#desc {
     text-align: justify;
     line-height: 1.5em;
     font-size: .9147rem;
-    text-indent: -4px;
 }
 
 p#desc:hover{
