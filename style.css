@@ -200,14 +200,13 @@ p#desc {
     margin: 20px 0;
     text-align: auto;
     text-align-last: auto;
-   text-align: justify;
+    text-align: justify;
     line-height: 1.5em;
     font-size: .9147rem;
     text-indent: -4px;
 }
 
 p#desc:hover{
-    text-indent: -1px;
     transition: text-indent .5s cubic-bezier(0.55, 0.06, 0.68, 0.19);
 }
 
