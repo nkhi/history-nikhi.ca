@@ -46,11 +46,13 @@ body {
     justify-content: center;
 }
 
+/*
 body:hover{
     background-color: rgba(58, 58, 58, 0.25);
     border-radius: 45px;
     transition: background-color 0.25s ease;
 }
+*/
 
 /* as of oct 5
 footer {
