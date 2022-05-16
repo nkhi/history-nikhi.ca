@@ -44,6 +44,11 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
+    min-width: 406px;
+}
+
+@media screen and (max-width: 406px) {
+    .content {display:none}
 }
 
 /*
