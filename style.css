@@ -167,7 +167,7 @@ a {
 }
 
 a:hover {
-    opacity: 0.5;
+    color: #05ca89;
 }
 
 a#external-tile {
