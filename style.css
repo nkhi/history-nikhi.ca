@@ -171,10 +171,10 @@ a {
 } */
 
 a[id^='apollo']:hover {
-    color: #311c87;
+    color: #583ad2;
 }
 
-div[id^='room']:hover{
+a[id^='room']:hover{
     color: #131314;
 }
 
