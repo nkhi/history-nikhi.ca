@@ -166,8 +166,16 @@ a {
     text-decoration: underline;
 }
 
-a:hover {
+/* a:hover {
     color: #05ca89;
+} */
+
+a[id^='apollo']:hover {
+    color: #311c87;
+}
+
+div[id^='room']:hover{
+    color: #131314;
 }
 
 a#external-tile {
