@@ -158,17 +158,9 @@ ul#desc {
 
 a {
     color: rgb(182, 182, 182);
-    text-decoration: none;
+    text-decoration: underline;
     transition: ease-in-out opacity 0.1s;
 }
-
-a {
-    text-decoration: underline;
-}
-
-/* a:hover {
-    color: #05ca89;
-} */
 
 a[id^='apollo']:hover {
     color: #583ad2;
