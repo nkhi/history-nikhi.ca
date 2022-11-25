@@ -1,21 +1,10 @@
 "use strict"; // single JS file, not dangerous
 var terminal = document.getElementById('console');
 var word1 = "hello world";
-var word2 = 'Software Engineer & Designer';
+var word2 = 'Nikhi Bhambra';
 var letterCount = 0;
 var letterDelete = 0;
 var visible = true;
-
-// constant blinking cursor
-window.setInterval(function() {
-    if (visible) {
-        terminal.className = 'console-underscore hidden';
-        visible = false;
-    } else {
-        terminal.className = 'console-underscore';
-        visible = true;
-    }
-}, 300);
 
 // write and delete words
 function terminalText(word) {
@@ -61,44 +50,39 @@ function terminalText(word) {
     }, 1500);
 }
 
-// first executes writing typo after 1.5 seconds
+// simulate active insert cursor
+function blinkingCursor() {
+  if (visible) {
+      terminal.className = 'console-underscore hidden';
+      visible = false;
+  } else {
+      terminal.className = 'console-underscore';
+      visible = true;
+  }
+}
+
+// hover a link, change background color
+function tintBackgroundTo(hexString) {
+  document.documentElement.style.background = "#"+hexString;
+}
+
+// Below is main()
+
+// init listener for socials hovering
+let socials = document.getElementById("links");
+socials.addEventListener("mouseleave", () => {
+  document.documentElement.style.background = "#0c0c0d";
+}, false);
+
+// write the first word immediately
 terminalText(word1);
 
-// second executes writing 'progress' after 3 seconds
+// write name after 3 seconds
 window.setTimeout(function() {
     terminalText(word2);
 }, 3000);
 
-// Adapted from indubitablee on SO
-function hover(description) {
-    document.getElementById('content').innerHTML = description;
-}
-
-// htmlgoodies
-function ClipBoard() {
-    holdtext.innerText = copytext.innerText;
-    Copied = holdtext.createTextRange();
-    Copied.execCommand("Copy");
-}
-
-const targetElement = document.querySelector("html");
-const payload = {
-    element: targetElement
-}
-setTimeout(() => {
-    switch (Math.floor(Math.random() * 6)) {
-        case 0:
-        case 2:
-        case 4:
-            new fairyDustCursor(payload);
-            break;
-        case 1:
-        case 3:
-        case 5:
-            new snowflakeCursor(payload);
-            break;
-        default:
-            console.log("unlucky. try refreshing the page :)");
-            break;
-    }
-}, 5000);
+// make cursor blink after 5.5s
+window.setTimeout(function() {
+  window.setInterval(blinkingCursor, 500);
+}, 5500);
