@@ -1,2 +1,2 @@
 # 🍍 nikhi.ca
-My personal website, totalling way less than 1mb.
+My personal website — about 44kb over the wire.
