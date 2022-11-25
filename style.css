@@ -7,14 +7,12 @@
 
 /* Base Elements */
 
-* {
-    font-size: 1.2rem;
-    color: #fff;
+:root {
+    background-color: #0c0c0d;
     font-family: 'DM Mono Regular', 'Consolas', monospace;
 }
 
 html {
-    background-color: #0c0c0d;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -32,35 +30,30 @@ body {
     align-items: center;
     justify-content: center;
     min-width: 406px;
-    font-size:1rem;
 }
 
+#top-part {
+    color: white;
+}
+
+.top-text {
+    font-size: 1.45rem;
+}
 
 ::-moz-selection {
-/*    color: #0297db;*/
     color: black;
     background-color: yellow;
 }
 
 ::selection {
-/*    color: #0297db;*/
     color: black;
     background-color: yellow;
 }
 
-ul {
-    margin: 0;
-    padding: 0 15px;
-}
-
-ul#desc {
-    line-height: 110%;
-    line-height: 110%;
-}
-
 a {
+    font-size: 1rem;
     color: rgb(182, 182, 182);
-    font-size:1rem;
+    font-size: 1.2rem;
     text-decoration: underline;
     transition: ease-in-out opacity 0.1s;
 }
@@ -76,7 +69,7 @@ a[id^='room']:hover{
 }
 
 p {
- font-size: 1rem;
+    font-size: 1rem;
 }
 
 /* picture padding */
@@ -85,17 +78,12 @@ p#desc:first-of-type {
 }
 
 p#desc {
-    margin: 20px 0;
     text-align: auto;
     text-align-last: auto;
     text-align: justify;
     line-height: 1.5em;
-    /* font-size:1.2rem; */
     color: #b5b5b5;
-}
-
-p#desc:hover{
-    transition: text-indent .5s cubic-bezier(0.55, 0.06, 0.68, 0.19);
+    font-size: 1.2rem;
 }
 
 p#links{
