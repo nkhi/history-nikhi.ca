@@ -98,10 +98,6 @@ a#social {
     margin-right: 8px;
 }
 
-a#social:first-of-type{
-    margin-right: 10px;
-}
-
 a#social:hover {
     color: rgb(0, 175, 111);
     text-decoration-line: none;
