@@ -52,7 +52,7 @@ body {
 
 a {
     font-size: 1rem;
-    color: rgb(182, 182, 182);
+    color: rgb(160, 160, 160); 
     font-size: 1.2rem;
     text-decoration: none;
     transition: ease-in-out opacity 0.1s;
@@ -73,7 +73,7 @@ p {
 }
 
 p#desc:first-of-type {
-    margin: 24px 0px 26px;
+    margin: 22px 0px 26px;
 }
 
 p#desc {
@@ -81,7 +81,7 @@ p#desc {
     text-align-last: auto;
     text-align: justify;
     line-height: 1.5em;
-    color: #b5b5b5;
+    color: #d3d3d3;
     font-size: 1.2rem;
 }
 
@@ -92,9 +92,28 @@ p#links{
     align-items: center;
 }
 
+#socials {
+    display: flex;
+    flex-flow: row;
+}
+
+.stick-right {
+    text-align: right;
+    margin-left: auto;
+}
+
 a#social {
-    color: #5e5e5e;
-    margin-right: 8px;
+    color: rgb(160, 160, 160); 
+}
+
+a#social-right {
+    color: rgb(160, 160, 160); 
+    margin-right: 0px;
+}
+
+a#social-right:hover {
+    color: #cf1f1f;
+    text-decoration: none;
 }
 
 a#social:hover {

@@ -1,2 +1,2 @@
 # 🍍 nikhi.ca
-My personal website — about 63kb over the wire.
+My personal website — about 60kb over the wire.
