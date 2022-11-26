@@ -72,9 +72,8 @@ p {
     font-size: 1rem;
 }
 
-/* picture padding */
 p#desc:first-of-type {
-    margin: 24px 0px;
+    margin: 24px 0px 26px;
 }
 
 p#desc {
