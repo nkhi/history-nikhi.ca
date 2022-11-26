@@ -98,8 +98,8 @@ a#social {
     margin-right: 8px;
 }
 
-a#social:last-of-type{
-    margin: 0;
+a#social:first-of-type{
+    margin-right: 10px;
 }
 
 a#social:hover {
