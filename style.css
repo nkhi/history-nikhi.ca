@@ -22,7 +22,7 @@ html {
 
 body {
     margin: auto;
-    padding: 10px 30px 6px;
+    padding: 80px 60px;
     position: relative;
     width: 720px;
     overflow-x: hidden;
@@ -30,6 +30,12 @@ body {
     align-items: center;
     justify-content: center;
     min-width: 406px;
+    -ms-overflow-style: none; 
+    scrollbar-width: none;
+}
+
+body::-webkit-scrollbar {
+  display: none;
 }
 
 #top-part {
@@ -68,21 +74,39 @@ a[id^='room']:hover{
     text-decoration-line: none;
 }
 
+a#social {
+    color: rgb(160, 160, 160); 
+}
+
+a#social-right {
+    color: rgb(160, 160, 160); 
+    margin-right: 0px;
+    cursor: pointer;
+}
+
+a#social-right:hover {
+    color: rgb(0, 175, 111);
+    text-decoration: none;
+}
+
+a#social:hover {
+    /* color: #b51d66; */
+    /* color: #cc1bcc; */
+    color: #c95818;
+    text-decoration-line: none;
+}
+
 p {
     font-size: 1rem;
 }
 
-p#desc:first-of-type {
-    margin: 22px 0px 26px;
-}
-
 p#desc {
     text-align: auto;
-    text-align-last: auto;
-    text-align: justify;
     line-height: 1.5em;
     color: #d3d3d3;
     font-size: 1.2rem;
+    margin: 22px 0px 25px;
+    max-width: 500px;
 }
 
 p#links{
@@ -102,25 +126,6 @@ p#links{
     margin-left: auto;
 }
 
-a#social {
-    color: rgb(160, 160, 160); 
-}
-
-a#social-right {
-    color: rgb(160, 160, 160); 
-    margin-right: 0px;
-}
-
-a#social-right:hover {
-    color: #cf1f1f;
-    text-decoration: none;
-}
-
-a#social:hover {
-    color: rgb(0, 175, 111);
-    text-decoration-line: none;
-}
-
 
 .console-underscore {
     display: inline-block;
@@ -129,6 +134,7 @@ a#social:hover {
     right: 8px;
 }
 
+/*lol*/
 .hidden {
-    display: none;
+    display: none !important;
 }
