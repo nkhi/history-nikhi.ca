@@ -17,7 +17,8 @@ html {
     align-items: center;
     justify-content: center;
     height: 100%;
-    transition: background-color .75s;
+    transition: background-color .65s;
+    transition-timing-function: ease-out;
 }
 
 body {
@@ -40,10 +41,38 @@ body::-webkit-scrollbar {
 
 #top-part {
     color: white;
+    display: flex;
 }
 
 .top-text {
     font-size: 1.45rem;
+}
+
+.options {
+    margin-left: auto;
+}
+
+.first-option{
+    margin-right: 12px;
+    color: #a0a0a0;
+    cursor: pointer;
+}
+
+.second-option{
+    margin-right: 12px;
+    color: #a0a0a0;
+    cursor: pointer;
+}
+
+.first-option:hover {
+    /* color: #114b9c; */
+    /* color: #FEFFBE; */
+    color: #A54D04;
+}
+
+.second-option:hover {
+    /* color: #FEFFBE; */
+    color: #A54D04;
 }
 
 ::-moz-selection {
@@ -78,21 +107,19 @@ a#social {
     color: rgb(160, 160, 160); 
 }
 
-a#social-right {
+a.social-right {
     color: rgb(160, 160, 160); 
     margin-right: 0px;
     cursor: pointer;
 }
 
-a#social-right:hover {
+a.social-right:hover {
     color: rgb(0, 175, 111);
     text-decoration: none;
 }
 
 a#social:hover {
-    /* color: #b51d66; */
-    /* color: #cc1bcc; */
-    color: #c95818;
+    color: #d18369;
     text-decoration-line: none;
 }
 
@@ -132,9 +159,28 @@ p#links{
     position: relative;
     top: 0.05em;
     right: 8px;
+    margin-left: 12px;
 }
 
 /*lol*/
 .hidden {
     display: none !important;
+}
+
+#chevron {
+    margin-right: 12px;
+    transition: color 1s;
+}
+
+#play-button {
+    color: white;
+}
+
+#right-container {
+    display: flex;
+    align-content: center;
+}
+
+#pen {
+    margin-right: 12px;
 }

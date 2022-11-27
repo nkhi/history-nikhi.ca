@@ -67,43 +67,109 @@ function tintBackgroundTo(hexString) {
   document.documentElement.style.background = "#"+hexString;
 }
 
-// go back to the home page
-function goBack() {
-    console.log("ok");
-}
-
 // switch to about mode
-function showMore() {
+function showAbout() {
     // replace terminal chevron with back button
     let button = document.getElementById("chevron");
-    button.innerText = "<";     // can you make this cooler
-    button.setAttribute("title", "this isnt working yet")
-    // add new onclick to button !?
-    
+    button.innerText = "<";
+    button.setAttribute("title", "this isnt working yet") // rm this
+    button.style.cursor = "pointer";
+
     // remove text
     let text = document.getElementById("text");
     text.innerHTML = ' ';
 
     // show 'back'
-    window.setTimeout(function() {terminalText(word3);}, 6000);
+    window.setTimeout(function() {terminalText(word3);}, 2000);
 
+    // show new icons
+    document.getElementById("top-part").innerHTML += "<div id='options-container' class='options'><span id='button' class='first-option' title='Turn on narration' onmouseenter={tintBackgroundTo('251101')}><svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' class='feather feather-play-circle'><circle cx='12' cy='12' r='10'></circle><polygon points='10 8 16 12 10 16 10 8'></polygon></svg></span><span class='second-option' title='Turn off animation' onmouseenter={tintBackgroundTo('251101')}><svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round' class='feather feather-power'><path d='M18.36 6.64a9 9 0 1 1-12.73 0'></path><line x1='12' y1='2' x2='12' y2='12'></line></svg></span></div>";
+    document.getElementById("options-container").addEventListener("mouseleave", () => {
+      document.documentElement.style.background = "#0c0c0d";
+    });
+    document.getElementById("button").addEventListener('click', () => {turnOnNarration();})
+
+      
     // new text
     let desc = document.getElementById("desc");
+    // TODO write an about section
     desc.innerText = "Oh! Come and see the violence inherent in the system! Help, help, I'm being repressed! I have to push the pram a lot. And this isn't my nose. This is a false one. Where'd you get the coconuts? Ah, now we see the violence inherent in the system! The nose? Shh! Knights, I bid you welcome to your new home. Let us ride to Camelot! Well, I got better. …Are you suggesting that coconuts migrate? Why? Shut up! Will you shut up?! On second thoughts, let's not go there. It is a silly place. Did you dress her up like this? The Knights Who Say Ni demand a sacrifice! The Knights Who Say Ni demand a sacrifice! What a strange person. We shall say 'Ni' again to you, if you do not appease us. Well, she turned me into a newt. The swallow may fly south with the sun, and the house martin or the plover may seek warmer climes in winter, yet these are not strangers to our land. \n \n The Lady of the Lake, her arm clad in the purest shimmering samite, held aloft Excalibur from the bosom of the water, signifying by divine providence that I, Arthur, was to carry Excalibur. That is why I am your king. Well, I didn't vote for you. The nose? A newt? We found them. Listen. Strange women lying in ponds distributing swords is no basis for a system of government. Supreme executive power derives from a mandate from the masses, not from some farcical aquatic ceremony. Did you dress her up like this? We found them. Well, we did do the nose. Listen. Strange women lying in ponds distributing swords is no basis for a system of government. Supreme executive power derives from a mandate from the masses, not from some farcical aquatic ceremony. What a strange person. Knights of Ni, we are but simple travelers who seek the enchanter who lives beyond these woods. Why do you think that she is a witch? Shut up! Will you shut up?! I have to push the pram a lot. Camelot!"
     desc.style.margin="30px 0px 0px 0px";
-    document.getElementById("socials").classList.add("hidden");
+    document.getElementById("socials").style.padding = "26px 0";
+    document.getElementById("about").classList.add("hidden");
 
-    // make background do something bonkerz
+    // TODO make background do something bonkerz
+}
+
+// TODO method for narration
+function turnOnNarration() {
+    if (!document.body.getElementsByClassName('audio').length > 0) {
+        document.body.innerHTML += "<audio id='audio-player' preload='auto' src='/media/about_narration.mp3'></audio>";
+    }
+    let narrationAudio = document.getElementById('audio-player');
+    narrationAudio.play()
+
+    let button = document.getElementById("button");
+    button.innerHTML = "<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' class='feather feather-stop-circle'><circle cx='12' cy='12' r='10'></circle><rect x='10' y='10' width='4' height='4' fill='currentColor'></rect></svg>"
+    // button.innerHTML = "<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' class='feather feather-pause-circle'><circle cx='12' cy='12' r='10'></circle><line x1='10' y1='15' x2='10' y2='9'></line><line x1='14' y1='15' x2='14' y2='9'></line></svg>"
+    button.removeEventListener('click', () => {
+        turnOnNarration();
+    })
+    button.addEventListener('click', () => {
+        turnOffNarration();
+    })
+    document.getElementById("options-container").addEventListener("mouseleave", () => {
+        document.documentElement.style.background = "#0c0c0d";
+      });
+}
+
+function turnOffNarration() {
+    let button = document.getElementById("button");
+    let narrationAudio = document.getElementById('audio-player');
+    narrationAudio.pause()
+    button.innerHTML = "<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' class='feather feather-play-circle'><circle cx='12' cy='12' r='10'></circle><polygon points='10 8 16 12 10 16 10 8'></polygon></svg>";
+    button.removeEventListener('click', () => {
+        turnOffNarration();
+    })
+    button.addEventListener('click', () => {
+        turnOnNarration();
+    })
+    document.getElementById("options-container").addEventListener("mouseleave", () => {
+      document.documentElement.style.background = "#0c0c0d";
+    });
 }
 
 
-// Below is main()
+// TODO method for turning off animations
+function stopBackgroundAnimation() {
+    console.log();
+}
 
-// init listener for socials hovering
-let socials = document.getElementById("links");
-socials.addEventListener("mouseleave", () => {
+
+// TODO method for animating background
+function startBackgroundAnimation() {
+    console.log();
+}
+
+// TODO method to switch to blog mode
+function showBlog() {
+    console.log();
+}
+
+// TODO method to switch to home mode
+function showHome() {
+    console.log("this will go back home");
+}
+
+// [!!!!!!!!!] Below is main()
+
+// init background behavior for links 
+document.getElementById("left-container").addEventListener("mouseleave", () => {
   document.documentElement.style.background = "#0c0c0d";
-}, false);
+});
+document.getElementById("right-container").addEventListener("mouseleave", () => {
+  document.documentElement.style.background = "#0c0c0d";
+});
 
 // write the first word immediately
 terminalText(word1);
@@ -113,3 +179,13 @@ window.setTimeout(function() {terminalText(word2);}, 3000);
 
 // make cursor blink every half second, after 5.5s
 window.setTimeout(function() {window.setInterval(blinkingCursor, 500);}, 5500);
+
+// make links accessible to avoid animation issues oop
+window.setTimeout(function() {
+    document.getElementById('pen').addEventListener('click', () => {
+        showBlog();
+    })
+    document.getElementById('about').addEventListener('click', () => {
+        showAbout();
+    })
+}, 7000);
