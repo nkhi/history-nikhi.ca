@@ -3,9 +3,13 @@ var terminal = document.getElementById('console');
 var word1 = "hello world";
 var word2 = 'Nikhi Bhambra';
 var word3 = "back";
+var word4 = "blog";
+var word5 = "about"; 
 var letterCount = 0;
 var letterDelete = 0;
 var visible = true;
+var currentMode = "home";
+let mainCopy = document.getElementById("main-copy").innerHTML;
 
 // write and delete words
 function terminalText(word) {
@@ -69,21 +73,34 @@ function tintBackgroundTo(hexString) {
 
 // switch to about mode
 function showAbout() {
+    if (currentMode=="blog"){
+        document.getElementById("pen").classList.remove("hidden");
+    }
+    currentMode = "about";
     // replace terminal chevron with back button
     let button = document.getElementById("chevron");
     button.innerText = "<";
-    button.setAttribute("title", "this isnt working yet") // rm this
+    button.setAttribute("title", "Back to Home")
     button.style.cursor = "pointer";
+    // TODO blinkingh cursor breaks 
 
     // remove text
     let text = document.getElementById("text");
     text.innerHTML = ' ';
 
     // show 'back'
-    window.setTimeout(function() {terminalText(word3);}, 2000);
+    window.setTimeout(function() {terminalText(word5);}, 2000);
+    window.setTimeout(function() {terminalText(word3);}, 8000);
 
     // show new icons
-    document.getElementById("top-part").innerHTML += "<div id='options-container' class='options'><span id='button' class='first-option' title='Turn on narration' onmouseenter={tintBackgroundTo('251101')}><svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' class='feather feather-play-circle'><circle cx='12' cy='12' r='10'></circle><polygon points='10 8 16 12 10 16 10 8'></polygon></svg></span><span class='second-option' title='Turn off animation' onmouseenter={tintBackgroundTo('251101')}><svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round' class='feather feather-power'><path d='M18.36 6.64a9 9 0 1 1-12.73 0'></path><line x1='12' y1='2' x2='12' y2='12'></line></svg></span></div>";
+    if (document.getElementById("options-container") == null) {
+        document.getElementById("top-part").innerHTML += "<div id='options-container' class='options'><span id='button' class='first-option' title='Turn on narration' onmouseenter={tintBackgroundTo('251101')}><svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' class='feather feather-play-circle'><circle cx='12' cy='12' r='10'></circle><polygon points='10 8 16 12 10 16 10 8'></polygon></svg></span><span class='second-option' title='Turn off animation' onmouseenter={tintBackgroundTo('251101')}><svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round' class='feather feather-power'><path d='M18.36 6.64a9 9 0 1 1-12.73 0'></path><line x1='12' y1='2' x2='12' y2='12'></line></svg></span></div>";
+    } else {
+        document.getElementById("options-container").classList.remove("hidden")
+    }
+
+
+
     document.getElementById("options-container").addEventListener("mouseleave", () => {
       document.documentElement.style.background = "#0c0c0d";
     });
@@ -93,12 +110,56 @@ function showAbout() {
     // new text
     let desc = document.getElementById("desc");
     // TODO write an about section
-    desc.innerText = "Oh! Come and see the violence inherent in the system! Help, help, I'm being repressed! I have to push the pram a lot. And this isn't my nose. This is a false one. Where'd you get the coconuts? Ah, now we see the violence inherent in the system! The nose? Shh! Knights, I bid you welcome to your new home. Let us ride to Camelot! Well, I got better. …Are you suggesting that coconuts migrate? Why? Shut up! Will you shut up?! On second thoughts, let's not go there. It is a silly place. Did you dress her up like this? The Knights Who Say Ni demand a sacrifice! The Knights Who Say Ni demand a sacrifice! What a strange person. We shall say 'Ni' again to you, if you do not appease us. Well, she turned me into a newt. The swallow may fly south with the sun, and the house martin or the plover may seek warmer climes in winter, yet these are not strangers to our land. \n \n The Lady of the Lake, her arm clad in the purest shimmering samite, held aloft Excalibur from the bosom of the water, signifying by divine providence that I, Arthur, was to carry Excalibur. That is why I am your king. Well, I didn't vote for you. The nose? A newt? We found them. Listen. Strange women lying in ponds distributing swords is no basis for a system of government. Supreme executive power derives from a mandate from the masses, not from some farcical aquatic ceremony. Did you dress her up like this? We found them. Well, we did do the nose. Listen. Strange women lying in ponds distributing swords is no basis for a system of government. Supreme executive power derives from a mandate from the masses, not from some farcical aquatic ceremony. What a strange person. Knights of Ni, we are but simple travelers who seek the enchanter who lives beyond these woods. Why do you think that she is a witch? Shut up! Will you shut up?! I have to push the pram a lot. Camelot!"
+    desc.innerText = "Oh! Come and see the violence inherent in the system! Help, help, I'm being repressed! I have to push the pram a lot. And this isn't my nose. This is a false one. Where'd you get the coconuts? Ah, now we see the violence inherent in the system! The nose? Shh! Knights, I bid you welcome to your new home. Let us ride to Camelot! Well, I got better. …Are you suggesting that coconuts migrate? Why? Shut up! Will you shut up?! On second thoughts, let's not go there. It is a silly place. Did you dress her up like this? The Knights Who Say Ni demand a sacrifice!\n \n The Lady of the Lake, her arm clad in the purest shimmering samite, held aloft Excalibur from the bosom of the water, signifying by divine providence that I, Arthur, was to carry Excalibur. That is why I am your king. Well, I didn't vote for you. The nose? A newt? We found them. Listen. Strange women lying in ponds distributing swords is no basis for a system of government. Supreme executive power derives from a mandate from the masses, not from some farcical aquatic ceremony. I have to push the pram a lot. Camelot!"
     desc.style.margin="30px 0px 0px 0px";
     document.getElementById("socials").style.padding = "26px 0";
     document.getElementById("about").classList.add("hidden");
 
     // TODO make background do something bonkerz
+}
+
+// TODO method to switch to blog mode
+function showBlog() {
+    if (currentMode=="about"){
+        document.getElementById("about").classList.remove("hidden");
+    }
+    if (currentMode=="about") {
+        let options = document.getElementById("options-container")
+        options.classList.add("hidden");
+    }
+    currentMode = "blog";
+    let button = document.getElementById("chevron");
+    button.innerText = "<";
+    button.setAttribute("title", "Back to Home")
+    button.style.cursor = "pointer";
+    document.getElementById("pen").classList.add("hidden");
+
+    // TODO blinking cursor breaks
+    // remove text
+    let desc = document.getElementById("desc");
+    desc.innerHTML = ' ';
+    desc.style.minWidth = "276px";
+    let text = document.getElementById("text");
+    text.innerHTML = ' ';
+    window.setTimeout(function() {terminalText(word4);}, 2000);
+    window.setTimeout(function() {terminalText(word3);}, 8000);
+    desc.innerHTML = "<i>*crickets*</i>"
+
+}
+
+// TODO method to switch to home mode
+function showHome() {
+    window.setTimeout(function() {terminalText(word2);}, 2000);
+    let button = document.getElementById("chevron");
+    button.innerText = ">";
+    if (currentMode=="about") {
+        let options = document.getElementById("options-container")
+        options.classList.add("hidden");
+    }
+    document.getElementById("main-copy").innerHTML = mainCopy;
+    document.getElementById("socials").style.padding = "0";
+    document.getElementById("pen").classList.remove("hidden");
+    document.getElementById("about").classList.remove("hidden");
 }
 
 // TODO method for narration
@@ -139,7 +200,6 @@ function turnOffNarration() {
     });
 }
 
-
 // TODO method for turning off animations
 function stopBackgroundAnimation() {
     console.log();
@@ -149,16 +209,6 @@ function stopBackgroundAnimation() {
 // TODO method for animating background
 function startBackgroundAnimation() {
     console.log();
-}
-
-// TODO method to switch to blog mode
-function showBlog() {
-    console.log();
-}
-
-// TODO method to switch to home mode
-function showHome() {
-    console.log("this will go back home");
 }
 
 // [!!!!!!!!!] Below is main()

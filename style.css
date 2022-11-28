@@ -25,12 +25,12 @@ body {
     margin: auto;
     padding: 80px 60px;
     position: relative;
-    width: 720px;
+    width: 620px;
     overflow-x: hidden;
     display: flex;
     align-items: center;
     justify-content: center;
-    min-width: 406px;
+    min-width: 300px;
     -ms-overflow-style: none; 
     scrollbar-width: none;
 }
@@ -45,7 +45,7 @@ body::-webkit-scrollbar {
 }
 
 .top-text {
-    font-size: 1.45rem;
+    font-size: 1.35rem;
 }
 
 .options {
@@ -119,7 +119,8 @@ a.social-right:hover {
 }
 
 a#social:hover {
-    color: #d18369;
+    /* color: #d18369; */
+    color: #cc1644;
     text-decoration-line: none;
 }
 
@@ -133,7 +134,9 @@ p#desc {
     color: #d3d3d3;
     font-size: 1.2rem;
     margin: 22px 0px 25px;
-    max-width: 500px;
+    width: clamp(276px,  330px);
+    max-width: 360px;
+    /* min-width:276px; */
 }
 
 p#links{
