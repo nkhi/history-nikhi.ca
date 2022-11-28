@@ -2,7 +2,7 @@
 var terminal = document.getElementById('console');
 var word1 = "hello world";
 var word2 = 'Nikhi Bhambra';
-var word3 = "back";
+// var word3 = "Back";
 var word4 = "blog";
 var word5 = "about"; 
 var letterCount = 0;
@@ -90,7 +90,7 @@ function showAbout() {
 
     // show 'back'
     window.setTimeout(function() {terminalText(word5);}, 2000);
-    window.setTimeout(function() {terminalText(word3);}, 8000);
+    // window.setTimeout(function() {terminalText(word3);}, 8000);
 
     // show new icons
     if (document.getElementById("options-container") == null) {
@@ -142,7 +142,7 @@ function showBlog() {
     let text = document.getElementById("text");
     text.innerHTML = ' ';
     window.setTimeout(function() {terminalText(word4);}, 2000);
-    window.setTimeout(function() {terminalText(word3);}, 8000);
+    // window.setTimeout(function() {terminalText(word3);}, 8000);
     desc.innerHTML = "<i>*crickets*</i>"
 
 }
