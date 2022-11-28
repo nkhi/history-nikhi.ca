@@ -119,8 +119,6 @@ a.social-right:hover {
 }
 
 a#social:hover {
-    /* color: #d18369; */
-    /* color: #cc1644; */
     color: #b39a70;
     text-decoration-line: none;
 }
@@ -137,7 +135,6 @@ p#desc {
     margin: 22px 0px 25px;
     width: clamp(276px,  330px);
     max-width: 360px;
-    /* min-width:276px; */
 }
 
 p#links{
