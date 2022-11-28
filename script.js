@@ -11,6 +11,10 @@ var visible = true;
 var currentMode = "home";
 let mainCopy = document.getElementById("main-copy").innerHTML;
 
+// TODO audit event listener queue when moving between pages,
+// I suspect all of the control listener's on every page will
+// need to be reinvoked when switchng.
+
 // write and delete words
 function terminalText(word) {
     let docLoc = document.getElementById('text');
@@ -90,27 +94,23 @@ function showAbout() {
 
     // show 'back'
     window.setTimeout(function() {terminalText(word5);}, 2000);
-    // window.setTimeout(function() {terminalText(word3);}, 8000);
 
     // show new icons
     if (document.getElementById("options-container") == null) {
-        document.getElementById("top-part").innerHTML += "<div id='options-container' class='options'><span id='button' class='first-option' title='Turn on narration' onmouseenter={tintBackgroundTo('251101')}><svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' class='feather feather-play-circle'><circle cx='12' cy='12' r='10'></circle><polygon points='10 8 16 12 10 16 10 8'></polygon></svg></span><span class='second-option' title='Turn off animation' onmouseenter={tintBackgroundTo('251101')}><svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round' class='feather feather-power'><path d='M18.36 6.64a9 9 0 1 1-12.73 0'></path><line x1='12' y1='2' x2='12' y2='12'></line></svg></span></div>";
+        // document.getElementById("top-part").innerHTML += "<div id='options-container' class='options'><span id='button' class='first-option' title='Turn on narration' onmouseenter={tintBackgroundTo('251101')}><svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' class='feather feather-play-circle'><circle cx='12' cy='12' r='10'></circle><polygon points='10 8 16 12 10 16 10 8'></polygon></svg></span><span class='second-option' title='Turn off animation' onmouseenter={tintBackgroundTo('251101')}><svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round' class='feather feather-power'><path d='M18.36 6.64a9 9 0 1 1-12.73 0'></path><line x1='12' y1='2' x2='12' y2='12'></line></svg></span></div>";
+        document.getElementById("top-part").innerHTML += "<div id='options-container' class='options'><span id='button' class='first-option' title='Turn on narration' onmouseenter={tintBackgroundTo('251101')}><svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' class='feather feather-play-circle'><circle cx='12' cy='12' r='10'></circle><polygon points='10 8 16 12 10 16 10 8'></polygon></svg></span></div>";
     } else {
         document.getElementById("options-container").classList.remove("hidden")
     }
-
-
 
     document.getElementById("options-container").addEventListener("mouseleave", () => {
       document.documentElement.style.background = "#0c0c0d";
     });
     document.getElementById("button").addEventListener('click', () => {turnOnNarration();})
 
-      
-    // new text
     let desc = document.getElementById("desc");
     // TODO write an about section
-    desc.innerText = "Oh! Come and see the violence inherent in the system! Help, help, I'm being repressed! I have to push the pram a lot. And this isn't my nose. This is a false one. Where'd you get the coconuts? Ah, now we see the violence inherent in the system! The nose? Shh! Knights, I bid you welcome to your new home. Let us ride to Camelot! Well, I got better. …Are you suggesting that coconuts migrate? Why? Shut up! Will you shut up?! On second thoughts, let's not go there. It is a silly place. Did you dress her up like this? The Knights Who Say Ni demand a sacrifice!\n \n The Lady of the Lake, her arm clad in the purest shimmering samite, held aloft Excalibur from the bosom of the water, signifying by divine providence that I, Arthur, was to carry Excalibur. That is why I am your king. Well, I didn't vote for you. The nose? A newt? We found them. Listen. Strange women lying in ponds distributing swords is no basis for a system of government. Supreme executive power derives from a mandate from the masses, not from some farcical aquatic ceremony. I have to push the pram a lot. Camelot!"
+    desc.innerText = "One day, Nikhi will capture the true essence of his being and inscribe it here for all to bear witness. \n\nUntil then, it's empty.";
     desc.style.margin="30px 0px 0px 0px";
     document.getElementById("socials").style.padding = "26px 0";
     document.getElementById("about").classList.add("hidden");
@@ -133,6 +133,7 @@ function showBlog() {
     button.setAttribute("title", "Back to Home")
     button.style.cursor = "pointer";
     document.getElementById("pen").classList.add("hidden");
+    // remove text
 
     // TODO blinking cursor breaks
     // remove text
@@ -142,8 +143,7 @@ function showBlog() {
     let text = document.getElementById("text");
     text.innerHTML = ' ';
     window.setTimeout(function() {terminalText(word4);}, 2000);
-    // window.setTimeout(function() {terminalText(word3);}, 8000);
-    desc.innerHTML = "<i>*crickets*</i>"
+    desc.innerHTML = "<ul><li><a id='blog-link' href=''><i>*crickets*</i></a></li><li><a id='blog-link' href=''><i>*more crickets*</i></a></li></ul>"
 
 }
 

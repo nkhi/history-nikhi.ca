@@ -120,7 +120,8 @@ a.social-right:hover {
 
 a#social:hover {
     /* color: #d18369; */
-    color: #cc1644;
+    /* color: #cc1644; */
+    color: #b39a70;
     text-decoration-line: none;
 }
 
@@ -186,4 +187,8 @@ p#links{
 
 #pen {
     margin-right: 12px;
+}
+
+a#blog-link:hover {
+    color: white;
 }
