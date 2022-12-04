@@ -187,6 +187,17 @@ p#links{
     margin-right: 12px;
 }
 
+a#blog-link {
+    margin-right: 14px;
+}
+
 a#blog-link:hover {
     color: white;
+}
+
+.blog-date {
+    position: absolute;
+    font-size: 0.95rem;
+    opacity: 0;
+    color: #4f4f4f;
 }

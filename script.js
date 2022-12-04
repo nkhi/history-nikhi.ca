@@ -1,10 +1,10 @@
 "use strict"; // single JS file, not dangerous
-var terminal = document.getElementById('console');
+var terminal = document.getElementById("console");
 var word1 = "hello world";
-var word2 = 'Nikhi Bhambra';
+var word2 = "Nikhi Bhambra";
 // var word3 = "Back";
 var word4 = "blog";
-var word5 = "about"; 
+var word5 = "about";
 var letterCount = 0;
 var letterDelete = 0;
 var visible = true;
@@ -17,225 +17,257 @@ let mainCopy = document.getElementById("main-copy").innerHTML;
 
 // write and delete words
 function terminalText(word) {
-    let docLoc = document.getElementById('text');
+  let docLoc = document.getElementById("text");
 
-    window.setTimeout(function() {
+  window.setTimeout(function () {
+    // write out
+    window.setTimeout(function () {
+      if (letterCount === 0) {
+        while (letterCount <= word.length) {
+          (function (letterCount) {
+            window.setTimeout(function () {
+              if (letterCount === 1) {
+                terminal.innerHTML = "&#95;";
+              }
+              docLoc.innerHTML = word.substring(0, letterCount);
+            }, 100 * letterCount);
+          })(letterCount++);
+        }
+      }
+    }, 0);
 
-        // write out
-        window.setTimeout(function() {
-            if (letterCount === 0) {
-                while (letterCount <= word.length) {
-                    (function(letterCount) {
-                        window.setTimeout(function() {
-                            if (letterCount === 1) {
-                                terminal.innerHTML = "&#95;";
-                            }
-                            docLoc.innerHTML = word.substring(0, letterCount);
-                        }, 100 * (letterCount));
-                    })(letterCount++);
-                }
-            }
-        }, 0);
+    // backspace, but only for the first word
+    window.setTimeout(function () {
+      if (letterCount >= word.length && word != word2) {
+        while (letterCount >= 0 && letterDelete != word.length + 1) {
+          (function (letterCount) {
+            window.setTimeout(function () {
+              if (letterCount < 1) {
+                terminal.innerHTML = "&nbsp;&#95;";
+              }
+              docLoc.innerHTML = word.substring(0, letterCount);
+            }, 1000 - letterCount * 40);
+          })(letterDelete++);
+        }
+      }
+    }, 2000);
 
-        // backspace, but only for the first word
-        window.setTimeout(function() {
-            if (letterCount >= word.length && word != word2) {
-                while (letterCount >= 0 && letterDelete != word.length + 1) {
-                    (function(letterCount) {
-                        window.setTimeout(function() {
-                            if (letterCount < 1) {
-                                terminal.innerHTML = "&nbsp;&#95;";
-                            }
-                            docLoc.innerHTML = word.substring(0, letterCount);
-                        }, 1000 - (letterCount * 40));
-                    })(letterDelete++);
-                }
-            }
-        }, 2000);
-
-        letterCount = 0;
-        letterDelete = 0;
-
-    }, 1500);
+    letterCount = 0;
+    letterDelete = 0;
+  }, 1500);
 }
 
 // simulate active insert cursor
 function blinkingCursor() {
   if (visible) {
-      terminal.className = 'console-underscore hidden';
-      visible = false;
+    terminal.className = "console-underscore hidden";
+    visible = false;
   } else {
-      terminal.className = 'console-underscore';
-      visible = true;
+    terminal.className = "console-underscore";
+    visible = true;
   }
 }
 
 // hover a link, change background color
 function tintBackgroundTo(hexString) {
-  document.documentElement.style.background = "#"+hexString;
+  document.documentElement.style.background = "#" + hexString;
 }
 
 // switch to about mode
 function showAbout() {
-    if (currentMode=="blog"){
-        document.getElementById("pen").classList.remove("hidden");
-    }
-    currentMode = "about";
-    // replace terminal chevron with back button
-    let button = document.getElementById("chevron");
-    button.innerText = "<";
-    button.setAttribute("title", "Back to Home")
-    button.style.cursor = "pointer";
-    // TODO blinkingh cursor breaks 
+  if (currentMode == "blog") {
+    document.getElementById("pen").classList.remove("hidden");
+  }
+  currentMode = "about";
+  // replace terminal chevron with back button
+  let button = document.getElementById("chevron");
+  button.innerText = "<";
+  button.setAttribute("title", "Back to Home");
+  button.style.cursor = "pointer";
+  // TODO blinkingh cursor breaks
 
-    // remove text
-    let text = document.getElementById("text");
-    text.innerHTML = ' ';
+  // remove text
+  let text = document.getElementById("text");
+  text.innerHTML = " ";
 
-    // show 'back'
-    window.setTimeout(function() {terminalText(word5);}, 2000);
+  // show 'back'
+  window.setTimeout(function () {
+    terminalText(word5);
+  }, 2000);
 
-    // show new icons
-    if (document.getElementById("options-container") == null) {
-        // document.getElementById("top-part").innerHTML += "<div id='options-container' class='options'><span id='button' class='first-option' title='Turn on narration' onmouseenter={tintBackgroundTo('251101')}><svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' class='feather feather-play-circle'><circle cx='12' cy='12' r='10'></circle><polygon points='10 8 16 12 10 16 10 8'></polygon></svg></span><span class='second-option' title='Turn off animation' onmouseenter={tintBackgroundTo('251101')}><svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round' class='feather feather-power'><path d='M18.36 6.64a9 9 0 1 1-12.73 0'></path><line x1='12' y1='2' x2='12' y2='12'></line></svg></span></div>";
-        document.getElementById("top-part").innerHTML += "<div id='options-container' class='options'><span id='button' class='first-option' title='Turn on narration' onmouseenter={tintBackgroundTo('251101')}><svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' class='feather feather-play-circle'><circle cx='12' cy='12' r='10'></circle><polygon points='10 8 16 12 10 16 10 8'></polygon></svg></span></div>";
-    } else {
-        document.getElementById("options-container").classList.remove("hidden")
-    }
+  // show new icons
+  if (document.getElementById("options-container") == null) {
+    // document.getElementById("top-part").innerHTML += "<div id='options-container' class='options'><span id='button' class='first-option' title='Turn on narration' onmouseenter={tintBackgroundTo('251101')}><svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' class='feather feather-play-circle'><circle cx='12' cy='12' r='10'></circle><polygon points='10 8 16 12 10 16 10 8'></polygon></svg></span><span class='second-option' title='Turn off animation' onmouseenter={tintBackgroundTo('251101')}><svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round' class='feather feather-power'><path d='M18.36 6.64a9 9 0 1 1-12.73 0'></path><line x1='12' y1='2' x2='12' y2='12'></line></svg></span></div>";
+    document.getElementById("top-part").innerHTML +=
+      "<div id='options-container' class='options'><span id='button' class='first-option' title='Turn on narration' onmouseenter={tintBackgroundTo('251101')}><svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' class='feather feather-play-circle'><circle cx='12' cy='12' r='10'></circle><polygon points='10 8 16 12 10 16 10 8'></polygon></svg></span></div>";
+  } else {
+    document.getElementById("options-container").classList.remove("hidden");
+  }
 
-    document.getElementById("options-container").addEventListener("mouseleave", () => {
+  document
+    .getElementById("options-container")
+    .addEventListener("mouseleave", () => {
       document.documentElement.style.background = "#0c0c0d";
     });
-    document.getElementById("button").addEventListener('click', () => {turnOnNarration();})
+  document.getElementById("button").addEventListener("click", () => {
+    turnOnNarration();
+  });
 
-    let desc = document.getElementById("desc");
-    // TODO write an about section
-    desc.innerText = "One day, Nikhi will capture the true essence of his being and inscribe it here for all to bear witness. \n\nUntil then, it's empty.";
-    desc.style.margin="30px 0px 0px 0px";
-    document.getElementById("socials").style.padding = "26px 0";
-    document.getElementById("about").classList.add("hidden");
+  let desc = document.getElementById("desc");
+  // TODO write an about section
+  desc.innerText =
+    "One day, Nikhi will capture the true essence of his being and inscribe it here for all to bear witness. \n\nUntil then, it's empty.";
+  desc.style.margin = "30px 0px 0px 0px";
+  document.getElementById("socials").style.padding = "26px 0";
+  document.getElementById("about").classList.add("hidden");
 
-    // TODO make background do something bonkerz
+  // TODO make background do something bonkerz
 }
 
 // TODO method to switch to blog mode
 function showBlog() {
-    if (currentMode=="about"){
-        document.getElementById("about").classList.remove("hidden");
-    }
-    if (currentMode=="about") {
-        let options = document.getElementById("options-container")
-        options.classList.add("hidden");
-    }
-    currentMode = "blog";
-    let button = document.getElementById("chevron");
-    button.innerText = "<";
-    button.setAttribute("title", "Back to Home")
-    button.style.cursor = "pointer";
-    document.getElementById("pen").classList.add("hidden");
-    // remove text
+  if (currentMode == "about") {
+    document.getElementById("about").classList.remove("hidden");
+  }
+  if (currentMode == "about") {
+    let options = document.getElementById("options-container");
+    options.classList.add("hidden");
+  }
+  currentMode = "blog";
+  let button = document.getElementById("chevron");
+  button.innerText = "<";
+  button.setAttribute("title", "Back to Home");
+  button.style.cursor = "pointer";
+  document.getElementById("pen").classList.add("hidden");
+  // remove text
 
-    // TODO blinking cursor breaks
-    // remove text
-    let desc = document.getElementById("desc");
-    desc.innerHTML = ' ';
-    desc.style.minWidth = "276px";
-    let text = document.getElementById("text");
-    text.innerHTML = ' ';
-    window.setTimeout(function() {terminalText(word4);}, 2000);
-    desc.innerHTML = "<ul><li><a id='blog-link' href=''><i>*crickets*</i></a></li><li><a id='blog-link' href=''><i>*more crickets*</i></a></li></ul>"
-
+  // TODO blinking cursor breaks
+  // remove text
+  let desc = document.getElementById("desc");
+  desc.innerHTML = " ";
+  desc.style.minWidth = "276px";
+  let text = document.getElementById("text");
+  text.innerHTML = " ";
+  window.setTimeout(function () {
+    terminalText(word4);
+  }, 2000);
+  desc.innerHTML =
+    "<ul><li><a onmouseenter={showDate(0)} onmouseleave={hideDate(0)} id='blog-link' href=''><i>*crickets*</i></a><span class='blog-date'>12/22</span></li><li><a onmouseenter={showDate(1)} onmouseleave={hideDate(1)} id='blog-link' href=''><i>*more crickets*</i></a><span class='blog-date'>08/22</span></li></ul>";
 }
 
 // TODO method to switch to home mode
 function showHome() {
-    window.setTimeout(function() {terminalText(word2);}, 2000);
-    let button = document.getElementById("chevron");
-    button.innerText = ">";
-    if (currentMode=="about") {
-        let options = document.getElementById("options-container")
-        options.classList.add("hidden");
-    }
-    document.getElementById("main-copy").innerHTML = mainCopy;
-    document.getElementById("socials").style.padding = "0";
-    document.getElementById("pen").classList.remove("hidden");
-    document.getElementById("about").classList.remove("hidden");
+  window.setTimeout(function () {
+    terminalText(word2);
+  }, 2000);
+  let button = document.getElementById("chevron");
+  button.innerText = ">";
+  if (currentMode == "about") {
+    let options = document.getElementById("options-container");
+    options.classList.add("hidden");
+  }
+  document.getElementById("main-copy").innerHTML = mainCopy;
+  document.getElementById("socials").style.padding = "0";
+  document.getElementById("pen").classList.remove("hidden");
+  document.getElementById("about").classList.remove("hidden");
+}
+
+function showDate(list_position) {
+    let theDate = document.getElementsByTagName('ul')[0].childNodes[list_position].childNodes[1];
+    theDate.style.opacity = 1;
+}
+
+function hideDate(list_position) {
+    let theDate = document.getElementsByTagName('ul')[0].childNodes[list_position].childNodes[1];
+    theDate.style.opacity = 0;
 }
 
 // TODO method for narration
 function turnOnNarration() {
-    if (!document.body.getElementsByClassName('audio').length > 0) {
-        document.body.innerHTML += "<audio id='audio-player' preload='auto' src='/media/about_narration.mp3'></audio>";
-    }
-    let narrationAudio = document.getElementById('audio-player');
-    narrationAudio.play()
+  if (!document.body.getElementsByClassName("audio").length > 0) {
+    document.body.innerHTML +=
+      "<audio id='audio-player' preload='auto' src='/media/about_narration.mp3'></audio>";
+  }
+  let narrationAudio = document.getElementById("audio-player");
+  narrationAudio.play();
 
-    let button = document.getElementById("button");
-    button.innerHTML = "<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' class='feather feather-stop-circle'><circle cx='12' cy='12' r='10'></circle><rect x='10' y='10' width='4' height='4' fill='currentColor'></rect></svg>"
-    // button.innerHTML = "<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' class='feather feather-pause-circle'><circle cx='12' cy='12' r='10'></circle><line x1='10' y1='15' x2='10' y2='9'></line><line x1='14' y1='15' x2='14' y2='9'></line></svg>"
-    button.removeEventListener('click', () => {
-        turnOnNarration();
-    })
-    button.addEventListener('click', () => {
-        turnOffNarration();
-    })
-    document.getElementById("options-container").addEventListener("mouseleave", () => {
-        document.documentElement.style.background = "#0c0c0d";
-      });
+  let button = document.getElementById("button");
+  button.innerHTML =
+    "<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' class='feather feather-stop-circle'><circle cx='12' cy='12' r='10'></circle><rect x='10' y='10' width='4' height='4' fill='currentColor'></rect></svg>";
+  // button.innerHTML = "<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' class='feather feather-pause-circle'><circle cx='12' cy='12' r='10'></circle><line x1='10' y1='15' x2='10' y2='9'></line><line x1='14' y1='15' x2='14' y2='9'></line></svg>"
+  button.removeEventListener("click", () => {
+    turnOnNarration();
+  });
+  button.addEventListener("click", () => {
+    turnOffNarration();
+  });
+  document
+    .getElementById("options-container")
+    .addEventListener("mouseleave", () => {
+      document.documentElement.style.background = "#0c0c0d";
+    });
 }
 
 function turnOffNarration() {
-    let button = document.getElementById("button");
-    let narrationAudio = document.getElementById('audio-player');
-    narrationAudio.pause()
-    button.innerHTML = "<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' class='feather feather-play-circle'><circle cx='12' cy='12' r='10'></circle><polygon points='10 8 16 12 10 16 10 8'></polygon></svg>";
-    button.removeEventListener('click', () => {
-        turnOffNarration();
-    })
-    button.addEventListener('click', () => {
-        turnOnNarration();
-    })
-    document.getElementById("options-container").addEventListener("mouseleave", () => {
+  let button = document.getElementById("button");
+  let narrationAudio = document.getElementById("audio-player");
+  narrationAudio.pause();
+  button.innerHTML =
+    "<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' class='feather feather-play-circle'><circle cx='12' cy='12' r='10'></circle><polygon points='10 8 16 12 10 16 10 8'></polygon></svg>";
+  button.removeEventListener("click", () => {
+    turnOffNarration();
+  });
+  button.addEventListener("click", () => {
+    turnOnNarration();
+  });
+  document
+    .getElementById("options-container")
+    .addEventListener("mouseleave", () => {
       document.documentElement.style.background = "#0c0c0d";
     });
 }
 
 // TODO method for turning off animations
 function stopBackgroundAnimation() {
-    console.log();
+  console.log();
 }
-
 
 // TODO method for animating background
 function startBackgroundAnimation() {
-    console.log();
+  console.log();
 }
 
 // [!!!!!!!!!] Below is main()
 
-// init background behavior for links 
+// init background behavior for links
 document.getElementById("left-container").addEventListener("mouseleave", () => {
   document.documentElement.style.background = "#0c0c0d";
 });
-document.getElementById("right-container").addEventListener("mouseleave", () => {
-  document.documentElement.style.background = "#0c0c0d";
-});
+document
+  .getElementById("right-container")
+  .addEventListener("mouseleave", () => {
+    document.documentElement.style.background = "#0c0c0d";
+  });
 
 // write the first word immediately
 terminalText(word1);
 
 // write name after 3 seconds
-window.setTimeout(function() {terminalText(word2);}, 3000);
+window.setTimeout(function () {
+  terminalText(word2);
+}, 3000);
 
 // make cursor blink every half second, after 5.5s
-window.setTimeout(function() {window.setInterval(blinkingCursor, 500);}, 5500);
+window.setTimeout(function () {
+  window.setInterval(blinkingCursor, 500);
+}, 5500);
 
 // make links accessible to avoid animation issues oop
-window.setTimeout(function() {
-    document.getElementById('pen').addEventListener('click', () => {
-        showBlog();
-    })
-    document.getElementById('about').addEventListener('click', () => {
-        showAbout();
-    })
+window.setTimeout(function () {
+  document.getElementById("pen").addEventListener("click", () => {
+    showBlog();
+  });
+  document.getElementById("about").addEventListener("click", () => {
+    showAbout();
+  });
 }, 7000);
