@@ -47,6 +47,7 @@ body::-webkit-scrollbar {
 #top-part {
     color: white;
     display: flex;
+    transition: opacity 1s;
 }
 
 .top-text {
@@ -165,6 +166,7 @@ p#links{
 #socials {
     display: flex;
     flex-flow: row;
+    transition: opacity 1s;
 }
 
 .stick-right {
@@ -217,4 +219,8 @@ a#blog-link:hover {
     font-size: 0.95rem;
     opacity: 0;
     color: #757575;
+}
+
+#main-copy {
+    transition: opacity 1s;
 }

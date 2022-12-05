@@ -83,7 +83,6 @@ function tintBackgroundToRgb(string){
 
 // instantiate a new canvas that fills in the background
 function startBackgroundAnimation() {
-  console.log("hi")
   window.addEventListener("load", function () {
     const sqWidthMin = 5; // length of square side 5..sqWidthMax
     const sqWidthMax = 10; // length of square side sqWidthMin..50
@@ -450,6 +449,7 @@ function startBackgroundAnimation() {
       canv.style.position = "absolute";
       canv.style.zIndex="-1";
       canv.style.opacity=0.18;
+      canv.style.transition="opacity 1s";
       document.body.appendChild(canv);
       ctx = canv.getContext("2d");
       canv.setAttribute("title", "click me");
@@ -648,6 +648,21 @@ function turnOffNarration() {
     .addEventListener("mouseleave", () => {
       document.documentElement.style.background = "#0c0c0d";
     });
+}
+
+function seeBackground() {
+  // background visibiltiy
+  document.getElementsByTagName('canvas')[0].style.opacity=1;
+  document.getElementById('top-part').classList.add('hidden');
+  document.getElementById('main-copy').classList.add('hidden');
+  document.getElementById('socials').classList.add('hidden');
+}
+
+function undoSeeBackground() {
+  document.getElementsByTagName('canvas')[0].style.opacity=0.18;
+  document.getElementById('top-part').classList.remove('hidden');
+  document.getElementById('main-copy').classList.remove('hidden');
+  document.getElementById('socials').classList.remove('hidden');
 }
 
 // [!!!!!!!!!] Below is main()

@@ -22,7 +22,7 @@
   <body>
     <!-- TODO make everything slightly larger -->
     <div>
-      <div id="top-part" class="top-text">
+      <div id="top-part" class="top-text" onmouseenter={seeBackground()} onmouseleave={undoSeeBackground()}>
           <span id="chevron" onclick="showHome()">&#62;</span>
           <span id="text"></span>
           <span class='console-underscore' id='console'>&nbsp;&#95;</span>
