@@ -5,6 +5,11 @@
     src: url('/fonts/DM_Mono/DMMono-Regular.ttf') format('truetype');
 }
 
+@font-face {
+    font-family: 'DM Mono Medium';
+    src: url('/fonts/DM_Mono/DMMono-Medium.ttf') format('truetype');
+}
+
 /* Base Elements */
 
 :root {
@@ -46,6 +51,7 @@ body::-webkit-scrollbar {
 
 .top-text {
     font-size: 1.35rem;
+    font-family: 'DM Mono Medium', 'Consolas', monospace;
 }
 
 .options {
@@ -101,12 +107,14 @@ a {
 }
 
 a[id^='apollo']:hover {
-    color: #7b60e8;
+    /* color: #7b60e8; */
+    color: white;
     text-decoration-line: none;
 }
 
 a[id^='room']:hover{
-    color: #0752f5;
+    /* color: #0752f5; */
+    color: white;
     text-decoration-line: none;
 }
 
@@ -121,13 +129,15 @@ a.social-right {
 }
 
 a.social-right:hover {
-    color: rgb(0, 175, 111);
+    /* color: rgb(0, 175, 111); */
+    color: white;
     text-decoration: none;
 }
 
 a#social:hover {
     /* color: #b39a70; */
-    color: #A54D04;
+    /* color: #A54D04; */
+    color: white;
     text-decoration-line: none;
 }
 
@@ -206,5 +216,5 @@ a#blog-link:hover {
     position: absolute;
     font-size: 0.95rem;
     opacity: 0;
-    color: #4f4f4f;
+    color: #757575;
 }

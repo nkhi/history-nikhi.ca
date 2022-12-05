@@ -72,8 +72,13 @@ function blinkingCursor() {
 }
 
 // hover a link, change background color
+// TODO make this only target black behind generation
 function tintBackgroundTo(hexString) {
   document.documentElement.style.background = "#" + hexString;
+}
+
+function tintBackgroundToRgb(string){
+  document.documentElement.style.background = string;
 }
 
 // instantiate a new canvas that fills in the background
@@ -444,7 +449,7 @@ function startBackgroundAnimation() {
       canv = document.createElement("canvas");
       canv.style.position = "absolute";
       canv.style.zIndex="-1";
-      canv.style.opacity=0.25;
+      canv.style.opacity=0.18;
       document.body.appendChild(canv);
       ctx = canv.getContext("2d");
       canv.setAttribute("title", "click me");
@@ -453,7 +458,6 @@ function startBackgroundAnimation() {
     events = [{ event: "reset" }];
     requestAnimationFrame(animate);
   }); // window load listener
-  console.log("hi");
 }
 
 // TODO method for turning off animations
@@ -501,12 +505,6 @@ function showAbout() {
         <span id='button' class='first-option' title='Turn on narration' onmouseenter={tintBackgroundTo('251101')}>
           <svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><circle cx='12' cy='12' r='10'></circle><polygon points='10 8 16 12 10 16 10 8'></polygon></svg>
         </span>
-        <span class='second-option' title='Turn off animation' onmouseenter={tintBackgroundTo('251101')}>
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="7.86 2 16.14 2 22 7.86 22 16.14 16.14 22 7.86 22 2 16.14 2 7.86 7.86 2"></polygon><line x1="15" y1="9" x2="9" y2="15"></line><line x1="9" y1="9" x2="15" y2="15"></line></svg>
-        </span>
-        <span class='last-option' title='Hide text' onmouseenter={tintBackgroundTo('251101')}>
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"></path><line x1="1" y1="1" x2="23" y2="23"></line></svg>
-        </span>
       </div>`;
     // document.getElementById("top-part").innerHTML +=
     //   "<div id='options-container' class='options'><span id='button' class='first-option' title='Turn on narration' onmouseenter={tintBackgroundTo('251101')}><svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' class='feather feather-play-circle'><circle cx='12' cy='12' r='10'></circle><polygon points='10 8 16 12 10 16 10 8'></polygon></svg></span></div>";
@@ -530,8 +528,6 @@ function showAbout() {
   desc.style.margin = "30px 0px 0px 0px";
   document.getElementById("socials").style.padding = "26px 0";
   document.getElementById("about").classList.add("hidden");
-
-  startBackgroundAnimation();
 }
 
 // TODO method to switch to blog mode
@@ -665,6 +661,9 @@ document
   .addEventListener("mouseleave", () => {
     document.documentElement.style.background = "#0c0c0d";
   });
+  // document.getElementById("last-option").addEventListener("click", () => {
+  //   stopBackgroundAnimation();
+  // });
 
 // write the first word immediately
 terminalText(word1);
