@@ -52,25 +52,32 @@ body::-webkit-scrollbar {
     margin-left: auto;
 }
 
-.first-option{
-    margin-right: 12px;
-    color: #a0a0a0;
+.first-option {
+    margin-right: 4px;
+    color: #8f8f8f;
     cursor: pointer;
 }
 
-.second-option{
-    margin-right: 12px;
-    color: #a0a0a0;
+.second-option {
+    margin-right: 2px;
+    color: #8f8f8f;
     cursor: pointer;
 }
 
-.first-option:hover {
+.last-option{
+    color: #8f8f8f;
+    cursor: pointer;
+}
+
+.first-option:hover,
+.second-option:hover, 
+.last-option:hover {
     /* color: #114b9c; */
     /* color: #FEFFBE; */
     color: #A54D04;
 }
 
-.second-option:hover {
+ {
     /* color: #FEFFBE; */
     color: #A54D04;
 }
