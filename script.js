@@ -568,10 +568,10 @@ function showHome() {
   }, 2000);
   let button = document.getElementById("chevron");
   button.innerText = ">";
-  if (currentMode == "about") {
-    let options = document.getElementById("options-container");
-    options.classList.add("hidden");
-  }
+  // if (currentMode == "about") {
+  //   let options = document.getElementById("options-container");
+  //   options.classList.add("hidden");
+  // }
   document.getElementById("main-copy").innerHTML = mainCopy;
   document.getElementById("socials").style.padding = "0";
   document.getElementById("pen").classList.remove("hidden");
