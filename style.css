@@ -28,7 +28,7 @@ html {
 }
 
 body {
-    padding: 50px 0px 40px 0;
+    padding: 45px 0px 35px 0;
     position: relative;
     width: 440px;
     overflow-x: hidden;
@@ -38,6 +38,7 @@ body {
     min-width: 300px;
     -ms-overflow-style: none; 
     scrollbar-width: none;
+    transition: backdrop-filter 7s;
 }
 
 .transparent-surface {
@@ -45,6 +46,7 @@ body {
     border-radius: 50px;
     backdrop-filter: blur(5px);
     -webkit-backdrop-filter: blur(5px);
+    border: 1.5px solid #ffffff0d;
 }
 
 body::-webkit-scrollbar {
@@ -87,11 +89,6 @@ body::-webkit-scrollbar {
 .second-option:hover, 
 .last-option:hover {
     /* color: #114b9c; */
-    /* color: #FEFFBE; */
-    color: #A54D04;
-}
-
- {
     /* color: #FEFFBE; */
     color: #A54D04;
 }
@@ -186,7 +183,7 @@ p#links{
     display: inline-block;
     position: relative;
     top: 0.05em;
-    right: 8px;
+    right: 4px;
     margin-left: 12px;
 }
 
@@ -197,7 +194,6 @@ p#links{
 
 #chevron {
     margin-right: 12px;
-    transition: color 1s;
 }
 
 #play-button {

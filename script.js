@@ -520,13 +520,14 @@ function showAbout() {
   // document.getElementById("button").addEventListener("click", () => {
   //   turnOnNarration();
   // });
+  transparentMode();
 
   let desc = document.getElementById("desc");
   // TODO write an about section
   desc.innerText =
     "One day, Nikhi will capture the true essence of his being and inscribe it here for all to bear witness. \n\nUntil then, it's empty.";
   desc.style.margin = "30px 0px 0px 0px";
-  document.getElementById("socials").style.padding = "26px 0";
+  document.getElementById("socials").style.padding = "26px 0 0 0";
   document.getElementById("about").classList.add("hidden");
 }
 
@@ -543,18 +544,21 @@ function showBlog() {
   if (currentMode == "about") {
     document.getElementById("about").classList.remove("hidden");
   }
-  if (currentMode == "about") {
-    let options = document.getElementById("options-container");
-    options.classList.add("hidden");
-  }
+  // if (currentMode == "about") {
+  //   let options = document.getElementById("options-container");
+  //   options.classList.add("hidden");
+  // }
   currentMode = "blog";
   let button = document.getElementById("chevron");
   button.innerText = "<";
   button.setAttribute("title", "Back to Home");
   button.style.cursor = "pointer";
+  // button.setAttribute(onmouseenter, addChevronBackgroundHover);
+  // button.setAttribute(onmouseleave, removeChevronBackgroundHover);
+  // button.style.padding = "0 8px";
   document.getElementById("pen").classList.add("hidden");
   // remove text
-
+  
   // TODO blinking cursor breaks
   // remove text
   let desc = document.getElementById("desc");
@@ -567,10 +571,29 @@ function showBlog() {
   }, 2000);
   desc.innerHTML =
     "<ul><li><a onmouseenter={showDate(0)} onmouseleave={hideDate(0)} id='blog-link' href=''><i>*crickets*</i></a><span class='blog-date'>12/22</span></li><li><a onmouseenter={showDate(1)} onmouseleave={hideDate(1)} id='blog-link' href=''><i>*more crickets*</i></a><span class='blog-date'>08/22</span></li></ul>";
-}
+  transparentMode();
+  }
+
+// function addChevronBackgroundHover() {
+//   button.classList.add('chevron-background-hover');
+// }
+
+// function removeChevronBackgroundHover() {
+//   button.classList.remove('chevron-background-hover');
+// }
+
+// function cleanupChevronHoverListeners() {
+//   let button = document.getElementById("chevron");
+//   button.removeAttribute(onmouseenter, addChevronBackgroundHover);
+//   button.removeAttribute(onmouseleave, removeChevronBackgroundHover);
+// }
 
 // TODO method to switch to home mode
 function showHome() {
+  if (currentMode=="about" || currentMode == "blog") {
+    undoTransparentMode();
+    // cleanupChevronHoverListeners();
+  }
   window.setTimeout(function () {
     terminalText(word2);
   }, 2000);
