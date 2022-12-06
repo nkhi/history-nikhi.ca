@@ -450,7 +450,7 @@ function startBackgroundAnimation() {
       canv.style.zIndex="-1";
       canv.style.opacity=0.18;
       canv.style.transition="opacity 1s";
-      document.body.appendChild(canv);
+      document.documentElement.appendChild(canv);
       ctx = canv.getContext("2d");
       canv.setAttribute("title", "click me");
     } // création CANVAS
@@ -528,6 +528,14 @@ function showAbout() {
   desc.style.margin = "30px 0px 0px 0px";
   document.getElementById("socials").style.padding = "26px 0";
   document.getElementById("about").classList.add("hidden");
+}
+
+function transparentMode() {
+  document.body.classList.add('transparent-surface');
+}
+
+function undoTransparentMode() {
+  document.body.classList.remove('transparent-surface');
 }
 
 // TODO method to switch to blog mode

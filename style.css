@@ -18,6 +18,7 @@
 }
 
 html {
+    background-color: #0c0c0d;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -27,10 +28,9 @@ html {
 }
 
 body {
-    margin: auto;
-    padding: 80px 60px;
+    padding: 50px 0px 40px 0;
     position: relative;
-    width: 620px;
+    width: 440px;
     overflow-x: hidden;
     display: flex;
     align-items: center;
@@ -38,6 +38,13 @@ body {
     min-width: 300px;
     -ms-overflow-style: none; 
     scrollbar-width: none;
+}
+
+.transparent-surface {
+    background-color: rgba(50, 50, 50, 0.4);
+    border-radius: 50px;
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
 }
 
 body::-webkit-scrollbar {
