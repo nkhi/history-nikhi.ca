@@ -25,6 +25,7 @@ html {
     height: 100%;
     transition: background-color .65s;
     transition-timing-function: ease-out;
+    cursor:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'  width='48' height='58' viewport='0 0 100 100' style='fill:black;font-size:29px;'><text y='50%'>🎨</text></svg>") 16 0,auto; /*!emojicursor.app*/
 }
 
 body {
@@ -38,7 +39,9 @@ body {
     min-width: 300px;
     -ms-overflow-style: none; 
     scrollbar-width: none;
-    transition: backdrop-filter 7s;
+    height: auto;
+    transition: backdrop-filter 6s,  background-color 6s;
+    cursor: default;
 }
 
 .transparent-surface {
