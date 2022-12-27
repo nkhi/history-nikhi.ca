@@ -1,14 +1,20 @@
 "use strict"; // single JS file, not dangerous
+
+/*
+CONSTANTS
+*/
+
 var terminal = document.getElementById("console");
-var word1 = "hello world";
-var word2 = "Nikhi Bhambra";
-// var word3 = "Back";
-var word4 = "blog";
-var word5 = "about";
 var letterCount = 0;
 var letterDelete = 0;
 var visible = true;
+
+var helloWorld = "hello world";
+var nameString = "Nikhi Bhambra";
+var blogString = "blog";
+var aboutString = "about";
 var currentMode = "home";
+
 let mainCopy = document.getElementById("main-copy").innerHTML;
 
 // TODO audit event listener queue when moving between pages,
@@ -18,7 +24,11 @@ let mainCopy = document.getElementById("main-copy").innerHTML;
 // TODO break out these sections into different js files so this
 // isn't impossible to reason through
 
-// write and delete words
+/*
+UI ELEMENTS
+*/
+
+/* Write and delete words in the heading section */
 function terminalText(word) {
   let docLoc = document.getElementById("text");
 
@@ -41,7 +51,7 @@ function terminalText(word) {
 
     // backspace, but only for the first word
     window.setTimeout(function () {
-      if (letterCount >= word.length && word != word2) {
+      if (letterCount >= word.length && word != nameString) {
         while (letterCount >= 0 && letterDelete != word.length + 1) {
           (function (letterCount) {
             window.setTimeout(function () {
@@ -60,7 +70,7 @@ function terminalText(word) {
   }, 1500);
 }
 
-// simulate active insert cursor
+/* Visually simulate active insert cursor */
 function blinkingCursor() {
   if (visible) {
     terminal.className = "console-underscore hidden";
@@ -71,17 +81,12 @@ function blinkingCursor() {
   }
 }
 
-// hover a link, change background color
-// TODO make this only target black behind generation
+/* Change background of the html element to hexString */
 function tintBackgroundTo(hexString) {
   document.documentElement.style.background = "#" + hexString;
 }
 
-function tintBackgroundToRgb(string){
-  document.documentElement.style.background = string;
-}
-
-// instantiate a new canvas that fills in the background
+/* Instantiate a new canvas that fills in the background with a cool fractal */
 function startBackgroundAnimation() {
   window.addEventListener("load", function () {
     const sqWidthMin = 5; // length of square side 5..sqWidthMax
@@ -460,22 +465,37 @@ function startBackgroundAnimation() {
   }); // window load listener
 }
 
-// TODO method for turning off animations
+/* Option to turn off background animation */
 function stopBackgroundAnimation() {
   console.log();
 }
 
-// TODO hide text on about page to admire background
+/* Option to admire the background animation */
 function hideText() {
   console.log();
 }
 
-// TODO show text again after ^^^
+/* Reciprocal of hideText(), go back to default */
 function showText() {
   console.log();
 }
 
-// switch to about mode
+/* Add a translucent background to make text more ledgible */
+function translucentMode() {
+  document.body.classList.add('transparent-surface');
+}
+
+/* Reciprocal of translucentMode(), remove translucent panel */
+function undotranslucentMode() {
+  document.body.classList.remove('transparent-surface');
+}
+
+
+/*
+SECTIONS
+*/
+
+/* Swich to About mode */
 function showAbout() {
   if (currentMode == "blog") {
     document.getElementById("pen").classList.remove("hidden");
@@ -494,7 +514,7 @@ function showAbout() {
 
   // show 'back'
   window.setTimeout(function () {
-    terminalText(word5);
+    terminalText(aboutString);
   }, 2000);
 
   // show new icons
@@ -520,7 +540,7 @@ function showAbout() {
   // document.getElementById("button").addEventListener("click", () => {
   //   turnOnNarration();
   // });
-  transparentMode();
+  translucentMode();
 
   let desc = document.getElementById("desc");
   // TODO write an about section
@@ -531,13 +551,7 @@ function showAbout() {
   document.getElementById("about").classList.add("hidden");
 }
 
-function transparentMode() {
-  document.body.classList.add('transparent-surface');
-}
 
-function undoTransparentMode() {
-  document.body.classList.remove('transparent-surface');
-}
 
 // TODO method to switch to blog mode
 function showBlog() {
@@ -567,11 +581,11 @@ function showBlog() {
   let text = document.getElementById("text");
   text.innerHTML = " ";
   window.setTimeout(function () {
-    terminalText(word4);
+    terminalText(blogString);
   }, 2000);
   desc.innerHTML =
     "<ul><li><a onmouseenter={showDate(0)} onmouseleave={hideDate(0)} id='blog-link' href=''><i>*crickets*</i></a><span class='blog-date'>12/22</span></li><li><a onmouseenter={showDate(1)} onmouseleave={hideDate(1)} id='blog-link' href=''><i>*more crickets*</i></a><span class='blog-date'>08/22</span></li></ul>";
-  transparentMode();
+  translucentMode();
   }
 
 // function addChevronBackgroundHover() {
@@ -591,11 +605,11 @@ function showBlog() {
 // TODO method to switch to home mode
 function showHome() {
   if (currentMode=="about" || currentMode == "blog") {
-    undoTransparentMode();
+    undotranslucentMode();
     // cleanupChevronHoverListeners();
   }
   window.setTimeout(function () {
-    terminalText(word2);
+    terminalText(nameString);
   }, 2000);
   let button = document.getElementById("chevron");
   button.innerText = ">";
@@ -682,7 +696,6 @@ function turnOffNarration() {
 }
 
 function seeBackground() {
-  // background visibiltiy
   document.getElementsByTagName('canvas')[0].style.opacity=1;
   document.getElementById('top-part').classList.add('hidden');
   document.getElementById('main-copy').classList.add('hidden');
@@ -696,7 +709,7 @@ function undoSeeBackground() {
   document.getElementById('socials').classList.remove('hidden');
 }
 
-// [!!!!!!!!!] Below is main()
+// <---------- MAIN ----------->
 
 // init background behavior for links
 document.getElementById("left-container").addEventListener("mouseleave", () => {
@@ -712,11 +725,11 @@ document
   // });
 
 // write the first word immediately
-terminalText(word1);
+terminalText(helloWorld);
 
 // write name after 3 seconds
 window.setTimeout(function () {
-  terminalText(word2);
+  terminalText(nameString);
 }, 3000);
 
 // make cursor blink every half second, after 5.5s
