@@ -1,5 +1,7 @@
 "use strict"; // single JS file, not dangerous
 
+/* This is a simple website. why make it complicated? */
+
 /*
 CONSTANTS
 */
@@ -8,6 +10,7 @@ var terminal = document.getElementById("console");
 var letterCount = 0;
 var letterDelete = 0;
 var visible = true;
+var expandedText = false;
 
 var helloWorld = "hello world";
 var nameString = "Nikhi Bhambra";
@@ -471,13 +474,19 @@ function stopBackgroundAnimation() {
 }
 
 /* Option to admire the background animation */
-function hideText() {
-  console.log();
+function seeBackground() {
+  document.getElementsByTagName('canvas')[0].style.opacity=1;
+  document.getElementById('top-part').classList.add('hidden');
+  document.getElementById('main-copy').classList.add('hidden');
+  document.getElementById('socials').classList.add('hidden');
 }
 
 /* Reciprocal of hideText(), go back to default */
-function showText() {
-  console.log();
+function undoSeeBackground() {
+  document.getElementsByTagName('canvas')[0].style.opacity=0.18;
+  document.getElementById('top-part').classList.remove('hidden');
+  document.getElementById('main-copy').classList.remove('hidden');
+  document.getElementById('socials').classList.remove('hidden');
 }
 
 /* Add a translucent background to make text more ledgible */
@@ -486,154 +495,37 @@ function translucentMode() {
 }
 
 /* Reciprocal of translucentMode(), remove translucent panel */
-function undotranslucentMode() {
+function undoTranslucentMode() {
   document.body.classList.remove('transparent-surface');
 }
 
-
 /*
-SECTIONS
-*/
-
-/* Swich to About mode */
-function showAbout() {
-  if (currentMode == "blog") {
-    document.getElementById("pen").classList.remove("hidden");
-  }
-  currentMode = "about";
-  // replace terminal chevron with back button
-  let button = document.getElementById("chevron");
-  button.innerText = "<";
-  button.setAttribute("title", "Back to Home");
-  button.style.cursor = "pointer";
-  // TODO blinkingh cursor breaks
-
-  // remove text
-  let text = document.getElementById("text");
-  text.innerHTML = " ";
-
-  // show 'back'
-  window.setTimeout(function () {
-    terminalText(aboutString);
-  }, 2000);
-
-  // show new icons
-  // if (document.getElementById("options-container") == null) {
-  //   document.getElementById(
-  //     "top-part"
-  //   ).innerHTML += `<div id='options-container' class='options'>
-  //       <span id='button' class='first-option' title='Turn on narration' onmouseenter={tintBackgroundTo('251101')}>
-  //         <svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><circle cx='12' cy='12' r='10'></circle><polygon points='10 8 16 12 10 16 10 8'></polygon></svg>
-  //       </span>
-  //     </div>`;
-  //   // document.getElementById("top-part").innerHTML +=
-  //   //   "<div id='options-container' class='options'><span id='button' class='first-option' title='Turn on narration' onmouseenter={tintBackgroundTo('251101')}><svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' class='feather feather-play-circle'><circle cx='12' cy='12' r='10'></circle><polygon points='10 8 16 12 10 16 10 8'></polygon></svg></span></div>";
-  // } else {
-  //   document.getElementById("options-container").classList.remove("hidden");
-  // }
-
-  // document
-  //   .getElementById("options-container")
-  //   .addEventListener("mouseleave", () => {
-  //     document.documentElement.style.background = "#0c0c0d";
-  //   });
-  // document.getElementById("button").addEventListener("click", () => {
-  //   turnOnNarration();
-  // });
-  translucentMode();
-
-  let desc = document.getElementById("desc");
-  // TODO write an about section
-  desc.innerText =
-    "One day, Nikhi will capture the true essence of his being and inscribe it here for all to bear witness. \n\nUntil then, it's empty.";
-  desc.style.margin = "30px 0px 0px 0px";
-  document.getElementById("socials").style.padding = "26px 0 0 0";
-  document.getElementById("about").classList.add("hidden");
+function addChevronBackgroundHover() {
+  button.classList.add('chevron-background-hover');
 }
 
-
-
-// TODO method to switch to blog mode
-function showBlog() {
-  if (currentMode == "about") {
-    document.getElementById("about").classList.remove("hidden");
-  }
-  // if (currentMode == "about") {
-  //   let options = document.getElementById("options-container");
-  //   options.classList.add("hidden");
-  // }
-  currentMode = "blog";
-  let button = document.getElementById("chevron");
-  button.innerText = "<";
-  button.setAttribute("title", "Back to Home");
-  button.style.cursor = "pointer";
-  // button.setAttribute(onmouseenter, addChevronBackgroundHover);
-  // button.setAttribute(onmouseleave, removeChevronBackgroundHover);
-  // button.style.padding = "0 8px";
-  document.getElementById("pen").classList.add("hidden");
-  // remove text
-  
-  // TODO blinking cursor breaks
-  // remove text
-  let desc = document.getElementById("desc");
-  desc.innerHTML = " ";
-  desc.style.minWidth = "276px";
-  let text = document.getElementById("text");
-  text.innerHTML = " ";
-  window.setTimeout(function () {
-    terminalText(blogString);
-  }, 2000);
-  desc.innerHTML =
-    "<ul><li><a onmouseenter={showDate(0)} onmouseleave={hideDate(0)} id='blog-link' href=''><i>*crickets*</i></a><span class='blog-date'>12/22</span></li><li><a onmouseenter={showDate(1)} onmouseleave={hideDate(1)} id='blog-link' href=''><i>*more crickets*</i></a><span class='blog-date'>08/22</span></li></ul>";
-  translucentMode();
-  }
-
-// function addChevronBackgroundHover() {
-//   button.classList.add('chevron-background-hover');
-// }
-
-// function removeChevronBackgroundHover() {
-//   button.classList.remove('chevron-background-hover');
-// }
-
-// function cleanupChevronHoverListeners() {
-//   let button = document.getElementById("chevron");
-//   button.removeAttribute(onmouseenter, addChevronBackgroundHover);
-//   button.removeAttribute(onmouseleave, removeChevronBackgroundHover);
-// }
-
-// TODO method to switch to home mode
-function showHome() {
-  if (currentMode=="about" || currentMode == "blog") {
-    undotranslucentMode();
-    // cleanupChevronHoverListeners();
-  }
-  window.setTimeout(function () {
-    terminalText(nameString);
-  }, 2000);
-  let button = document.getElementById("chevron");
-  button.innerText = ">";
-  // if (currentMode == "about") {
-  //   let options = document.getElementById("options-container");
-  //   options.classList.add("hidden");
-  // }
-  document.getElementById("main-copy").innerHTML = mainCopy;
-  document.getElementById("socials").style.padding = "0";
-  document.getElementById("pen").classList.remove("hidden");
-  document.getElementById("about").classList.remove("hidden");
+function removeChevronBackgroundHover() {
+  button.classList.remove('chevron-background-hover');
 }
 
-// TODO method to switch text icon to open eye
+function cleanupChevronHoverListeners() {
+  let button = document.getElementById("chevron");
+  button.removeAttribute(onmouseenter, addChevronBackgroundHover);
+  button.removeAttribute(onmouseleave, removeChevronBackgroundHover);
+}
+
+TODO method to switch text icon to open eye
 function showEyeIcon() {
-  // <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-eye"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-eye"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
 }
 
-// TODO method to switch eye icon to hide eye icon
+TODO method to switch eye icon to hide eye icon
 function showHideEyeIcon() {
-  //          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"></path><line x1="1" y1="1" x2="23" y2="23"></line></svg>
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"></path><line x1="1" y1="1" x2="23" y2="23"></line></svg>
 }
+/*
 
-// hover function for blog titles
+/* Show date of blog post, used onHoverEnter */
 function showDate(list_position) {
   let theDate =
     document.getElementsByTagName("ul")[0].childNodes[list_position]
@@ -641,7 +533,7 @@ function showDate(list_position) {
   theDate.style.opacity = 1;
 }
 
-// hover function on leave for ^^^
+/* Hide date of blog post, used onHoverLeave */
 function hideDate(list_position) {
   let theDate =
     document.getElementsByTagName("ul")[0].childNodes[list_position]
@@ -695,57 +587,217 @@ function turnOffNarration() {
     });
 }
 
-function seeBackground() {
-  document.getElementsByTagName('canvas')[0].style.opacity=1;
-  document.getElementById('top-part').classList.add('hidden');
-  document.getElementById('main-copy').classList.add('hidden');
-  document.getElementById('socials').classList.add('hidden');
+function playXylophoneSound(letter){
+  if (!document.body.getElementsByClassName("audio").length > 0) {
+    document.body.innerHTML +=
+      `<audio id='audio-player' preload='auto' src='/media/xylophone/${letter}.wav'></audio>`;
+  }
+  let narrationAudio = document.getElementById("audio-player");
+  narrationAudio.volume=0.4;
+  narrationAudio.play();
 }
 
-function undoSeeBackground() {
-  document.getElementsByTagName('canvas')[0].style.opacity=0.18;
-  document.getElementById('top-part').classList.remove('hidden');
-  document.getElementById('main-copy').classList.remove('hidden');
-  document.getElementById('socials').classList.remove('hidden');
+function expandText(){
+  if(currentMode == "home" && expandedText == false){
+    expandedText = true;
+    translucentMode();
+    let desc = document.getElementById("desc");
+    desc.style.margin="27px 0 32px";
+    desc.innerHTML=`At <a id="apollo" target="_blank" href="https://www.apollographql.com/studio/observe/" onmouseenter={tintBackgroundTo('160d38')} onmouseleave={tintBackgroundTo('0c0c0d')}>Apollo</a>, I build analytics tools that give developers new ways to understand and improve their GraphQL APIs. <br><br>I created <a id="room" href="http://www.room738.xyz/" onmouseenter={tintBackgroundTo('0d294d')} onmouseleave={tintBackgroundTo('0c0c0d')}>room738</a> to make free, open-source browser tools.`;
+    desc.style.cursor="url('media/check-cursor.svg'), pointer";
+    desc.addEventListener("click", () => {
+      compressText();
+    });
+  }
 }
 
-// <---------- MAIN ----------->
+function compressText(){
+  if(currentMode == "home" && expandedText == true) {
+    expandedText = false;
+    undoTranslucentMode();
+    let desc = document.getElementById("desc");
+    desc.style.margin="22px 0 27px";
+    desc.innerHTML=`I write code at <a id="apollo" target="_blank" href="https://www.apollographql.com/studio/observe/" onmouseenter={tintBackgroundTo('160d38')} onmouseleave={tintBackgroundTo('0c0c0d')}>Apollo</a>
+    <br> & make gizmos at <a id="room" href="http://www.room738.xyz/" onmouseenter={tintBackgroundTo('0d294d')} onmouseleave={tintBackgroundTo('0c0c0d')}>room738</a>`;
+    desc.style.cursor="url('media/question-cursor.svg'), help";
+    desc.addEventListener("click", () => {
+      expandText();
+    });
+  }
+}
 
-// init background behavior for links
-document.getElementById("left-container").addEventListener("mouseleave", () => {
-  document.documentElement.style.background = "#0c0c0d";
-});
-document
-  .getElementById("right-container")
-  .addEventListener("mouseleave", () => {
+/*
+SECTIONS
+*/
+
+/* Swich to About mode */
+function showAbout() {
+  if (currentMode == "blog") {
+    document.getElementById("pen").classList.remove("hidden");
+  }
+  if (currentMode == "home") {
+    document.getElementById("desc").style.cursor="default";
+  }
+  // playXylophoneSound("g");
+  currentMode = "about";
+  // replace terminal chevron with back button
+  let button = document.getElementById("chevron");
+  button.innerText = "<";
+  button.setAttribute("title", "Back to Home");
+  button.style.cursor = "pointer";
+  // TODO blinkingh cursor breaks
+
+  // remove text
+  let text = document.getElementById("text");
+  text.innerHTML = " ";
+
+  // show 'back'
+  window.setTimeout(function () {
+    terminalText(aboutString);
+  }, 2000);
+
+  // show new icons
+  // if (document.getElementById("options-container") == null) {
+  //   document.getElementById(
+  //     "top-part"
+  //   ).innerHTML += `<div id='options-container' class='options'>
+  //       <span id='button' class='first-option' title='Turn on narration' onmouseenter={tintBackgroundTo('251101')}>
+  //         <svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><circle cx='12' cy='12' r='10'></circle><polygon points='10 8 16 12 10 16 10 8'></polygon></svg>
+  //       </span>
+  //     </div>`;
+  //   // document.getElementById("top-part").innerHTML +=
+  //   //   "<div id='options-container' class='options'><span id='button' class='first-option' title='Turn on narration' onmouseenter={tintBackgroundTo('251101')}><svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' class='feather feather-play-circle'><circle cx='12' cy='12' r='10'></circle><polygon points='10 8 16 12 10 16 10 8'></polygon></svg></span></div>";
+  // } else {
+  //   document.getElementById("options-container").classList.remove("hidden");
+  // }
+
+  // document
+  //   .getElementById("options-container")
+  //   .addEventListener("mouseleave", () => {
+  //     document.documentElement.style.background = "#0c0c0d";
+  //   });
+  // document.getElementById("button").addEventListener("click", () => {
+  //   turnOnNarration();
+  // });
+  translucentMode();
+
+  let desc = document.getElementById("desc");
+  // TODO write an about section
+  desc.innerText =
+    "One day, Nikhi will capture the true essence of his being and inscribe it here for all to bear witness. \n\nUntil then, it's empty.";
+  desc.style.margin = "30px 0px 0px 0px";
+  document.getElementById("socials").style.padding = "26px 0 0 0";
+  document.getElementById("about").classList.add("hidden");
+}
+
+/* Switch to Blog mode*/
+function showBlog() {
+  if (currentMode == "about") {
+    document.getElementById("about").classList.remove("hidden");
+  }
+  if (currentMode == "home" && expandedText) {
+    document.getElementById("desc").style.margin="22px 0 25px";
+  }
+  if (currentMode == "home") {
+    document.getElementById("desc").style.cursor="default";
+  }
+  // playXylophoneSound("f");
+  // if (currentMode == "about") {
+  //   let options = document.getElementById("options-container");
+  //   options.classList.add("hidden");
+  // }
+  currentMode = "blog";
+  let button = document.getElementById("chevron");
+  button.innerText = "<";
+  button.setAttribute("title", "Back to Home");
+  button.style.cursor = "pointer";
+  // button.setAttribute(onmouseenter, addChevronBackgroundHover);
+  // button.setAttribute(onmouseleave, removeChevronBackgroundHover);
+  // button.style.padding = "0 8px";
+  document.getElementById("pen").classList.add("hidden");
+  // remove text
+  
+  // TODO blinking cursor breaks
+  // remove text
+  let desc = document.getElementById("desc");
+  desc.innerHTML = " ";
+  desc.style.minWidth = "276px";
+  let text = document.getElementById("text");
+  text.innerHTML = " ";
+  window.setTimeout(function () {
+    terminalText(blogString);
+  }, 2000);
+  desc.innerHTML =
+    "<ul><li><a onmouseenter={showDate(0)} onmouseleave={hideDate(0)} id='blog-link' href=''><i>*crickets*</i></a><span class='blog-date'>12/22</span></li><li><a onmouseenter={showDate(1)} onmouseleave={hideDate(1)} id='blog-link' href=''><i>*more crickets*</i></a><span class='blog-date'>08/22</span></li><li><a onmouseenter={showDate(2)} onmouseleave={hideDate(2)} id='blog-link' href=''><i>*mooore crickets*</i></a><span class='blog-date'>08/20</span></li></ul>";
+  translucentMode();
+}
+
+/* Switch to Home mode. Default. */
+function showHome() {
+  if (currentMode=="about" || currentMode == "blog") {
+    undoTranslucentMode();
+    document.getElementById("desc").addEventListener("click", () => {
+      expandText();
+    })
+    // cleanupChevronHoverListeners();
+  }
+  currentMode = "home";
+  // playXylophoneSound("c2");
+  window.setTimeout(function () {
+    terminalText(nameString);
+  }, 2000);
+  let button = document.getElementById("chevron");
+  button.innerText = ">";
+  // if (currentMode == "about") {
+  //   let options = document.getElementById("options-container");
+  //   options.classList.add("hidden");
+  // }
+  document.getElementById("main-copy").innerHTML = mainCopy;
+  document.getElementById("socials").style.padding = "0";
+  document.getElementById("pen").classList.remove("hidden");
+  document.getElementById("about").classList.remove("hidden");
+}
+
+/*
+MAIN!
+*/
+
+function main() {
+  document.body.style.backgroundColor= "#ffffff00"
+  // init background behavior for links
+  document.getElementById("left-container").addEventListener("mouseleave", () => {
     document.documentElement.style.background = "#0c0c0d";
   });
-  // document.getElementById("last-option").addEventListener("click", () => {
-  //   stopBackgroundAnimation();
-  // });
-
-// write the first word immediately
-terminalText(helloWorld);
-
-// write name after 3 seconds
-window.setTimeout(function () {
-  terminalText(nameString);
-}, 3000);
-
-// make cursor blink every half second, after 5.5s
-window.setTimeout(function () {
-  window.setInterval(blinkingCursor, 500);
-}, 5500);
-
-// make links accessible to avoid animation issues oop
-window.setTimeout(function () {
-  document.getElementById("pen").addEventListener("click", () => {
-    showBlog();
+  document
+    .getElementById("right-container")
+    .addEventListener("mouseleave", () => {
+      document.documentElement.style.background = "#0c0c0d";
   });
-  document.getElementById("about").addEventListener("click", () => {
-    showAbout();
-  });
-}, 6000);
 
+  // write the first word immediately
+  terminalText(helloWorld);
 
-startBackgroundAnimation();
+  // write name after 3 seconds
+  window.setTimeout(function () {
+    terminalText(nameString);
+  }, 3000);
+
+  // make cursor blink every half second, after 5.5s
+  window.setTimeout(function () {
+    window.setInterval(blinkingCursor, 500);
+  }, 5500);
+
+  // make links accessible to avoid animation issues oop
+  window.setTimeout(function () {
+    document.getElementById("pen").addEventListener("click", () => {
+      showBlog();
+    });
+    document.getElementById("about").addEventListener("click", () => {
+      showAbout();
+    });
+  }, 6000);
+
+  startBackgroundAnimation();
+}
+
+main();

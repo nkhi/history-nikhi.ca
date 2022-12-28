@@ -13,11 +13,11 @@
 /* Base Elements */
 
 :root {
-    background-color: #0c0c0d;
     font-family: 'DM Mono Regular', 'Consolas', monospace;
 }
 
 html {
+    /* background-color: #0c0c0d00; */
     background-color: #0c0c0d;
     display: flex;
     align-items: center;
@@ -42,7 +42,18 @@ body {
     height: auto;
     transition: backdrop-filter 6s,  background-color 6s;
     cursor: default;
+    /* background-color: #0c0c0d; */
 }
+
+p#desc::-webkit-scrollbar {
+    display: none;
+  }
+  
+
+p#desc {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  } 
 
 .transparent-surface {
     background-color: rgba(50, 50, 50, 0.4);
@@ -126,7 +137,7 @@ a[id^='room']:hover{
     text-decoration-line: none;
 }
 
-a#social {
+a.social {
     color: rgb(160, 160, 160); 
 }
 
@@ -142,7 +153,7 @@ a.social-right:hover {
     text-decoration: none;
 }
 
-a#social:hover {
+a.social:hover {
     /* color: #b39a70; */
     /* color: #A54D04; */
     color: white;
@@ -161,6 +172,9 @@ p#desc {
     margin: 22px 0px 25px;
     width: clamp(276px,  330px);
     max-width: 360px;
+    max-height: 52vh;
+    overflow-y:scroll;
+    cursor: url("media/question-cursor.svg"), help;
 }
 
 p#links{
@@ -229,4 +243,21 @@ a#blog-link:hover {
 
 #main-copy {
     transition: opacity 1s;
+}
+
+#expand {
+    color: #d3d3d3;
+    padding-right: 10px;
+    position:fixed;
+    left: calc(50vw - 175px);
+    transition: opacity 1.5s;
+    opacity: 1;
+}
+
+.hidden-opacity{
+    opacity: 0 !important;
+}
+
+ul {
+    margin: 0;
 }
