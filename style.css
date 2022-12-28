@@ -40,8 +40,11 @@ body {
     -ms-overflow-style: none; 
     scrollbar-width: none;
     height: auto;
-    transition: backdrop-filter 6s,  background-color 6s;
+    transition: backdrop-filter 3.5s, border-color 1s, box-shadow 3s;
+    transition-timing-function: cubic-bezier(.31,.57,.26,.84);
     cursor: default;
+    border-radius: 20px;
+    border: 0px solid #ffffff00
     /* background-color: #0c0c0d; */
 }
 
@@ -49,18 +52,12 @@ p#desc::-webkit-scrollbar {
     display: none;
   }
   
-
-p#desc {
-    -ms-overflow-style: none;
-    scrollbar-width: none;
-  } 
-
 .transparent-surface {
-    background-color: rgba(50, 50, 50, 0.4);
     border-radius: 50px;
-    backdrop-filter: blur(5px);
-    -webkit-backdrop-filter: blur(5px);
-    border: 1.5px solid #ffffff0d;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 2.5px solid #ffffff0d;
+    box-shadow: rgba(0, 0, 0, 0.15) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.15) 0px -3px 5px;
 }
 
 body::-webkit-scrollbar {
@@ -175,6 +172,8 @@ p#desc {
     max-height: 52vh;
     overflow-y:scroll;
     cursor: url("media/question-cursor.svg"), help;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
 }
 
 p#links{
@@ -210,7 +209,7 @@ p#links{
 }
 
 #chevron {
-    margin-right: 12px;
+    margin-right: 16px;
 }
 
 #play-button {
@@ -260,4 +259,12 @@ a#blog-link:hover {
 
 ul {
     margin: 0;
+    padding: 0 0 0 30px;
+}
+
+ul > li {
+    max-width: 240px;
+    overflow: wrap;
+    padding: 8px 0;
+    list-style-type: none;
 }

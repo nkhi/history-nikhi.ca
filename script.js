@@ -602,6 +602,7 @@ function expandText(){
     expandedText = true;
     translucentMode();
     let desc = document.getElementById("desc");
+    desc.title="Learn Less";
     desc.style.margin="27px 0 32px";
     desc.innerHTML=`At <a id="apollo" target="_blank" href="https://www.apollographql.com/studio/observe/" onmouseenter={tintBackgroundTo('160d38')} onmouseleave={tintBackgroundTo('0c0c0d')}>Apollo</a>, I build analytics tools that give developers new ways to understand and improve their GraphQL APIs. <br><br>I created <a id="room" href="http://www.room738.xyz/" onmouseenter={tintBackgroundTo('0d294d')} onmouseleave={tintBackgroundTo('0c0c0d')}>room738</a> to make free, open-source browser tools.`;
     desc.style.cursor="url('media/check-cursor.svg'), pointer";
@@ -616,6 +617,7 @@ function compressText(){
     expandedText = false;
     undoTranslucentMode();
     let desc = document.getElementById("desc");
+    desc.title="Learn More Again";
     desc.style.margin="22px 0 27px";
     desc.innerHTML=`I write code at <a id="apollo" target="_blank" href="https://www.apollographql.com/studio/observe/" onmouseenter={tintBackgroundTo('160d38')} onmouseleave={tintBackgroundTo('0c0c0d')}>Apollo</a>
     <br> & make gizmos at <a id="room" href="http://www.room738.xyz/" onmouseenter={tintBackgroundTo('0d294d')} onmouseleave={tintBackgroundTo('0c0c0d')}>room738</a>`;
@@ -682,9 +684,11 @@ function showAbout() {
   translucentMode();
 
   let desc = document.getElementById("desc");
+  desc.style.maxHeight="237px";
+  desc.style.overflowX="scroll";
+  desc.style.scrollSnapType="x manditory"
   // TODO write an about section
-  desc.innerText =
-    "One day, Nikhi will capture the true essence of his being and inscribe it here for all to bear witness. \n\nUntil then, it's empty.";
+  desc.innerHTML = "<div>One day, Nikhi will capture the true essence of his being and inscribe it here for all to bear witness. Until then, it's empty. One day, Nikhi will capture the true essence of his being and inscribe it here for all to bear witness. Until<br><br></div><div>One day, Nikhi will capture the true essence of his being and inscribe it here for all to bear witness. Until then, it's empty. One day, Nikhi will capture the true essence of his being and inscribe it here for all to bear witness. Until</div>";
   desc.style.margin = "30px 0px 0px 0px";
   document.getElementById("socials").style.padding = "26px 0 0 0";
   document.getElementById("about").classList.add("hidden");
@@ -700,6 +704,7 @@ function showBlog() {
   }
   if (currentMode == "home") {
     document.getElementById("desc").style.cursor="default";
+    document.getElementById("desc").title="";
   }
   // playXylophoneSound("f");
   // if (currentMode == "about") {
@@ -728,8 +733,10 @@ function showBlog() {
     terminalText(blogString);
   }, 2000);
   desc.innerHTML =
-    "<ul><li><a onmouseenter={showDate(0)} onmouseleave={hideDate(0)} id='blog-link' href=''><i>*crickets*</i></a><span class='blog-date'>12/22</span></li><li><a onmouseenter={showDate(1)} onmouseleave={hideDate(1)} id='blog-link' href=''><i>*more crickets*</i></a><span class='blog-date'>08/22</span></li><li><a onmouseenter={showDate(2)} onmouseleave={hideDate(2)} id='blog-link' href=''><i>*mooore crickets*</i></a><span class='blog-date'>08/20</span></li></ul>";
+    "<ul><li><a onmouseenter={showDate(0)} onmouseleave={hideDate(0)} id='blog-link' href=''><i>*crickets*</i></a><span class='blog-date'>12/22</span></li><li><a onmouseenter={showDate(1)} onmouseleave={hideDate(1)} id='blog-link' href=''><i>*more crickets*</i></a><span class='blog-date'>08/22</span></li>";
   translucentMode();
+  // "<ul><li><a onmouseenter={showDate(0)} onmouseleave={hideDate(0)} id='blog-link' href=''>Being a remote developer</a><span class='blog-date'>12/22</span></li><li><a onmouseenter={showDate(1)} onmouseleave={hideDate(1)} id='blog-link' href=''>The Internet isn't fun anymore</a><span class='blog-date'>08/22</span></li>";
+
 }
 
 /* Switch to Home mode. Default. */
