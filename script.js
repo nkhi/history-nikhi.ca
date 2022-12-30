@@ -14,10 +14,11 @@ var expandedText = false;
 
 var helloWorld = "hello world";
 var nameString = "Nikhi Bhambra";
-var blogString = "blog";
+var postsString = "posts";
 var aboutString = "about";
 var currentMode = "home";
 
+var desc = document.getElementById("desc");
 let mainCopy = document.getElementById("main-copy").innerHTML;
 
 // TODO audit event listener queue when moving between pages,
@@ -135,11 +136,6 @@ function startBackgroundAnimation() {
       return mini + mfloor(mrandom() * (maxi - mini)); // range mini .. maxi - 1
     }
 
-    // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-    function randomElement(array) {
-      return array[intAlea(0, array.length)];
-    }
-    // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     function arrayShuffle(array) {
       /* randomly changes the order of items in an array
      only the order is modified, not the elements
@@ -153,8 +149,6 @@ function startBackgroundAnimation() {
       } // for k
       return array;
     } // arrayShuffle
-
-    //------------------------------------------------------------------------
 
     function Square(kx, ky, color) {
       /* constructor */
@@ -178,8 +172,6 @@ function startBackgroundAnimation() {
       ctx.fillStyle = `hsl(${evolColor.hue}, 100%,${evolColor.lum}% )`;
       ctx.fillRect(this.xc - hSide, this.yc - hSide, side, side);
     }; // Square.prototype.fillSquare
-
-    //------------------------------------------------------------------------
 
     function nextColor(evolColor) {
       let hue = evolColor.hue;
@@ -223,8 +215,6 @@ function startBackgroundAnimation() {
         color: color,
       };
     } // returnColor
-
-    //------------------------------------------------------------------------
 
     let animate;
 
@@ -311,8 +301,6 @@ function startBackgroundAnimation() {
       }; // animate
     } // scope for animate
 
-    //------------------------------------------------------------------------
-
     function createGrid() {
       let kx1, ky1, cell;
 
@@ -359,14 +347,11 @@ function startBackgroundAnimation() {
       } // for ky
     } // createGrid
 
-    //------------------------------------------------------------------------
     function addToGroup(group, kx, ky) {
       if (kx < 0 || ky < 0 || kx >= nbx || ky >= nby) return; // out of grid, do not add
       group.add(grid[ky][kx]);
       grid[ky][kx].group = group;
     } // addToGroup
-
-    //------------------------------------------------------------------------
 
     function nextColor(evolColor) {
       let hue = evolColor.hue;
@@ -412,8 +397,6 @@ function startBackgroundAnimation() {
       };
     } // returnColor
 
-    //------------------------------------------------------------------------
-
     function startOver() {
       // canvas dimensions
 
@@ -442,15 +425,10 @@ function startBackgroundAnimation() {
       return true;
     } // startOver
 
-    //------------------------------------------------------------------------
-
     function mouseClick(event) {
       events.push({ event: "click" });
+      document.getElementsByTagName('canvas')[0].removeAttribute("title");
     } // mouseMove
-
-    //------------------------------------------------------------------------
-    //------------------------------------------------------------------------
-    // beginning of execution
 
     {
       canv = document.createElement("canvas");
@@ -460,7 +438,7 @@ function startBackgroundAnimation() {
       canv.style.transition="opacity 1s";
       document.documentElement.appendChild(canv);
       ctx = canv.getContext("2d");
-      canv.setAttribute("title", "click me");
+      canv.setAttribute("title", "you feel a strange urge to click the background...");
     } // création CANVAS
     canv.addEventListener("click", mouseClick); // just for initial position
     events = [{ event: "reset" }];
@@ -525,7 +503,7 @@ function showHideEyeIcon() {
 }
 /*
 
-/* Show date of blog post, used onHoverEnter */
+/* Show date of posts post, used onHoverEnter */
 function showDate(list_position) {
   let theDate =
     document.getElementsByTagName("ul")[0].childNodes[list_position]
@@ -533,7 +511,7 @@ function showDate(list_position) {
   theDate.style.opacity = 1;
 }
 
-/* Hide date of blog post, used onHoverLeave */
+/* Hide date of posts post, used onHoverLeave */
 function hideDate(list_position) {
   let theDate =
     document.getElementsByTagName("ul")[0].childNodes[list_position]
@@ -597,35 +575,13 @@ function playXylophoneSound(letter){
   narrationAudio.play();
 }
 
-function expandText(){
-  if(currentMode == "home" && expandedText == false){
-    expandedText = true;
-    translucentMode();
-    let desc = document.getElementById("desc");
-    desc.title="Learn Less";
-    desc.style.margin="27px 0 32px";
-    desc.innerHTML=`At <a id="apollo" target="_blank" href="https://www.apollographql.com/studio/observe/" onmouseenter={tintBackgroundTo('160d38')} onmouseleave={tintBackgroundTo('0c0c0d')}>Apollo</a>, I build analytics tools that give developers new ways to understand and improve their GraphQL APIs. <br><br>I created <a id="room" href="http://www.room738.xyz/" onmouseenter={tintBackgroundTo('0d294d')} onmouseleave={tintBackgroundTo('0c0c0d')}>room738</a> to make free, open-source browser tools.`;
-    desc.style.cursor="url('media/check-cursor.svg'), pointer";
-    desc.addEventListener("click", () => {
-      compressText();
-    });
-  }
+/* Body is the main panel, and if I want to */
+function changeBodySize() {
+
 }
 
-function compressText(){
-  if(currentMode == "home" && expandedText == true) {
-    expandedText = false;
-    undoTranslucentMode();
-    let desc = document.getElementById("desc");
-    desc.title="Learn More Again";
-    desc.style.margin="22px 0 27px";
-    desc.innerHTML=`I write code at <a id="apollo" target="_blank" href="https://www.apollographql.com/studio/observe/" onmouseenter={tintBackgroundTo('160d38')} onmouseleave={tintBackgroundTo('0c0c0d')}>Apollo</a>
-    <br> & make gizmos at <a id="room" href="http://www.room738.xyz/" onmouseenter={tintBackgroundTo('0d294d')} onmouseleave={tintBackgroundTo('0c0c0d')}>room738</a>`;
-    desc.style.cursor="url('media/question-cursor.svg'), help";
-    desc.addEventListener("click", () => {
-      expandText();
-    });
-  }
+function makeNoteGrid() {
+
 }
 
 /*
@@ -634,11 +590,16 @@ SECTIONS
 
 /* Swich to About mode */
 function showAbout() {
-  if (currentMode == "blog") {
+  if (currentMode == "posts") {
     document.getElementById("pen").classList.remove("hidden");
   }
   if (currentMode == "home") {
-    document.getElementById("desc").style.cursor="default";
+    desc.style.cursor="default";
+  }
+  
+  if(expandedText) {
+    document.getElementById('content-container').style.marginLeft=null;
+    desc.style.margin="22px 0 27px";
   }
   // playXylophoneSound("g");
   currentMode = "about";
@@ -683,35 +644,42 @@ function showAbout() {
   // });
   translucentMode();
 
-  let desc = document.getElementById("desc");
-  desc.style.maxHeight="237px";
-  desc.style.overflowX="scroll";
-  desc.style.scrollSnapType="x manditory"
+  desc.style.minHeight="204px";
+  desc.style.margin="17px 0 13px";
   // TODO write an about section
-  desc.innerHTML = "<div>One day, Nikhi will capture the true essence of his being and inscribe it here for all to bear witness. Until then, it's empty. One day, Nikhi will capture the true essence of his being and inscribe it here for all to bear witness. Until<br><br></div><div>One day, Nikhi will capture the true essence of his being and inscribe it here for all to bear witness. Until then, it's empty. One day, Nikhi will capture the true essence of his being and inscribe it here for all to bear witness. Until</div>";
-  desc.style.margin = "30px 0px 0px 0px";
+  desc.innerHTML = "<div>One day, Nikhi will capture the true essence of his being and inscribe it here for all to bear witness. <br><br>One day.</div>";
+  // desc.style.margin = "30px 0px 0px 0px"; 
   document.getElementById("socials").style.padding = "26px 0 0 0";
   document.getElementById("about").classList.add("hidden");
 }
 
-/* Switch to Blog mode*/
-function showBlog() {
+/* Switch to posts mode*/
+function showPosts() {
   if (currentMode == "about") {
     document.getElementById("about").classList.remove("hidden");
+    desc.style.minHeight=null;
+    // desc.style.minHeight="204px";
+    // document.getElementById("socials").style.padding = "26px 0 0 0";
   }
   if (currentMode == "home" && expandedText) {
-    document.getElementById("desc").style.margin="22px 0 25px";
+    desc.style.margin="22px 0 25px";
   }
   if (currentMode == "home") {
-    document.getElementById("desc").style.cursor="default";
-    document.getElementById("desc").title="";
+    desc.style.cursor="default";
+    desc.removeAttribute('title');
   }
+  if(expandedText) {
+    document.getElementById('content-container').style.marginLeft=null;
+  }
+  desc.style.minWidth="300px";
+  desc.style.height="213px";
+  desc.innerText="";
   // playXylophoneSound("f");
   // if (currentMode == "about") {
   //   let options = document.getElementById("options-container");
   //   options.classList.add("hidden");
   // }
-  currentMode = "blog";
+  currentMode = "posts";
   let button = document.getElementById("chevron");
   button.innerText = "<";
   button.setAttribute("title", "Back to Home");
@@ -724,29 +692,31 @@ function showBlog() {
   
   // TODO blinking cursor breaks
   // remove text
-  let desc = document.getElementById("desc");
   desc.innerHTML = " ";
-  desc.style.minWidth = "276px";
+  desc.style.minWidth = "345px";
   let text = document.getElementById("text");
   text.innerHTML = " ";
   window.setTimeout(function () {
-    terminalText(blogString);
+    terminalText(postsString);
   }, 2000);
-  desc.innerHTML =
-    "<ul><li><a onmouseenter={showDate(0)} onmouseleave={hideDate(0)} id='blog-link' href=''><i>*crickets*</i></a><span class='blog-date'>12/22</span></li><li><a onmouseenter={showDate(1)} onmouseleave={hideDate(1)} id='blog-link' href=''><i>*more crickets*</i></a><span class='blog-date'>08/22</span></li>";
+  
+    // "<ul><li><a onmouseenter={showDate(0)} onmouseleave={hideDate(0)} id='posts-link' href=''><i>*crickets*</i></a><span class='posts-date'>12/22</span></li><li><a onmouseenter={showDate(1)} onmouseleave={hideDate(1)} id='posts-link' href=''><i>*more crickets*</i></a><span class='posts-date'>08/22</span></li>";
   translucentMode();
-  // "<ul><li><a onmouseenter={showDate(0)} onmouseleave={hideDate(0)} id='blog-link' href=''>Being a remote developer</a><span class='blog-date'>12/22</span></li><li><a onmouseenter={showDate(1)} onmouseleave={hideDate(1)} id='blog-link' href=''>The Internet isn't fun anymore</a><span class='blog-date'>08/22</span></li>";
+  // "<ul><li><a onmouseenter={showDate(0)} onmouseleave={hideDate(0)} id='posts-link' href=''>Being a remote developer</a><span class='posts-date'>12/22</span></li><li><a onmouseenter={showDate(1)} onmouseleave={hideDate(1)} id='posts-link' href=''>The Internet isn't fun anymore</a><span class='posts-date'>08/22</span></li>";
 
 }
 
 /* Switch to Home mode. Default. */
 function showHome() {
-  if (currentMode=="about" || currentMode == "blog") {
+  if (currentMode=="about" || currentMode == "posts") {
     undoTranslucentMode();
-    document.getElementById("desc").addEventListener("click", () => {
-      expandText();
+    desc.addEventListener("click", () => {
+      showDetailedHome();
     })
     // cleanupChevronHoverListeners();
+  }
+  if (expandedText) {
+    compressText();
   }
   currentMode = "home";
   // playXylophoneSound("c2");
@@ -763,6 +733,45 @@ function showHome() {
   document.getElementById("socials").style.padding = "0";
   document.getElementById("pen").classList.remove("hidden");
   document.getElementById("about").classList.remove("hidden");
+}
+
+/* Switch to home mode with expanded text and bg*/
+function showDetailedHome(){
+  if(currentMode == "home" && !expandedText){
+    expandedText = true;
+    translucentMode();
+    document.getElementById('right-container').style.paddingRight="2px";
+    document.getElementById('main-copy').style.maxWidth="311px";
+    // desc.style.alignItems="center";
+    desc.title="Learn Less";
+    desc.style.margin="27px 0 31.4px";
+    desc.innerHTML=`At <a id="apollo" target="_blank" href="https://www.apollographql.com/studio/observe/" onmouseenter={tintBackgroundTo('160d38')} onmouseleave={tintBackgroundTo('0c0c0d')}>Apollo</a> I build analytics tools that give developers new ways to understand and improve their GraphQL APIs. <br><br><a id="room" href="http://www.room738.xyz/" onmouseenter={tintBackgroundTo('0d294d')} onmouseleave={tintBackgroundTo('0c0c0d')}>room738</a> makes free, open source browser tools.`;
+    desc.style.cursor="url('media/check-cursor.svg'), pointer";
+    // document.getElementById('content-container').style.marginLeft="16px"
+    document.getElementById('content-container').classList.add('flexbox-util');
+    // document.getElementById('main-copy').style.alignContent="center"; 
+    desc.addEventListener("click", () => {
+      compressText();
+    });
+  }
+}
+
+function compressText(){
+  if(currentMode == "home" && expandedText) {
+    expandedText = false;
+    document.getElementById('right-container').style.paddingRight=null;
+    document.getElementById('main-copy').style.maxWidth="340px";
+    undoTranslucentMode();
+    desc.title="Learn More Again";
+    desc.style.margin="22px 0 27px";
+    desc.innerHTML=`I write code at <a id="apollo" target="_blank" href="https://www.apollographql.com/studio/observe/" onmouseenter={tintBackgroundTo('160d38')} onmouseleave={tintBackgroundTo('0c0c0d')}>Apollo</a>
+    <br> & make gizmos at <a id="room" href="http://www.room738.xyz/" onmouseenter={tintBackgroundTo('0d294d')} onmouseleave={tintBackgroundTo('0c0c0d')}>room738</a>`;
+    desc.style.cursor="url('media/question-cursor.svg'), help";
+    document.getElementById('content-container').style.marginLeft=null;
+    desc.addEventListener("click", () => {
+      showDetailedHome();
+    });
+  }
 }
 
 /*
@@ -797,7 +806,7 @@ function main() {
   // make links accessible to avoid animation issues oop
   window.setTimeout(function () {
     document.getElementById("pen").addEventListener("click", () => {
-      showBlog();
+      showPosts();
     });
     document.getElementById("about").addEventListener("click", () => {
       showAbout();

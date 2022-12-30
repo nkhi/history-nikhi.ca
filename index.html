@@ -21,7 +21,7 @@
   </head>
   <body>
     <!-- TODO make everything slightly larger -->
-    <div>
+    <div id="content-container">
       <div id="top-part" class="top-text">
           <span id="chevron" onclick="showHome()">&#62;</span>
           <span id="text"></span>
@@ -30,7 +30,7 @@
       </div>
 
       <div id="main-copy">
-        <p id="desc" title="Learn More" onclick={expandText()}> I write code at <a id="apollo" target="_blank" href="https://www.apollographql.com/studio/observe/" onmouseenter={tintBackgroundTo('160d38')} onmouseleave={tintBackgroundTo('0c0c0d')}>Apollo</a>
+        <p id="desc" title="Learn More" onclick={showDetailedHome()}> I write code at <a id="apollo" target="_blank" href="https://www.apollographql.com/studio/observe/" onmouseenter={tintBackgroundTo('160d38')} onmouseleave={tintBackgroundTo('0c0c0d')}>Apollo</a>
           <br> & make gizmos at <a id="room" href="http://www.room738.xyz/" onmouseenter={tintBackgroundTo('0d294d')} onmouseleave={tintBackgroundTo('0c0c0d')}>room738</a>
         </p>
       </div>
@@ -50,7 +50,7 @@
 
           </div>
           <div id="right-container" class="stick-right">
-            <a class="social-right" id="pen" target="_blank" title="Blog" onmouseenter={tintBackgroundTo('003622')}>
+            <a class="social-right" id="pen" target="_blank" title="Posts" onmouseenter={tintBackgroundTo('003622')}>
               <svg stroke-width="13" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" viewBox="137.011 138.852 170.841 159.947" width="24" length="24" xmlns="http://www.w3.org/2000/svg">
                 <path d="M 137.011 294.225 C 158.343 281.424 169.013 268.623 169.013 255.822 C 169.013 236.621 162.613 236.621 156.212 236.621 C 149.812 236.621 143.207 243.566 143.411 255.822 C 143.629 268.93 154.023 274.236 159.412 281.424 C 169.013 294.225 175.413 297.425 181.814 287.824 C 186.083 281.424 189.283 276.093 191.414 271.824 C 197.815 286.756 206.346 294.225 217.016 294.225 L 233.017 294.225"/>
                 <g transform="matrix(0.939693, 0.34202, -0.34202, 0.939693, 71.178055, -82.815094)">

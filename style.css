@@ -17,19 +17,16 @@
 }
 
 html {
-    /* background-color: #0c0c0d00; */
     background-color: #0c0c0d;
     display: flex;
     align-items: center;
     justify-content: center;
     height: 100%;
     transition: background-color .65s;
-    transition-timing-function: ease-out;
-/*     cursor:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'  width='48' height='58' viewport='0 0 100 100' style='fill:black;font-size:29px;'><text y='50%'>🎨</text></svg>") 16 0,auto; /*!emojicursor.app*/ */
-}
+    transition-timing-function: ease-out;}
 
 body {
-    padding: 45px 0px 35px 0;
+    padding: 62px 0px 54px 0;
     position: relative;
     width: 440px;
     overflow-x: hidden;
@@ -45,7 +42,6 @@ body {
     cursor: default;
     border-radius: 20px;
     border: 0px solid #ffffff00
-    /* background-color: #0c0c0d; */
 }
 
 p#desc::-webkit-scrollbar {
@@ -56,7 +52,8 @@ p#desc::-webkit-scrollbar {
     border-radius: 50px;
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);
-    border: 2.5px solid #ffffff0d;
+    border: 2px solid #ffffff0d;
+    background-color: #e40808;
     box-shadow: rgba(0, 0, 0, 0.15) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.15) 0px -3px 5px;
 }
 
@@ -71,7 +68,7 @@ body::-webkit-scrollbar {
 }
 
 .top-text {
-    font-size: 1.35rem;
+    font-size: 1.45rem;
     font-family: 'DM Mono Medium', 'Consolas', monospace;
 }
 
@@ -162,14 +159,10 @@ p {
 }
 
 p#desc {
-    text-align: auto;
     line-height: 1.5em;
     color: #d3d3d3;
     font-size: 1.2rem;
-    margin: 22px 0px 25px;
-    width: clamp(276px,  330px);
-    max-width: 360px;
-    max-height: 52vh;
+    margin: 20px 0px 25px;
     overflow-y:scroll;
     cursor: url("media/question-cursor.svg"), help;
     -ms-overflow-style: none;
@@ -225,15 +218,15 @@ p#links{
     margin-right: 12px;
 }
 
-a#blog-link {
+a#posts-link {
     margin-right: 14px;
 }
 
-a#blog-link:hover {
+a#posts-link:hover {
     color: white;
 }
 
-.blog-date {
+.posts-date {
     position: absolute;
     font-size: 0.95rem;
     opacity: 0;
@@ -242,6 +235,8 @@ a#blog-link:hover {
 
 #main-copy {
     transition: opacity 1s;
+    max-width: 340px;
+    max-height: 52vh;
 }
 
 #expand {
@@ -267,4 +262,13 @@ ul > li {
     overflow: wrap;
     padding: 8px 0;
     list-style-type: none;
+}
+
+/* You shouldn't code like this kids */
+.flexbox-util {
+/* #content-container { */
+    display: flex;
+    /* align-items: center; */
+    flex-flow: column;
+    justify-content: center;
 }
