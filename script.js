@@ -592,6 +592,7 @@ SECTIONS
 function showAbout() {
   if (currentMode == "posts") {
     document.getElementById("pen").classList.remove("hidden");
+    desc.style.minWidth="";
   }
   if (currentMode == "home") {
     desc.style.cursor="default";
@@ -646,6 +647,7 @@ function showAbout() {
 
   desc.style.minHeight="204px";
   desc.style.margin="17px 0 13px";
+  desc.style.maxWidth = "325px";
   // TODO write an about section
   desc.innerHTML = "<div>One day, Nikhi will capture the true essence of his being and inscribe it here for all to bear witness. <br><br>One day.</div>";
   // desc.style.margin = "30px 0px 0px 0px"; 
@@ -657,12 +659,13 @@ function showAbout() {
 function showPosts() {
   if (currentMode == "about") {
     document.getElementById("about").classList.remove("hidden");
-    desc.style.minHeight=null;
+    desc.style.minHeight="";
+    desc.style.maxWidth ="";
     // desc.style.minHeight="204px";
     // document.getElementById("socials").style.padding = "26px 0 0 0";
   }
   if (currentMode == "home" && expandedText) {
-    desc.style.margin="22px 0 25px";
+    desc.style.margin="23px 0 26px";
   }
   if (currentMode == "home") {
     desc.style.cursor="default";
@@ -672,7 +675,7 @@ function showPosts() {
     document.getElementById('content-container').style.marginLeft=null;
   }
   desc.style.minWidth="300px";
-  desc.style.height="213px";
+  desc.style.height="204px";
   desc.innerText="";
   // playXylophoneSound("f");
   // if (currentMode == "about") {
@@ -693,7 +696,7 @@ function showPosts() {
   // TODO blinking cursor breaks
   // remove text
   desc.innerHTML = " ";
-  desc.style.minWidth = "345px";
+  desc.style.minWidth = "325px";
   let text = document.getElementById("text");
   text.innerHTML = " ";
   window.setTimeout(function () {
@@ -710,14 +713,18 @@ function showPosts() {
 function showHome() {
   if (currentMode=="about" || currentMode == "posts") {
     undoTranslucentMode();
-    desc.addEventListener("click", () => {
-      showDetailedHome();
-    })
+    desc.style.maxWidth ="";
+    // desc.addEventListener("click", () => {
+    //   showDetailedHome();
+    // })
     // cleanupChevronHoverListeners();
   }
   if (expandedText) {
     compressText();
   }
+  desc.addEventListener("click", () => {
+    showDetailedHome();
+  })
   currentMode = "home";
   // playXylophoneSound("c2");
   window.setTimeout(function () {
