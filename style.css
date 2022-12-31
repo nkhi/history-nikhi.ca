@@ -26,7 +26,7 @@ html {
     transition-timing-function: ease-out;}
 
 body {
-    padding: 62px 0px 54px 0;
+    padding: 58px 0px;
     position: relative;
     width: 444px;
     overflow-x: hidden;
@@ -41,7 +41,7 @@ body {
     transition-timing-function: cubic-bezier(.31,.57,.26,.84);
     cursor: default;
     border-radius: 50px;
-    border: 0px solid #ffffff00
+    border: 0px solid #ffffff00;
 }
 
 p#desc::-webkit-scrollbar {
@@ -272,4 +272,3 @@ ul > li {
     flex-flow: column;
     justify-content: center;
 }
-

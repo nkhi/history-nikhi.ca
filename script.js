@@ -721,8 +721,7 @@ function showPosts() {
   window.setTimeout(function () {
     terminalText(postsString);
   }, 2000);
-  
-    // "<ul><li><a onmouseenter={showDate(0)} onmouseleave={hideDate(0)} id='posts-link' href=''><i>*crickets*</i></a><span class='posts-date'>12/22</span></li><li><a onmouseenter={showDate(1)} onmouseleave={hideDate(1)} id='posts-link' href=''><i>*more crickets*</i></a><span class='posts-date'>08/22</span></li>";
+  desc.innerHTML="<ul><li><a onmouseenter={showDate(0)} onmouseleave={hideDate(0)} id='posts-link' href=''><i>*crickets*</i></a><span class='posts-date'>12/22</span></li><li><a onmouseenter={showDate(1)} onmouseleave={hideDate(1)} id='posts-link' href=''><i>*more crickets*</i></a><span class='posts-date'>08/22</span></li>";
   translucentMode();
   // "<ul><li><a onmouseenter={showDate(0)} onmouseleave={hideDate(0)} id='posts-link' href=''>Being a remote developer</a><span class='posts-date'>12/22</span></li><li><a onmouseenter={showDate(1)} onmouseleave={hideDate(1)} id='posts-link' href=''>The Internet isn't fun anymore</a><span class='posts-date'>08/22</span></li>";
 
