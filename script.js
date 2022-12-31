@@ -9,6 +9,7 @@ CONSTANTS
 var terminal = document.getElementById("console");
 var letterCount = 0;
 var letterDelete = 0;
+var panelCount = 0;
 var visible = true;
 var expandedText = false;
 
@@ -428,6 +429,10 @@ function startBackgroundAnimation() {
     function mouseClick(event) {
       events.push({ event: "click" });
       document.getElementsByTagName('canvas')[0].removeAttribute("title");
+      panelCount += 1;
+      if (panelCount<=9) {
+        playPanelDingSoundEffect(panelCount);
+      }
     } // mouseMove
 
     {
@@ -446,9 +451,31 @@ function startBackgroundAnimation() {
   }); // window load listener
 }
 
+/* The first eight times you click the background, it will play a xylophone sound*/
+function playPanelDingSoundEffect(panelCount) {
+  let notes = ['c', 'd', 'e', 'f', 'g', 'a', 'b', 'c2']
+  let audioPlayer = document.getElementById("audio-player");
+
+  if (panelCount<=8) {
+    if (panelCount==1) {
+      audioPlayer.play();
+    }
+    // Need to load a new sound file
+    else {
+      var newFile = notes[panelCount-1]
+      audioPlayer.setAttribute('src', `media/xylophone/${newFile}.wav`);
+      audioPlayer.play();
+    }
+  } 
+  //  Last loop iteration removes audio tag
+  else {
+    document.getElementsByTagName('audio')[0].remove();
+  }
+}
+
 /* Option to turn off background animation */
 function stopBackgroundAnimation() {
-  console.log();
+  document.getElementsByTagName('canvas')[0].remove();
 }
 
 /* Option to admire the background animation */
@@ -565,16 +592,6 @@ function turnOffNarration() {
     });
 }
 
-function playXylophoneSound(letter){
-  if (!document.body.getElementsByClassName("audio").length > 0) {
-    document.body.innerHTML +=
-      `<audio id='audio-player' preload='auto' src='/media/xylophone/${letter}.wav'></audio>`;
-  }
-  let narrationAudio = document.getElementById("audio-player");
-  narrationAudio.volume=0.4;
-  narrationAudio.play();
-}
-
 /* Body is the main panel, and if I want to */
 function changeBodySize() {
 
@@ -592,6 +609,7 @@ SECTIONS
 function showAbout() {
   if (currentMode == "posts") {
     document.getElementById("pen").classList.remove("hidden");
+    document.getElementById("pen").style.marginRight="0px";
     desc.style.minWidth="";
   }
   if (currentMode == "home") {
@@ -661,6 +679,7 @@ function showPosts() {
     document.getElementById("about").classList.remove("hidden");
     desc.style.minHeight="";
     desc.style.maxWidth ="";
+    document.getElementById("pen").style.marginRight="14px";
     // desc.style.minHeight="204px";
     // document.getElementById("socials").style.padding = "26px 0 0 0";
   }
@@ -714,6 +733,8 @@ function showHome() {
   if (currentMode=="about" || currentMode == "posts") {
     undoTranslucentMode();
     desc.style.maxWidth ="";
+    document.body.style.height="328px";
+    document.getElementById("pen").style.marginRight="14px";
     // desc.addEventListener("click", () => {
     //   showDetailedHome();
     // })
@@ -775,6 +796,7 @@ function compressText(){
     <br> & make gizmos at <a id="room" href="http://www.room738.xyz/" onmouseenter={tintBackgroundTo('0d294d')} onmouseleave={tintBackgroundTo('0c0c0d')}>room738</a>`;
     desc.style.cursor="url('media/question-cursor.svg'), help";
     document.getElementById('content-container').style.marginLeft=null;
+    document.getElementById('content-container').classList.remove('flexbox-util');
     desc.addEventListener("click", () => {
       showDetailedHome();
     });

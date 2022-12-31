@@ -28,7 +28,7 @@ html {
 body {
     padding: 62px 0px 54px 0;
     position: relative;
-    width: 440px;
+    width: 444px;
     overflow-x: hidden;
     display: flex;
     align-items: center;
@@ -36,11 +36,11 @@ body {
     min-width: 300px;
     -ms-overflow-style: none; 
     scrollbar-width: none;
-    height: auto;
-    transition: backdrop-filter 3.5s, border-color 1s, box-shadow 3s;
+    height: 328px;
+    transition: backdrop-filter 3.5s, border-color 1s, box-shadow 5s;
     transition-timing-function: cubic-bezier(.31,.57,.26,.84);
     cursor: default;
-    border-radius: 20px;
+    border-radius: 50px;
     border: 0px solid #ffffff00
 }
 
@@ -272,3 +272,4 @@ ul > li {
     flex-flow: column;
     justify-content: center;
 }
+
