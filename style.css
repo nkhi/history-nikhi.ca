@@ -37,7 +37,7 @@ body {
     -ms-overflow-style: none; 
     scrollbar-width: none;
     height: 328px;
-    transition: backdrop-filter 3.5s, border-color 1s, box-shadow 5s;
+    transition: backdrop-filter 3.5s, border-color 1s, box-shadow 5s background-color 5s;
     transition-timing-function: cubic-bezier(.31,.57,.26,.84);
     cursor: default;
     border-radius: 50px;
@@ -53,9 +53,19 @@ p#desc::-webkit-scrollbar {
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);
     border: 2px solid #ffffff0d;
-    background-color: #e40808;
     box-shadow: rgba(0, 0, 0, 0.15) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.15) 0px -3px 5px;
 }
+
+.darken {
+    backdrop-filter: blur(75px);
+    -webkit-backdrop-filter: blur(75px);
+    background-color: rgba(0 ,0 ,0 , 0.4) !important;
+}
+
+/* .large-panel {
+    height:
+    width:
+} */
 
 body::-webkit-scrollbar {
   display: none;

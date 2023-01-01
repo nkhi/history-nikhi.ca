@@ -12,12 +12,17 @@ var letterDelete = 0;
 var panelCount = 0;
 var visible = true;
 var expandedText = false;
+var newOpacity = 0;
 
 var helloWorld = "hello world";
 var nameString = "Nikhi Bhambra";
 var postsString = "posts";
 var aboutString = "about";
 var currentMode = "home";
+
+let compressedText = `I write code at <a id="apollo" target="_blank" href="https://www.apollographql.com/studio/observe/" onmouseenter={tintBackgroundTo('160d38')} onmouseleave={tintBackgroundTo('0c0c0d')}>Apollo</a>
+<br> & make gizmos at <a id="room" href="http://www.room738.xyz/" onmouseenter={tintBackgroundTo('0d294d')} onmouseleave={tintBackgroundTo('0c0c0d')}>room738</a>`;
+let aboutText ="<div>I'm an engineer based in Toronto. I enjoy building things on the web that make life easier. I've spent about two years working remotely at start-ups, and in the future I would like to apply ML to build tools.<div>";
 
 var desc = document.getElementById("desc");
 let mainCopy = document.getElementById("main-copy").innerHTML;
@@ -497,11 +502,20 @@ function undoSeeBackground() {
 /* Add a translucent background to make text more ledgible */
 function translucentMode() {
   document.body.classList.add('transparent-surface');
+  // document.body.classList.add('darken');
+  // newOpacity = opacityMap(document.getElementById('opacity').value);
+  // document.body.style.backgroundColor = `rgba(0 ,0 ,0 , ${newOpacity}) !important`;
 }
 
 /* Reciprocal of translucentMode(), remove translucent panel */
 function undoTranslucentMode() {
   document.body.classList.remove('transparent-surface');
+  // document.body.classList.remove('darken');
+}
+
+/* HTML sliders like whole numbers, so convert the slider value 0-100 to something between 0-0.4*/
+function opacityMap(inputValue){
+  return (0.4/100)*inputValue;
 }
 
 /*
@@ -667,9 +681,9 @@ function showAbout() {
   desc.style.margin="17px 0 13px";
   desc.style.maxWidth = "325px";
   // TODO write an about section
-  desc.innerHTML = "<div>One day, Nikhi will capture the true essence of his being and inscribe it here for all to bear witness. <br><br>One day.</div>";
+  desc.innerHTML = aboutText;
   // desc.style.margin = "30px 0px 0px 0px"; 
-  document.getElementById("socials").style.padding = "26px 0 0 0";
+  document.getElementById("socials").style.padding = "16px 0 0 0";
   document.getElementById("about").classList.add("hidden");
 }
 
@@ -723,7 +737,7 @@ function showPosts() {
   }, 2000);
   desc.innerHTML="<ul><li><a onmouseenter={showDate(0)} onmouseleave={hideDate(0)} id='posts-link' href=''><i>*crickets*</i></a><span class='posts-date'>12/22</span></li><li><a onmouseenter={showDate(1)} onmouseleave={hideDate(1)} id='posts-link' href=''><i>*more crickets*</i></a><span class='posts-date'>08/22</span></li>";
   translucentMode();
-  // "<ul><li><a onmouseenter={showDate(0)} onmouseleave={hideDate(0)} id='posts-link' href=''>Being a remote developer</a><span class='posts-date'>12/22</span></li><li><a onmouseenter={showDate(1)} onmouseleave={hideDate(1)} id='posts-link' href=''>The Internet isn't fun anymore</a><span class='posts-date'>08/22</span></li>";
+  // "<ul><li><a onmouseenter={showDate(0)} onmouseleave````````````````````````````````````={hideDate(0)} id='posts-link' href=''>Being a remote developer</a><span class='posts-date'>12/22</span></li><li><a onmouseenter={showDate(1)} onmouseleave={hideDate(1)} id='posts-link' href=''>The Internet isn't fun anymore</a><span class='posts-date'>08/22</span></li>";
 
 }
 
@@ -791,8 +805,7 @@ function compressText(){
     undoTranslucentMode();
     desc.title="Learn More Again";
     desc.style.margin="22px 0 27px";
-    desc.innerHTML=`I write code at <a id="apollo" target="_blank" href="https://www.apollographql.com/studio/observe/" onmouseenter={tintBackgroundTo('160d38')} onmouseleave={tintBackgroundTo('0c0c0d')}>Apollo</a>
-    <br> & make gizmos at <a id="room" href="http://www.room738.xyz/" onmouseenter={tintBackgroundTo('0d294d')} onmouseleave={tintBackgroundTo('0c0c0d')}>room738</a>`;
+    desc.innerHTML=compressedText;
     desc.style.cursor="url('media/question-cursor.svg'), help";
     document.getElementById('content-container').style.marginLeft=null;
     document.getElementById('content-container').classList.remove('flexbox-util');
