@@ -37,11 +37,12 @@ body {
     -ms-overflow-style: none; 
     scrollbar-width: none;
     height: 328px;
-    transition: backdrop-filter 3.5s, border-color 1s, box-shadow 5s background-color 5s;
+    transition: backdrop-filter 3.5s, border-color 1s, box-shadow 5s, background-color 1s;
     transition-timing-function: cubic-bezier(.31,.57,.26,.84);
     cursor: default;
     border-radius: 50px;
     border: 0px solid #ffffff00;
+    background-color: #ffffff00;
 }
 
 p#desc::-webkit-scrollbar {
@@ -75,6 +76,7 @@ body::-webkit-scrollbar {
     color: white;
     display: flex;
     transition: opacity 1s;
+    margin-top: 8px;
 }
 
 .top-text {

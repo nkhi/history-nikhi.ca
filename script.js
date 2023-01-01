@@ -22,7 +22,9 @@ var currentMode = "home";
 
 let compressedText = `I write code at <a id="apollo" target="_blank" href="https://www.apollographql.com/studio/observe/" onmouseenter={tintBackgroundTo('160d38')} onmouseleave={tintBackgroundTo('0c0c0d')}>Apollo</a>
 <br> & make gizmos at <a id="room" href="http://www.room738.xyz/" onmouseenter={tintBackgroundTo('0d294d')} onmouseleave={tintBackgroundTo('0c0c0d')}>room738</a>`;
-let aboutText ="<div>I'm an engineer based in Toronto. I enjoy building things on the web that make life easier. I've spent about two years working remotely at start-ups, and in the future I would like to apply ML to build tools.<div>";
+let aboutText ="I'm an Engineer from 🇨🇦. I've spent about two years working remotely at start-ups, and I enjoy building things on the web that make life easier. In the future, I want to design more effective AI architectures.";
+let postsListText = "<ul><li><a onmouseenter={showDate(0)} onmouseleave={hideDate(0)} id='posts-link' href=''>How to explain GraphQL at a party</a><span class='posts-date'>soon</span></li>";
+let detailedHomeText = `At <a id="apollo" target="_blank" href="https://www.apollographql.com/studio/observe/" onmouseenter={tintBackgroundTo('160d38')} onmouseleave={tintBackgroundTo('0c0c0d')}>Apollo</a> I build analytics tools that give developers new ways to understand and improve their GraphQL APIs. <br><br><a id="room" href="http://www.room738.xyz/" onmouseenter={tintBackgroundTo('0d294d')} onmouseleave={tintBackgroundTo('0c0c0d')}>room738</a> makes free, open source browser tools.`;
 
 var desc = document.getElementById("desc");
 let mainCopy = document.getElementById("main-copy").innerHTML;
@@ -33,6 +35,8 @@ let mainCopy = document.getElementById("main-copy").innerHTML;
 
 // TODO break out these sections into different js files so this
 // isn't impossible to reason through
+
+// TODO website shouldn't break when you click too quickly
 
 /*
 UI ELEMENTS
@@ -625,6 +629,7 @@ function showAbout() {
     document.getElementById("pen").classList.remove("hidden");
     document.getElementById("pen").style.marginRight="0px";
     desc.style.minWidth="";
+    desc.style.height=null;
   }
   if (currentMode == "home") {
     desc.style.cursor="default";
@@ -633,6 +638,7 @@ function showAbout() {
   if(expandedText) {
     document.getElementById('content-container').style.marginLeft=null;
     desc.style.margin="22px 0 27px";
+    desc.removeAttribute('title');
   }
   // playXylophoneSound("g");
   currentMode = "about";
@@ -678,8 +684,9 @@ function showAbout() {
   translucentMode();
 
   desc.style.minHeight="204px";
-  desc.style.margin="17px 0 13px";
+  desc.style.margin="20px 0 10px";
   desc.style.maxWidth = "325px";
+  desc.style.textAlign="justify";
   // TODO write an about section
   desc.innerHTML = aboutText;
   // desc.style.margin = "30px 0px 0px 0px"; 
@@ -693,6 +700,7 @@ function showPosts() {
     document.getElementById("about").classList.remove("hidden");
     desc.style.minHeight="";
     desc.style.maxWidth ="";
+    desc.style.textAlign=null;
     document.getElementById("pen").style.marginRight="14px";
     // desc.style.minHeight="204px";
     // document.getElementById("socials").style.padding = "26px 0 0 0";
@@ -706,9 +714,10 @@ function showPosts() {
   }
   if(expandedText) {
     document.getElementById('content-container').style.marginLeft=null;
+    desc.removeAttribute('title');
   }
   desc.style.minWidth="300px";
-  desc.style.height="204px";
+  desc.style.height="231px";
   desc.innerText="";
   // playXylophoneSound("f");
   // if (currentMode == "about") {
@@ -735,7 +744,7 @@ function showPosts() {
   window.setTimeout(function () {
     terminalText(postsString);
   }, 2000);
-  desc.innerHTML="<ul><li><a onmouseenter={showDate(0)} onmouseleave={hideDate(0)} id='posts-link' href=''><i>*crickets*</i></a><span class='posts-date'>12/22</span></li><li><a onmouseenter={showDate(1)} onmouseleave={hideDate(1)} id='posts-link' href=''><i>*more crickets*</i></a><span class='posts-date'>08/22</span></li>";
+  desc.innerHTML=postsListText;
   translucentMode();
   // "<ul><li><a onmouseenter={showDate(0)} onmouseleave````````````````````````````````````={hideDate(0)} id='posts-link' href=''>Being a remote developer</a><span class='posts-date'>12/22</span></li><li><a onmouseenter={showDate(1)} onmouseleave={hideDate(1)} id='posts-link' href=''>The Internet isn't fun anymore</a><span class='posts-date'>08/22</span></li>";
 
@@ -748,9 +757,7 @@ function showHome() {
     desc.style.maxWidth ="";
     document.body.style.height="328px";
     document.getElementById("pen").style.marginRight="14px";
-    // desc.addEventListener("click", () => {
-    //   showDetailedHome();
-    // })
+    desc.style.textAlign=null;
     // cleanupChevronHoverListeners();
   }
   if (expandedText) {
@@ -783,14 +790,11 @@ function showDetailedHome(){
     translucentMode();
     document.getElementById('right-container').style.paddingRight="2px";
     document.getElementById('main-copy').style.maxWidth="311px";
-    // desc.style.alignItems="center";
     desc.title="Learn Less";
     desc.style.margin="27px 0 31.4px";
-    desc.innerHTML=`At <a id="apollo" target="_blank" href="https://www.apollographql.com/studio/observe/" onmouseenter={tintBackgroundTo('160d38')} onmouseleave={tintBackgroundTo('0c0c0d')}>Apollo</a> I build analytics tools that give developers new ways to understand and improve their GraphQL APIs. <br><br><a id="room" href="http://www.room738.xyz/" onmouseenter={tintBackgroundTo('0d294d')} onmouseleave={tintBackgroundTo('0c0c0d')}>room738</a> makes free, open source browser tools.`;
+    desc.innerHTML=detailedHomeText;
     desc.style.cursor="url('media/check-cursor.svg'), pointer";
-    // document.getElementById('content-container').style.marginLeft="16px"
     document.getElementById('content-container').classList.add('flexbox-util');
-    // document.getElementById('main-copy').style.alignContent="center"; 
     desc.addEventListener("click", () => {
       compressText();
     });
