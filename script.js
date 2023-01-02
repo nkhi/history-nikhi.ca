@@ -22,7 +22,7 @@ var currentMode = "home";
 
 let compressedText = `I write code at <a id="apollo" target="_blank" href="https://www.apollographql.com/studio/observe/" onmouseenter={tintBackgroundTo('160d38')} onmouseleave={tintBackgroundTo('0c0c0d')}>Apollo</a>
 <br> & make gizmos at <a id="room" href="http://www.room738.xyz/" onmouseenter={tintBackgroundTo('0d294d')} onmouseleave={tintBackgroundTo('0c0c0d')}>room738</a>`;
-let aboutText ="I'm an Engineer from 🇨🇦. I've spent about two years working remotely at start-ups, and I enjoy building things on the web that make life easier. In the future, I want to design more effective AI architectures.";
+let aboutText ="I've spent two years working remotely at start ups in Toronto, and I like building things on the web that make life easier. In the future, I want to design better AI that can understand like us.";
 let postsListText = "<ul><li><a onmouseenter={showDate(0)} onmouseleave={hideDate(0)} id='posts-link' href=''>How to explain GraphQL at a party</a><span class='posts-date'>soon</span></li>";
 let detailedHomeText = `At <a id="apollo" target="_blank" href="https://www.apollographql.com/studio/observe/" onmouseenter={tintBackgroundTo('160d38')} onmouseleave={tintBackgroundTo('0c0c0d')}>Apollo</a> I build analytics tools that give developers new ways to understand and improve their GraphQL APIs. <br><br><a id="room" href="http://www.room738.xyz/" onmouseenter={tintBackgroundTo('0d294d')} onmouseleave={tintBackgroundTo('0c0c0d')}>room738</a> makes free, open source browser tools.`;
 
@@ -633,12 +633,12 @@ function showAbout() {
   }
   if (currentMode == "home") {
     desc.style.cursor="default";
+    desc.removeAttribute('title');
   }
   
   if(expandedText) {
     document.getElementById('content-container').style.marginLeft=null;
     desc.style.margin="22px 0 27px";
-    desc.removeAttribute('title');
   }
   // playXylophoneSound("g");
   currentMode = "about";
@@ -717,7 +717,7 @@ function showPosts() {
     desc.removeAttribute('title');
   }
   desc.style.minWidth="300px";
-  desc.style.height="231px";
+  desc.style.height="204px";
   desc.innerText="";
   // playXylophoneSound("f");
   // if (currentMode == "about") {
