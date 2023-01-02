@@ -20,11 +20,11 @@ var postsString = "posts";
 var aboutString = "about";
 var currentMode = "home";
 
-let compressedText = `I write code at <a id="apollo" target="_blank" href="https://www.apollographql.com/studio/observe/" onmouseenter={tintBackgroundTo('160d38')} onmouseleave={tintBackgroundTo('0c0c0d')}>Apollo</a>
-<br> & make gizmos at <a id="room" href="http://www.room738.xyz/" onmouseenter={tintBackgroundTo('0d294d')} onmouseleave={tintBackgroundTo('0c0c0d')}>room738</a>`;
+let compressedText = `I write code at <a id="apollo" target="_blank" href="https://www.apollographql.com/studio/observe/" onmouseenter={tintBackgroundTo('2a0957')} onmouseleave={tintBackgroundTo('0c0c0d')}>Apollo</a>
+<br> & make gizmos at <a id="room" href="http://www.room738.xyz/" onmouseenter={tintBackgroundTo('540946')} onmouseleave={tintBackgroundTo('0c0c0d')}>room738</a>`;
 let aboutText ="I've spent two years working remotely at start ups in Toronto, and I like building things on the web that make life easier. In the future, I want to design better AI that can understand like us.";
 let postsListText = "<ul><li><a onmouseenter={showDate(0)} onmouseleave={hideDate(0)} id='posts-link' href=''>How to explain GraphQL at a party</a><span class='posts-date'>soon</span></li>";
-let detailedHomeText = `At <a id="apollo" target="_blank" href="https://www.apollographql.com/studio/observe/" onmouseenter={tintBackgroundTo('160d38')} onmouseleave={tintBackgroundTo('0c0c0d')}>Apollo</a> I build analytics tools that give developers new ways to understand and improve their GraphQL APIs. <br><br><a id="room" href="http://www.room738.xyz/" onmouseenter={tintBackgroundTo('0d294d')} onmouseleave={tintBackgroundTo('0c0c0d')}>room738</a> makes free, open source browser tools.`;
+let detailedHomeText = `At <a id="apollo" target="_blank" href="https://www.apollographql.com/studio/observe/" onmouseenter={tintBackgroundTo('2a0957')} onmouseleave={tintBackgroundTo('0c0c0d')}>Apollo</a> I build analytics tools that give developers new ways to understand and improve their GraphQL APIs. <br><br><a id="room" href="http://www.room738.xyz/" onmouseenter={tintBackgroundTo('540946')} onmouseleave={tintBackgroundTo('0c0c0d')}>room738</a> makes free, open source browser tools.`;
 
 var desc = document.getElementById("desc");
 let mainCopy = document.getElementById("main-copy").innerHTML;
@@ -632,6 +632,7 @@ function showAbout() {
     desc.style.height=null;
   }
   if (currentMode == "home") {
+    document.getElementById("pen").style.marginRight="0px";
     desc.style.cursor="default";
     desc.removeAttribute('title');
   }
