@@ -230,18 +230,16 @@ p#links{
     margin-right: 12px;
 }
 
-a#posts-link {
+a.posts-link {
     margin-right: 14px;
 }
 
-a#posts-link:hover {
-    color: white;
+a.posts-link:hover {
+    color: #ffffff;
 }
 
 .posts-date {
-    position: absolute;
     font-size: 0.95rem;
-    opacity: 0;
     color: #757575;
 }
 
@@ -269,11 +267,15 @@ ul {
     padding: 0 0 0 30px;
 }
 
-ul > li {
+li {
     max-width: 240px;
     overflow: wrap;
-    padding: 8px 0;
+    padding: 8px 0 0 0;
     list-style-type: none;
+}
+
+li:first-child {
+    margin-bottom: 14px;
 }
 
 /* You shouldn't code like this kids */

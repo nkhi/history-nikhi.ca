@@ -23,7 +23,10 @@ var currentMode = "home";
 let compressedText = `I write code at <a id="apollo" target="_blank" href="https://www.apollographql.com/studio/observe/" onmouseenter={tintBackgroundTo('2a0957')} onmouseleave={tintBackgroundTo('0c0c0d')}>Apollo</a>
 <br> & make gizmos at <a id="room" href="http://www.room738.xyz/" onmouseenter={tintBackgroundTo('540946')} onmouseleave={tintBackgroundTo('0c0c0d')}>room738</a>`;
 let aboutText ="I've spent two years working remotely at start ups in Toronto, and I like building things on the web that make life easier. In the future, I want to design better AI that can understand like us.";
-let postsListText = "<ul><li><a onmouseenter={showDate(0)} onmouseleave={hideDate(0)} id='posts-link' href=''>How to explain GraphQL at a party</a><span class='posts-date'>soon</span></li>";
+let postsListText = `<ul>
+                      <li><a class="posts-link" href="https://nikhi.ca">Getting Google Cloud certifications<br><span class="posts-date">In Progress</span></a></li>
+                      <li><a class="posts-link" href="https://nikhi.ca">How to explain GraphQL at a party<br><span class="posts-date">In Progress</span></a></li>
+                    <ul>`;
 let detailedHomeText = `At <a id="apollo" target="_blank" href="https://www.apollographql.com/studio/observe/" onmouseenter={tintBackgroundTo('2a0957')} onmouseleave={tintBackgroundTo('0c0c0d')}>Apollo</a> I build analytics tools that give developers new ways to understand and improve their GraphQL APIs. <br><br><a id="room" href="http://www.room738.xyz/" onmouseenter={tintBackgroundTo('540946')} onmouseleave={tintBackgroundTo('0c0c0d')}>room738</a> makes free, open source browser tools.`;
 
 var desc = document.getElementById("desc");
@@ -548,21 +551,21 @@ function showHideEyeIcon() {
 }
 /*
 
-/* Show date of posts post, used onHoverEnter */
-function showDate(list_position) {
-  let theDate =
-    document.getElementsByTagName("ul")[0].childNodes[list_position]
-      .childNodes[1];
-  theDate.style.opacity = 1;
-}
+// /* Show date of posts post, used onHoverEnter */
+// function showDate(list_position) {
+//   let theDate =
+//     document.getElementsByTagName("ul")[0].childNodes[list_position]
+//       .childNodes[1];
+//   theDate.style.opacity = 1;
+// }
 
-/* Hide date of posts post, used onHoverLeave */
-function hideDate(list_position) {
-  let theDate =
-    document.getElementsByTagName("ul")[0].childNodes[list_position]
-      .childNodes[1];
-  theDate.style.opacity = 0;
-}
+// /* Hide date of posts post, used onHoverLeave */
+// function hideDate(list_position) {
+//   let theDate =
+//     document.getElementsByTagName("ul")[0].childNodes[list_position]
+//       .childNodes[1];
+//   theDate.style.opacity = 0;
+// }
 
 // plays an audio file on the about page when clicked
 function turnOnNarration() {
@@ -794,7 +797,7 @@ function showDetailedHome(){
     desc.title="Learn Less";
     desc.style.margin="27px 0 31.4px";
     desc.innerHTML=detailedHomeText;
-    desc.style.cursor="url('media/check-cursor.svg'), pointer";
+    desc.style.cursor=`url("media/check-cursor.svg"), pointer`;
     document.getElementById('content-container').classList.add('flexbox-util');
     desc.addEventListener("click", () => {
       compressText();
