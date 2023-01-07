@@ -37,7 +37,7 @@ body {
     -ms-overflow-style: none; 
     scrollbar-width: none;
     height: 328px;
-    transition: backdrop-filter 3.5s, border-color 1s, box-shadow 5s, background-color 1s;
+    transition: backdrop-filter 3.5s, border-color 1s, box-shadow 5s, background-color 1s width 4s, height 3s;
     transition-timing-function: cubic-bezier(.31,.57,.26,.84);
     cursor: default;
     border-radius: 50px;
@@ -63,10 +63,10 @@ p#desc::-webkit-scrollbar {
     background-color: rgba(0 ,0 ,0 , 0.4) !important;
 }
 
-/* .large-panel {
-    height:
-    width:
-} */
+.large-panel {
+    height: 860px;
+    width: 738px;
+}
 
 body::-webkit-scrollbar {
   display: none;
