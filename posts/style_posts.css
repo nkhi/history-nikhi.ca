@@ -1,14 +1,3 @@
-/* Do this better TODO */
-/* @font-face {
-  font-family: 'FellTypes-Normal';
-  src: url('/fonts/DM_Mono/FellTypes-Normal.otf') format('opentype');
-}
-
-@font-face {
-  font-family: 'FellTypes-Italic';
-  src: url('/fonts/DM_Mono/FellTypes-Italic.otf') format('opentype');
-} */
-
 @font-face {
   font-family: 'Archivo';
   src: url('/fonts/DM_Mono/Archivo.ttf') format('truetype');
@@ -24,6 +13,12 @@
   src: url('/fonts/DM_Mono/SpaceGrotesk.ttf') format('truetype');
 }
 
+/* Get roasted jquery */
+:root {
+  --metaBeforeElementHeight: 216px;
+  --metaBackground: rgb(91, 8, 158);
+}
+
 html {
     max-width: 38rem;
     padding: 1rem;
@@ -32,6 +27,8 @@ html {
     font-size: 24px;
     font-weight: 400;
     height: calc(100vh - 3rem);
+    -ms-overflow-style: none; 
+    scrollbar-width: none;
 }
 
 #title {
@@ -59,13 +56,30 @@ html {
 
 #meta {
   padding: 42px 64px 32px 30px;
+  /*   width: calc(100vw - 72px); TODO make this align RHS of text */
   color: white;
-  background-color: rgb(8, 86, 158);
+  background-color: var(--metaBackground);
   display: inline-block;
   border-top-right-radius: 50px;
   border-bottom-right-radius: 50px;
+  min-width: 32rem;
+  cursor: pointer;
+  border-right: none;
+  transition: background-color 1s height 2s;
+  /* box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 2px 0px; */
   /* border: 1px solid rgb(5, 52, 96); */
   /* border-left: none; */
+}
+
+/* #meta:hover {
+  background-color: rgb(68, 5, 120);
+} */
+
+@media screen and (max-width: 960px) {
+  #meta {
+    /* idk */
+    min-width: 1px;
+  }  
 }
 
 .hidden {
@@ -79,12 +93,13 @@ html {
   z-index: -1;
   top: 32px;
   content: "";
-  background-color: rgb(8, 86, 158);
+  /* background-color: rgb(8, 86, 158); */
+  background-color: var(--metaBackground);
   /* background-image: linear-gradient(to left, rgb(8, 86, 158) 100%, rgb(96, 158, 8) 0%); */
-  height: 216px;
+  height: var(--metaBeforeElementHeight);
   width: 50vw;
   left: 0px;
-  /* border: 1px solid rgb(5, 52, 96); */
+    /* border: 1px solid rgb(5, 52, 96); */
 }
 
 #date {
@@ -109,8 +124,11 @@ html {
 }
 
 #icon {
-  padding-top:4px;
+  padding-top:5px;
+  padding-left: 1px;
   color: #d9d9d9;
+  min-height: 23px;
+  min-width: 27px;
 }
 
 #play-icon {
@@ -119,6 +137,8 @@ html {
   color: #d9d9d9;
   transition: color 0.5s;
   cursor: pointer;
+  min-width: 32px;
+  min-height: 31.35px;
 }
 
 #play-icon:hover {
@@ -164,3 +184,25 @@ html {
 #content::-webkit-scrollbar {
   display: none;
 }
+
+#status-container {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1;
+}
+
+.progress-container {
+  background-color: rgb(227, 227, 227);
+  height: 8px;
+  width: 100%;
+}
+
+.progress-bar {
+  background-color: rgb(91, 8, 158);
+  height: 10px;
+  width: 0%
+}
+
+/* TODO at 760px hide icons and before element */
