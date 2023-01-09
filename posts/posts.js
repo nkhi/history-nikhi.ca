@@ -41,7 +41,7 @@ function playNarration() {
 
 function expandMeta() {
     document.getElementById('heading-container').classList.remove('hidden');
-    document.getElementById("content").style.maxHeight="calc(100vh - 3rem - 230px)";
+    // document.getElementById("content").style.maxHeight="calc(100vh - 3rem - 230px)";
     document.getElementById("play-icon").title="Play audio narration";
     meta.onclick=shrinkMeta;
     matchMetaElementBeforeHeight();
@@ -51,7 +51,7 @@ function expandMeta() {
 // use css vars
 function shrinkMeta() {
     document.getElementById('heading-container').classList.add('hidden');
-    document.getElementById("content").style.maxHeight="calc(100vh - 3rem - 142px)";
+    // document.getElementById("content").style.maxHeight="calc(100vh - 3rem - 142px)";
     document.getElementById("play-icon").title="Pause audio narration";
     meta.onclick=expandMeta;
     matchMetaElementBeforeHeight();
@@ -66,6 +66,7 @@ function matchMetaElementBeforeHeight() {
 }
   
 function progressBarScroll() {
+    // let content = document.getElementById("")
     let winScroll = document.body.scrollTop || document.documentElement.scrollTop,
         height = document.documentElement.scrollHeight - document.documentElement.clientHeight,
         scrolled = (winScroll / height) * 100;
