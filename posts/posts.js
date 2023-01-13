@@ -101,12 +101,12 @@ window.onscroll = function () {
 // keep meta:before height the same as the meta tag itself.
 // recurring and onPageLoad.
 window.addEventListener("resize", matchMetaElementBeforeHeight);
-meta.addEventListener("mouseenter", () => {
-    meta.style.setProperty('--metaBackground', 'rgb(68, 5, 120)');
-});
+// meta.addEventListener("mouseenter", () => {
+//     meta.style.setProperty('--metaBackground', 'rgb(50, 50, 50)');
+// });
 
-meta.addEventListener("mouseleave", () => {
-    meta.style.setProperty('--metaBackground', 'rgb(91, 8, 158)');
-});
+// meta.addEventListener("mouseleave", () => {
+//     meta.style.setProperty('--metaBackground', 'rgb(39, 39, 39)');
+// });
 
 document.getElementById('audio-player').volume = 0.5;
