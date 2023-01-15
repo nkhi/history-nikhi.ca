@@ -23,10 +23,7 @@ var currentMode = "home";
 let compressedText = `I write code at <a id="apollo" target="_blank" href="https://www.apollographql.com/studio/observe/" onmouseenter={tintBackgroundTo('2a0957')} onmouseleave={tintBackgroundTo('0c0c0d')}>Apollo</a>
 <br> & make gizmos at <a id="room" href="http://www.room738.xyz/" onmouseenter={tintBackgroundTo('540946')} onmouseleave={tintBackgroundTo('0c0c0d')}>room738</a>`;
 let aboutText ="I've spent two years working remotely at start ups in Toronto, and I like building things on the web that make life easier. In the future, I want to design better AI that can understand like us.";
-let postsListText = `<ul>
-                      <li><a class="posts-link" href="/posts/">Learning after graduation<br><span class="posts-date">In Progress</span></a></li>
-                      <li><a class="posts-link" href="/posts/">How to explain GraphQL at a party<br><span class="posts-date">In Progress</span></a></li>
-                    <ul>`;
+let postsListText = `<ul><li></li></ul>`
 let detailedHomeText = `At <a id="apollo" target="_blank" href="https://www.apollographql.com/studio/observe/" onmouseenter={tintBackgroundTo('2a0957')} onmouseleave={tintBackgroundTo('0c0c0d')}>Apollo</a> I build analytics tools that give developers new ways to understand and improve their GraphQL APIs. <br><br><a id="room" href="http://www.room738.xyz/" onmouseenter={tintBackgroundTo('540946')} onmouseleave={tintBackgroundTo('0c0c0d')}>room738</a> makes free, open source browser tools.`;
 
 var desc = document.getElementById("desc");
