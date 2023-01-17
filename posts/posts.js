@@ -7,14 +7,17 @@ let meta = document.getElementById("meta")
 // open txt file and show
 function importJson(json) {
     var postTitle = document.getElementById("title");
-    var postHeading = document.getElementById("heading");
+    // var postHeading = document.getElementById("heading");
     var postDate = document.getElementById("date");
     var content = document.getElementById("content");
+    let paragraph_arr = json.content.split("\n\n").map(text => `<p>${text}</p>`);
 
     postTitle.innerText = json.title;
-    postHeading.innerText = json.heading;
     postDate.innerText = json.date;
-    content.innerText = json.content;
+    for(index in paragraph_arr){
+        content.innerHTML+=paragraph_arr[index];
+    }
+    // content.innerHTML+=a;
 }
 
 async function openPost(postId) {

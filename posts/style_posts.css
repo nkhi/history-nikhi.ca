@@ -19,8 +19,12 @@
   --metaBackground: rgb(39, 39, 39);
 }
 
+body {
+  padding-top: 4rem;
+}
+
 html {
-    max-width: 38rem;
+    max-width: 30rem;
     padding: 1rem;
     margin: auto;
     line-height: 1.5rem;
@@ -30,17 +34,28 @@ html {
     -ms-overflow-style: none; 
     scrollbar-width: none;
     background-color: #0c0c0d;
+    color: #d6d1c9;
 }
 
 html::-webkit-scrollbar {
   display: none;
 }
 
+h1 {
+  font-size: 3.5rem;
+  line-height: 3.75rem;
+  text-align: center;
+}
+
+p:first-of-type {
+  margin-top: 0;
+}
+
 #title {
   font-family: 'Space Grotesk', sans-serif;
-  margin: 0 0 14px 0;
-  padding-left: 14px;
-  line-height: 1.75rem;
+  margin: 0 0 1.5rem 0;
+  padding: 0 2rem 0;
+  font-weight: 800;
 }
 
 #heading {
@@ -60,15 +75,31 @@ html::-webkit-scrollbar {
 }
 
 #meta {
-  padding: 42px 50px 32px 30px;
-  color: white;
-  display: inline-block;
+  padding: 4rem 0 32px 0;
+  margin: 0 0 4rem 0;
+  /* color: white; */
+  /* display: inline-block; */
+  display: flex;
+  flex-flow:column;
   border-radius: 50px;
-  min-width: 32rem;
   cursor: pointer;
   border-right: none;
+  align-items: center;
+  /* background-color: rgb(33, 163, 192); */
   /* transition: background-color 1.5s; */
 }
+
+      /* #meta:after{
+        content: "";
+        position: absolute;
+        z-index: -1;
+        top: 33px;
+        left: -28vw;
+        pointer-events: none;
+        background-image: linear-gradient(to left, rgba(0, 0, 0, 0), rgb(0, 0, 0) 90%);
+        width: 100%;
+        height: var(--metaBeforeElementHeight);
+      } */
 
 /* #meta:hover {
   background-color: rgb(68, 5, 120);
@@ -103,24 +134,20 @@ html::-webkit-scrollbar {
 /* } */
 
 #date {
-  font-size: 24px;
-  margin: 0;
+  font-size: 20px;
+  margin: 0 0 1rem 0;
   font-weight: 200;
   font-family: 'Archivo', sans-serif;
-  padding-left: 18px;
 }
 
 #title-row {
   display: flex;
   flex-flow: row;
-  margin-top: 4px;
-  margin-left: -44px;
 }
 
 #meta-row {
   display: flex;
   flex-flow: row;
-  margin-left: -44px;
 }
 
 .icon {
@@ -145,10 +172,16 @@ html::-webkit-scrollbar {
   color: rgb(255, 255, 255);
 }
 
+#content-container {
+  display: flex;
+  justify-content: center;
+  max-width: 32rem;
+}
+
 /* TODO style scroll bar for content */
 #content {
   font-family: 'Archivo', sans-serif;
-  margin: 0 0 1rem  0;
+  margin: 0 0 5rem 0;
   font-weight: 300;
   word-wrap: break-word;
   /* max-height: calc(100vh - 3rem - 230px); */
@@ -158,12 +191,10 @@ html::-webkit-scrollbar {
   display: flex;
   flex-flow: column;
   align-content: center;
-  border-left: 1px rgb(39, 39, 39) solid;
-  padding: 0 2rem 0 30px;
+  max-width: 26rem;
+  /* padding: 0 2rem 0 0; */
   transition: border-color 1.5s;
   transition-timing-function: cubic-bezier(.31,.57,.26,.84);
-  line-height: 1.75rem;
-  color: white;
 }
 
 /* #content:after {
@@ -208,27 +239,32 @@ html::-webkit-scrollbar {
 
 /* TODO at 760px hide icons and before element */
 
-.css-selector {
-  background: linear-gradient(245deg, #0c0c0d, #0c0c0d, #0c0c0d, #131314, #0c0c0d, #1a1a1c, #0c0c0d, #222225, #0c0c0d, #0c0c0d, #0c0c0d);
-  background-size: 2200% 2200%;
-  
-  -webkit-animation: AnimationName 42s ease infinite;
-  -moz-animation: AnimationName 42s ease infinite;
-  animation: AnimationName 42s ease infinite;
+.banner-shine {
+  background: linear-gradient(245deg, #0c0c0d, #0c0c0d, #0c0c0d, #171719, #0c0c0d, #0c0c0d, #1c1c1f, #0c0c0d, #121213, #000000, #0c0c0d, #0c0c0d, #0c0c0d);
+  background-size: 2600% 2600%;
+  -webkit-animation: AnimationName 41s ease infinite;
+  -moz-animation: AnimationName 41s ease infinite;
+  -o-animation: AnimationName 41s ease infinite;
+  animation: AnimationName 41s ease infinite;
+  z-index: -2;
 }
-  
   @-webkit-keyframes AnimationName {
   0%{background-position:0% 75%}
-  50%{background-position:100% 10%}
+  50%{background-position:100% 26%}
   100%{background-position:0% 75%}
 }
   @-moz-keyframes AnimationName {
   0%{background-position:0% 75%}
-  50%{background-position:100% 10%}
+  50%{background-position:100% 26%}
+  100%{background-position:0% 75%}
+}
+  @-o-keyframes AnimationName {
+  0%{background-position:0% 75%}
+  50%{background-position:100% 26%}
   100%{background-position:0% 75%}
 }
   @keyframes AnimationName {
   0%{background-position:0% 75%}
-  50%{background-position:100% 10%}
+  50%{background-position:100% 26%}
   100%{background-position:0% 75%}
 }
