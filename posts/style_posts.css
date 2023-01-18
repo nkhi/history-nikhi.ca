@@ -13,10 +13,33 @@
   src: url('/fonts/DM_Mono/SpaceGrotesk.ttf') format('truetype');
 }
 
+/* PALLETTES */
+/* 
+  
+  --main-color: #691111;
+  --background-color: #c58989;
+
+  DILL
+    --main-color: #09771d;
+  --background-color: #a4c499;
+
+  BLEU
+    --main-color: #043d6b;
+  --background-color: #7ca3d9;
+
+  Grape
+    --main-color: #34046b;
+  --background-color: #a19ae2;
+  
+ */
+
+
 /* Get roasted jquery */
 :root {
   --metaBeforeElementHeight: 216px;
   --metaBackground: rgb(39, 39, 39);
+  --main-color: #691111;
+  --background-color: #c58989;
 }
 
 body {
@@ -33,8 +56,8 @@ html {
     height: calc(100vh - 3rem);
     -ms-overflow-style: none; 
     scrollbar-width: none;
-    background-color: #0c0c0d;
-    color: #d6d1c9;
+    background-color: var(--background-color);
+    color: var(--main-color);
 }
 
 html::-webkit-scrollbar {
@@ -58,6 +81,8 @@ h2 {
 
 p {
   text-indent: 2rem;
+  font-size: 1.2rem;
+  line-height: 1.5rem;
 }
 
 p:first-of-type {
@@ -72,7 +97,7 @@ p:first-of-type {
   align-content: center;
   text-align: center;
   flex-wrap:wrap;
-  opacity: 0.5;
+  opacity: 0.75;
   transition: opacity 1s;
 }
 
@@ -83,9 +108,11 @@ p:first-of-type {
 .see-more-text {
   border-radius: 75px;
   padding: 2rem;
-  border: 4px solid #d6d1c9;
+  border: 4px solid var(--main-color);
   width: 400px;
   cursor: pointer;
+  background-color: var(--main-color);
+  color: var(--background-color);
 }
 
 #return-home {
@@ -97,13 +124,13 @@ p:first-of-type {
 
 
 .bottom-divider {
-  border-bottom: 1px solid #d6d1c9c0;
+  border-bottom: 1px solid var(--main-color);
   width: 350px;
   padding-top: 1.5rem;
 }
 
 .no-link-style {
-  color: #d6d1c9;
+  color: var(--main-color);
   text-decoration: none;
 }
 
@@ -136,7 +163,7 @@ p:first-of-type {
   display: flex;
   flex-flow:column;
   border-radius: 50px;
-  cursor: pointer;
+  /* cursor: pointer; */
   border-right: none;
   align-items: center;
   /* background-color: rgb(33, 163, 192); */
@@ -249,7 +276,7 @@ p:first-of-type {
 /* TODO style scroll bar for content */
 #content {
   font-family: 'Archivo', sans-serif;
-  margin: 0 0 5rem 0;
+  margin: 0 0 6rem 0;
   font-weight: 300;
   word-wrap: break-word;
   /* max-height: calc(100vh - 3rem - 230px); */
@@ -259,7 +286,8 @@ p:first-of-type {
   display: flex;
   flex-flow: column;
   align-content: center;
-  max-width: 26rem;
+  max-width: 24rem;
+  padding-left: 8px;
   /* padding: 0 2rem 0 0; */
   transition: border-color 1.5s;
   transition-timing-function: cubic-bezier(.31,.57,.26,.84);
@@ -300,7 +328,7 @@ p:first-of-type {
 }
 
 .progress-bar {
-  background-color: #9e9e9e;
+  background-color: var(--main-color);
   height: 12px;
   width: 0%
 }

@@ -7,7 +7,6 @@ let meta = document.getElementById("meta")
 // open txt file and show
 function importJson(json) {
     var postTitle = document.getElementById("title");
-    // var postHeading = document.getElementById("heading");
     var postDate = document.getElementById("date");
     var content = document.getElementById("content");
     let paragraph_arr = json.content.split("\n\n").map(text => `<p>${text}</p>`);
@@ -83,6 +82,11 @@ function progressBarScroll() {
 
 function matchContentHeight() {
     return
+}
+
+function changePalette(a, b) {
+    document.documentElement.style.setProperty('--main-color',"#ffffff");
+    document.documentElement.style.setProperty('--background-color',"#000000");
 }
 
 // make method to break json on br tags with <p> wrappers for a11y
