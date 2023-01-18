@@ -17,7 +17,6 @@ function importJson(json) {
     for(index in paragraph_arr){
         content.innerHTML+=paragraph_arr[index];
     }
-    // content.innerHTML+=a;
 }
 
 async function openPost(postId) {
@@ -29,8 +28,10 @@ async function openPost(postId) {
 function pauseNarration() {
     let narrationAudio = document.getElementById("audio-player");
     narrationAudio.pause();
-    document.getElementById("play-icon").outerHTML = "<svg id='play-icon' onClick={playNarration()} title='Play audio narration' xmlns='http://www.w3.org/2000/svg' width='28' height='28' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' class='feather feather-play-circle'><circle cx='12' cy='12' r='10'></circle><polygon points='10 8 16 12 10 16 10 8'></polygon></svg>";
-    document.getElementById("play-icon").setAttribute("onclick", "playNarration()");
+    document.getElementById("name").innerText = "Play audio recording"
+    document.getElementById("audiobutton").setAttribute("onclick", "playNarration()");
+    // document.getElementById("play-icon").outerHTML = "<svg id='play-icon' onClick={playNarration()} title='Play audio narration' xmlns='http://www.w3.org/2000/svg' width='28' height='28' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' class='feather feather-play-circle'><circle cx='12' cy='12' r='10'></circle><polygon points='10 8 16 12 10 16 10 8'></polygon></svg>";
+    // document.getElementById("play-icon").setAttribute("onclick", "playNarration()");
 }
 
 // make this accept a param to dynamically handle path routing
@@ -38,8 +39,12 @@ function pauseNarration() {
 function playNarration() {
     let narrationAudio = document.getElementById("audio-player");
     narrationAudio.play();
-    document.getElementById("play-icon").outerHTML = "<svg id='play-icon' onClick={playNarration()} title='Play audio narration'  xmlns='http://www.w3.org/2000/svg' width='28' height='28' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' class='feather feather-pause-circle'><circle cx='12' cy='12' r='10'></circle><line x1='10' y1='15' x2='10' y2='9'></line><line x1='14' y1='15' x2='14' y2='9'></line></svg>";
-    document.getElementById("play-icon").setAttribute("onclick", "pauseNarration()");
+    document.getElementById("name").innerText = "Pause audio recording";
+    document.getElementById("audiobutton").onclick="pauseNarration()";
+    // let link = document.getElementById("play-text")
+    link.setAttribute("onclick", "pauseNarration()");
+    // document.getElementById("play-icon").outerHTML = "<svg id='play-icon' onClick={playNarration()} title='Play audio narration'  xmlns='http://www.w3.org/2000/svg' width='28' height='28' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' class='feather feather-pause-circle'><circle cx='12' cy='12' r='10'></circle><line x1='10' y1='15' x2='10' y2='9'></line><line x1='14' y1='15' x2='14' y2='9'></line></svg>";
+
 }
 
 function expandMeta() {
@@ -88,14 +93,14 @@ openPost(6);
 
 // Shrink title after 10s
 
-window.setTimeout(function () {
-    shrinkMeta();
-}, 6000);
+// window.setTimeout(function () {
+//     shrinkMeta();
+// }, 6000);
 
-// lol
-window.setTimeout(() => {
-    matchMetaElementBeforeHeight();
-}, 200);
+// // lol
+// window.setTimeout(() => {
+//     matchMetaElementBeforeHeight();
+// }, 200);
 
 window.onscroll = function () {
     progressBarScroll();
@@ -103,7 +108,7 @@ window.onscroll = function () {
 
 // keep meta:before height the same as the meta tag itself.
 // recurring and onPageLoad.
-window.addEventListener("resize", matchMetaElementBeforeHeight);
+// window.addEventListener("resize", matchMetaElementBeforeHeight);
 // meta.addEventListener("mouseenter", () => {
 //     meta.style.setProperty('--metaBackground', 'rgb(50, 50, 50)');
 // });
