@@ -16,21 +16,36 @@
 /* PALLETTES */
 /* 
   
+  FIG
   --main-color: #691111;
   --background-color: #c58989;
+  --third-color: #932020;
 
   DILL
-    --main-color: #09771d;
+  --main-color: #054f13;
   --background-color: #a4c499;
+  --third-color: #09771d;
 
   BLEU
-    --main-color: #043d6b;
+  --main-color: #043d6b;
   --background-color: #7ca3d9;
+  --third-color: #115D9C;
 
   Grape
-    --main-color: #34046b;
+  --main-color: #34046b;
   --background-color: #a19ae2;
+  --third-color: #5815a5;
   
+  Dark
+    --main-color: #f4ddc6;
+  --background-color: #0c0c0d;
+  --third-color: #b8a28e;
+
+    LIGHT
+  --main-color: #0c0c0d;
+  --background-color: #f4ddc6;
+  --third-color: #323237;
+}
  */
 
 
@@ -38,12 +53,13 @@
 :root {
   --metaBeforeElementHeight: 216px;
   --metaBackground: rgb(39, 39, 39);
-  --main-color: #691111;
-  --background-color: #c58989;
+  --main-color: #025d31;
+  --background-color: #63c599;
+  --third-color: #1f935f;
 }
 
 body {
-  padding-top: 4rem;
+  padding-top: 1.5rem;
 }
 
 html {
@@ -94,10 +110,11 @@ p:first-of-type {
   padding-bottom: 4rem;
   display: flex;
   flex-flow: column;
-  align-content: center;
+  justify-content: center;
+  align-items: center;
   text-align: center;
   flex-wrap:wrap;
-  opacity: 0.75;
+  /* opacity: 0.75; */
   transition: opacity 1s;
 }
 
@@ -108,12 +125,34 @@ p:first-of-type {
 .see-more-text {
   border-radius: 75px;
   padding: 2rem;
-  border: 4px solid var(--main-color);
   width: 400px;
   cursor: pointer;
-  background-color: var(--main-color);
+  background-color: var(--third-color);
   color: var(--background-color);
+  border: 4px solid var(--third-color);
+  transition: background-color 1s, border 1s;
 }
+
+.see-more-text:hover{
+  background-color: var(--main-color);
+  border: 4px solid var(--main-color);
+}
+
+/* .return-home-text {
+  border-radius: 75px;
+  padding: 2rem;
+  width: 200px;
+  cursor: pointer;
+  background-color: var(--background-color);
+  color: var(--main-color);
+  border: 4px solid var(--background-color);
+  transition: background-color 0.75s, border 0.75s;
+}
+
+.return-home-text:hover{
+  background-color: var(--main-color);
+  border: 4px solid var(--main-color);
+} */
 
 #return-home {
   font-size: 1rem;
@@ -122,16 +161,29 @@ p:first-of-type {
   font-family: 'Space Grotesk', sans-serif;
 }
 
+#return-home-text{
+  transition: color 1s;
+}
+
+#return-home-text:hover{
+  color: var(--main-color);
+}
+
 
 .bottom-divider {
-  border-bottom: 1px solid var(--main-color);
+  border-bottom: 1px solid var(--third-color);
   width: 350px;
   padding-top: 1.5rem;
 }
 
 .no-link-style {
-  color: var(--main-color);
+  color: var(--third-color);
   text-decoration: none;
+  transition: color 1s;
+}
+
+.no-link-style:hover {
+  color: var(--main-color);
 }
 
 #title {
@@ -140,7 +192,7 @@ p:first-of-type {
 }
 
 #heading {
-  font-weight: 200;
+  font-weight: 400;
   margin: 0px 0 8px;
   font-size: 24px;
   font-family: 'Archivo', sans-serif;
@@ -217,23 +269,37 @@ p:first-of-type {
 #date {
   font-size: 20px;
   margin: 0 0 1rem 0;
-  font-weight: 200;
+  font-weight: 400;
   font-family: 'Archivo', sans-serif;
+  color: var(--third-color)
 }
 
 #dot {
   font-size: 20px;
   margin: 0 0 1rem 1rem;
-  font-weight: 200;
+  font-weight: 400;
   font-family: 'Archivo', sans-serif;
+  color: var(--third-color);
+  cursor: pointer;
+  transition: color 1s;
+}
+
+#dot:hover {
+  color: var(--main-color);
 }
 
 #name {
   font-size: 20px;
   margin: 0 0 1rem 1rem;
-  font-weight: 200;
+  font-weight: 400;
   font-family: 'Archivo', sans-serif;
+  cursor: pointer;
+  transition: color 1s;
 }
+/* 
+#name:hover {
+  color: var(--main-color);
+} */
 
 #title-row {
   display: flex;
@@ -276,7 +342,7 @@ p:first-of-type {
 /* TODO style scroll bar for content */
 #content {
   font-family: 'Archivo', sans-serif;
-  margin: 0 0 6rem 0;
+  margin: 0 0 6.1rem 0;
   font-weight: 300;
   word-wrap: break-word;
   /* max-height: calc(100vh - 3rem - 230px); */
@@ -328,8 +394,8 @@ p:first-of-type {
 }
 
 .progress-bar {
-  background-color: var(--main-color);
-  height: 12px;
+  background-color: var(--third-color);
+  height: 16px;
   width: 0%
 }
 

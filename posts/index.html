@@ -20,10 +20,10 @@
     <meta name="theme-color" content="#ffffff">
   </head>
   <body>
-    <!-- TODO add banner with 2 icons, home and play. move bottom margin from body to this -->
     <!-- TODO color themes? or color toggle or something cool -->
 
     <!-- Heading, date, play buttom -->
+    <!-- TODO add gradient to text? -->
     <div id="meta">
       <div id="title-row">
         <h1 id="title"></h1>
@@ -31,7 +31,7 @@
 
       <div id="meta-row">
         <h2 id="date">date</h2>
-        <h2 id="dot">•</h2>
+        <h2 id="dot" onclick={cyclePalettes()}>✦</h2>
         <h2 id="name"><div id="audiobutton" class="no-link-style" >Play audio recording</a></div>
       </div>
 
@@ -47,7 +47,7 @@
     <!-- Other stories -->
     <div id="see-more">
       <h2 class="see-more-text">See more</h2>
-      <div id="return-home"><a href="/" class="no-link-style">Return home</a></div>
+      <div id="return-home"><a id="return-home-text" href="/" class="no-link-style">Return home</a></div>
     </div>
 
 

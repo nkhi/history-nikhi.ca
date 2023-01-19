@@ -2,6 +2,16 @@ let idToFilenameIndex = {
     '6':'06_AI_death_and_centrality_of_meaning.json'
 }
 
+let last_palette_i = 0;
+let palettes = [
+    {main: "#691111", back: "#c58989", third:"#932020"},
+    {main: "#054f13", back: "#a4c499", third:"#09771d"},
+    {main: "#043d6b", back: "#7ca3d9", third:"#115D9C"},
+    {main: "#34046b", back: "#a19ae2", third:"#5815a5"},
+    {main: "#f4ddc6", back: "#0c0c0d", third:"#b8a28e"},
+    {main: "#0c0c0d", back: "#f4ddc6", third:"#323237"},
+];
+
 let meta = document.getElementById("meta")
 
 // open txt file and show
@@ -84,9 +94,16 @@ function matchContentHeight() {
     return
 }
 
-function changePalette(a, b) {
-    document.documentElement.style.setProperty('--main-color',"#ffffff");
-    document.documentElement.style.setProperty('--background-color',"#000000");
+function changePalette(main, back, third) {
+    document.documentElement.style.setProperty('--main-color', main);
+    document.documentElement.style.setProperty('--background-color',back);
+    document.documentElement.style.setProperty('--third-color', third);
+}
+
+function cyclePalettes() {
+    let newPalette = palettes[last_palette_i]
+    last_palette_i++;
+    changePalette(newPalette.main, newPalette.back, newPalette.third);
 }
 
 // make method to break json on br tags with <p> wrappers for a11y
