@@ -73,6 +73,12 @@ function progressBarScroll() {
     let winScroll = document.body.scrollTop || document.documentElement.scrollTop,
         height = document.documentElement.scrollHeight - document.documentElement.clientHeight,
         scrolled = (winScroll / height) * 100;
+    if (scrolled => 100) {
+        document.getElementsByClassName("progress-bar")[0].classList.add("wrapper");
+        window.setTimeout(() => {
+            document.getElementsByClassName("progress-bar")[0].classList.remove("wrapper");
+        }, 4500)
+    }
     document.getElementById("progressBar").style.width = scrolled + "%";
 }
 

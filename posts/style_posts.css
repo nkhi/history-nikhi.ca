@@ -27,6 +27,7 @@ body {
 }
 
 html {
+    min-width: 344px;
     max-width: 30rem;
     padding: 1rem;
     margin: auto;
@@ -383,7 +384,7 @@ p:first-of-type {
 
 .progress-container {
   background-color: rgb(255, 255, 255, 0);
-  height: 8px;
+  height: 12px;
   width: 100%;
 }
 
@@ -392,6 +393,38 @@ p:first-of-type {
   height: 16px;
   width: 0%
 }
+
+.wrapper { 
+  /* background: linear-gradient(124deg, var(--main-color), var(--third-color), #ffffff, var(--main-color), var(--third-color)); */
+  background: linear-gradient(124deg, #ff2400, #e81d1d, #e8b71d, #e3e81d, #1de840, #1ddde8, #2b1de8, #dd00f3, #dd00f3);
+  background-size: 1800% 1800%;
+  -webkit-animation: rainbow 10s ease infinite;
+  -z-animation: rainbow 10s ease infinite;
+  -o-animation: rainbow 10s ease infinite;
+    animation: rainbow 10s ease infinite;}
+
+@-webkit-keyframes rainbow {
+    0%{background-position:0% 82%}
+    50%{background-position:100% 19%}
+    100%{background-position:0% 82%}
+}
+@-moz-keyframes rainbow {
+    0%{background-position:0% 82%}
+    50%{background-position:100% 19%}
+    100%{background-position:0% 82%}
+}
+@-o-keyframes rainbow {
+    0%{background-position:0% 82%}
+    50%{background-position:100% 19%}
+    100%{background-position:0% 82%}
+}
+@keyframes rainbow { 
+    0%{background-position:0% 82%}
+    50%{background-position:100% 19%}
+    100%{background-position:0% 82%}
+}
+
+/* Responsive Layout Styling */
 
 @media screen and (max-width: 758px) {
   body {
@@ -414,7 +447,7 @@ p:first-of-type {
   }
 
   #content-container {
-    padding-top: 0.5rem;
+    padding-top: 0.75rem;
   }
 }
 
@@ -431,6 +464,12 @@ p:first-of-type {
     font-size: 2rem;
     line-height: 2.5rem;
     margin-bottom: 1rem;
+    width: 410px;
+    min-width: 236px;
+  }
+
+  #title {
+    padding: 0 50px;
   }
 
   .bottom-divider {
@@ -460,7 +499,75 @@ p:first-of-type {
 }
 
 @media screen and (max-width: 452px) {
-  #content-container {
+  /* #content-container {
     padding-top: 2rem;
+  } */
+
+  #title {
+    font-size: 1.75rem;
+    max-width: calc(100vw - 2rem)
+  }
+
+  body {
+    grid-template-columns: calc(100vw - 3rem);
+  }
+}
+
+@media screen and (max-width: 382px) {
+  body {
+    grid-template-rows: 190px 1fr;
+  }
+
+  html {
+    font-size: 16px;
+  }
+
+  #date {
+    font-size: 16px;
+  }
+
+  #audiobutton {
+    font-size: 16px;
+  }
+
+  #content-container {
+    padding: 1rem 1rem 0;
+  }
+
+  .see-more-text {
+    max-width: 50vw;
+    font-size: 1.5rem;
+  }
+
+  #return-home-text {
+    font-size: 1rem;
+  }
+}
+
+@media screen and (max-width: 330px) {
+  #date {
+    font-size: 14px;
+  }
+
+  p {
+    text-align: justify;
+  }
+
+  #audiobutton {
+    font-size: 14px;
+  }
+
+  html {
+    font-size: 14px;
+  }
+}
+
+@media screen and (max-width: 290px) {
+  #date {
+    font-size: 12px;
+  }
+
+  #audiobutton {
+    font-size: 12px;
   }
 }
