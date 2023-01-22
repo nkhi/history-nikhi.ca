@@ -220,13 +220,6 @@ p:first-of-type {
   background-color: rgb(68, 5, 120);
 } */
 
-@media screen and (max-width: 960px) {
-  #meta {
-    /* idk */
-    min-width: 1px;
-  }  
-}
-
 .hidden {
   display: none !important;
 }
@@ -398,4 +391,76 @@ p:first-of-type {
   background-color: var(--third-color);
   height: 16px;
   width: 0%
+}
+
+@media screen and (max-width: 758px) {
+  body {
+    grid-template-rows: 535px 1fr;
+  }
+
+  #meta {
+    padding: 1rem 0 0;
+    margin: 0;
+    min-width: 1px;
+  }
+
+  #title {
+    font-size: 3rem;
+    line-height: 3.25rem;
+  }
+
+  .bottom-divider {
+    padding: 1rem;
+  }
+
+  #content-container {
+    padding-top: 0.5rem;
+  }
+}
+
+@media screen and (max-width: 674px) {
+  body {
+    grid-template-rows: 255px 1fr;
+  }
+
+  html {
+    font-size: 18px;
+  }
+
+  #title {
+    font-size: 2rem;
+    line-height: 2.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .bottom-divider {
+    padding: 0.25rem;
+  }
+
+  #content {
+    margin-bottom: 3rem;
+  }
+
+  #content-container {
+    padding-top: 0;
+  }
+
+  .see-more-text {
+    width: 250px;
+    font-size: 2.5rem;
+  }
+
+  #see-more {
+    margin-bottom: 1rem;
+  }
+
+  .bottom-divider {
+    width: 60vw;
+  }
+}
+
+@media screen and (max-width: 452px) {
+  #content-container {
+    padding-top: 2rem;
+  }
 }
