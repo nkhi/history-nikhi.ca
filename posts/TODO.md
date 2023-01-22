@@ -6,3 +6,4 @@
 
     <!-- Heading, date, play buttom -->
     <!-- TODO add gradient to text? -->
+    /* TODO at 760px hide icons and before element */

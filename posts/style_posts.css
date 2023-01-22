@@ -3,60 +3,17 @@
   src: url('/fonts/DM_Mono/Archivo.ttf') format('truetype');
 }
 
-/* @font-face {
-  font-family: 'Archivo Italic';
-  src: url('/fonts/DM_Mono/Archivo-Italic.ttf') format('truetype');
-} */
-
 @font-face {
   font-family: 'Space Grotesk';
   src: url('/fonts/DM_Mono/SpaceGrotesk.ttf') format('truetype');
 }
 
-/* PALLETTES */
-/* 
-  
-  FIG
-  --main-color: #691111;
-  --background-color: #c58989;
-  --third-color: #932020;
-
-  DILL
-  --main-color: #054f13;
-  --background-color: #a4c499;
-  --third-color: #09771d;
-
-  BLEU
-  --main-color: #043d6b;
-  --background-color: #7ca3d9;
-  --third-color: #115D9C;
-
-  Grape
-  --main-color: #34046b;
-  --background-color: #a19ae2;
-  --third-color: #5815a5;
-  
-  Dark
-    --main-color: #f4ddc6;
-  --background-color: #0c0c0d;
-  --third-color: #b8a28e;
-
-    LIGHT
-  --main-color: #0c0c0d;
-  --background-color: #f4ddc6;
-  --third-color: #323237;
-}
- */
-
-
-/* Get roasted jquery */
 :root {
   --metaBeforeElementHeight: 216px;
   --metaBackground: rgb(39, 39, 39);
-  --main-color: #0c0c0d;
-  --background-color: #f4ddc6;
-  --third-color: #323237;
-  /* --main-color: 12, 12, 13; */
+  --main-color: #f4ddc6;
+  --background-color: #0c0c0d;
+  --third-color: #b8a28e;
   transition: background-color 1s, color  1s;
 }
 
@@ -313,6 +270,12 @@ p:first-of-type {
   transform: rotate(359deg);
 }
 
+/* forgive me */
+.spin-utility-class {
+  transform: rotate(359deg);
+  transition: transform 1s;
+}
+
 #name {
   font-size: 20px;
   margin: 0 0 1rem 1rem;
@@ -434,36 +397,4 @@ p:first-of-type {
   background-color: var(--third-color);
   height: 16px;
   width: 0%
-}
-
-/* TODO at 760px hide icons and before element */
-
-.banner-shine {
-  background: linear-gradient(245deg, #0c0c0d, #0c0c0d, #0c0c0d, #171719, #0c0c0d, #0c0c0d, #1c1c1f, #0c0c0d, #121213, #000000, #0c0c0d, #0c0c0d, #0c0c0d);
-  background-size: 2600% 2600%;
-  -webkit-animation: AnimationName 41s ease infinite;
-  -moz-animation: AnimationName 41s ease infinite;
-  -o-animation: AnimationName 41s ease infinite;
-  animation: AnimationName 41s ease infinite;
-  z-index: -2;
-}
-  @-webkit-keyframes AnimationName {
-  0%{background-position:0% 75%}
-  50%{background-position:100% 26%}
-  100%{background-position:0% 75%}
-}
-  @-moz-keyframes AnimationName {
-  0%{background-position:0% 75%}
-  50%{background-position:100% 26%}
-  100%{background-position:0% 75%}
-}
-  @-o-keyframes AnimationName {
-  0%{background-position:0% 75%}
-  50%{background-position:100% 26%}
-  100%{background-position:0% 75%}
-}
-  @keyframes AnimationName {
-  0%{background-position:0% 75%}
-  50%{background-position:100% 26%}
-  100%{background-position:0% 75%}
 }
