@@ -95,10 +95,11 @@ p:first-of-type {
   background-color: var(--third-color);
   color: var(--background-color);
   border: 4px solid var(--third-color);
-  transition: background-color 1s, color 0.25s, border 1s, box-shadow 1s;
+  transition: background-color 1s, color 0.25s, border 1s, box-shadow 2s;
 }
 
 .see-more-text:hover{
+  /* box-shadow: var(--main-color) 0px 5px 15px; */
   /* color: #bebebe; */
   /* background-color: var(--main-color); */
   /* border: 4px solid var(--main-color); */
@@ -134,15 +135,15 @@ p:first-of-type {
 }
 
 #return-home-text{
-  transition: color 0.25s, background-color 1s, box-shadow 1s;
+  transition: color 1s, background-color 1s, box-shadow 0.5s;
   border-radius: 55px;
   padding: 1.5rem 2rem;
 }
 
 #return-home-text:hover{
-  color: var(--background-color);
-  background-color: var(--third-color);
-  box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+  color: var(--main-color);
+  /* background-color: var(--third-color);
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset; */
 }
 
 
