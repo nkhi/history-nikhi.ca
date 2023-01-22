@@ -2,14 +2,18 @@ let idToFilenameIndex = {
     '6':'06_AI_death_and_centrality_of_meaning.json'
 }
 
+//     {main: "#0c0c0d", back: "#f4ddc6", third:"#323237"},
+
+// {main: "105, 17, 17", back: "197, 137, 137", third:"147, 32, 32"},
+
 let last_palette_i = 0;
 let palettes = [
+
     {main: "#691111", back: "#c58989", third:"#932020"},
     {main: "#054f13", back: "#a4c499", third:"#09771d"},
     {main: "#043d6b", back: "#7ca3d9", third:"#115D9C"},
     {main: "#34046b", back: "#a19ae2", third:"#5815a5"},
     {main: "#f4ddc6", back: "#0c0c0d", third:"#b8a28e"},
-    {main: "#0c0c0d", back: "#f4ddc6", third:"#323237"},
 ];
 
 let meta = document.getElementById("meta")
@@ -101,8 +105,12 @@ function changePalette(main, back, third) {
 }
 
 function cyclePalettes() {
+    if (last_palette_i == palettes.length) {
+        last_palette_i = 0;
+    }
     let newPalette = palettes[last_palette_i]
     last_palette_i++;
+    
     changePalette(newPalette.main, newPalette.back, newPalette.third);
 }
 
@@ -126,6 +134,10 @@ openPost(6);
 window.onscroll = function () {
     progressBarScroll();
 };
+
+// const dot = document.getElementById('dot');
+// dot.addEventListener('mouseover', () => {cyclePalettes();});
+
 
 // keep meta:before height the same as the meta tag itself.
 // recurring and onPageLoad.

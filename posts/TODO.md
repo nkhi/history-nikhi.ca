@@ -2,3 +2,7 @@
 - dark background, light toggle
 - urls (slugs not integer ids)
 - some media queries ~760px
+    <!-- TODO color themes? or color toggle or something cool -->
+
+    <!-- Heading, date, play buttom -->
+    <!-- TODO add gradient to text? -->

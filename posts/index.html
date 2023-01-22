@@ -20,46 +20,36 @@
     <meta name="theme-color" content="#ffffff">
   </head>
   <body>
-    <!-- TODO color themes? or color toggle or something cool -->
-
-    <!-- Heading, date, play buttom -->
-    <!-- TODO add gradient to text? -->
     <div id="meta">
       <div id="title-row">
         <h1 id="title"></h1>
       </div>
-
       <div id="meta-row">
         <h2 id="date">date</h2>
         <h2 id="dot" onclick={cyclePalettes()}>✦</h2>
-        <h2 id="name"><div id="audiobutton" class="no-link-style" >Play audio recording</a></div>
+        <h2 id="name">
+          <div id="audiobutton" class="no-link-style" >Play narration</a></div>
+        </h2>
       </div>
-
       <div id="meta-row" class="bottom-divider"></div>
     </div>
-
-    <!-- Content -->
     <div id="content-container">
       <div id="content">
       </div>
+      <div id="see-more">
+        <h2 class="see-more-text">See more</h2>
+        <div id="return-home">
+          <a id="return-home-text" href="/" class="no-link-style">Return home</a>
+        </div>
+      </div>
     </div>
-
-    <!-- Other stories -->
-    <div id="see-more">
-      <h2 class="see-more-text">See more</h2>
-      <div id="return-home"><a id="return-home-text" href="/" class="no-link-style">Return home</a></div>
-    </div>
-
-
     <!-- Scroll progress indiciator -->
     <div id="status-container">
       <div class="progress-container">
         <div class="progress-bar" id="progressBar"></div>
       </div>
     </div>
-
     <audio id='audio-player' preload src='/posts/media/6.mp3'></audio>
     <script preload src="posts.js"></script>
-
   </body>
 </html>
