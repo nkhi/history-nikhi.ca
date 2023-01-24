@@ -11,6 +11,11 @@ let palettes = [
     {main: "#691111", back: "#c58989", third:"#932020"},
     {main: "#054f13", back: "#a4c499", third:"#09771d"},
     {main: "#043d6b", back: "#7ca3d9", third:"#115D9C"},
+    {main: "#d2df1b", back: " #7b1662",third: "#cbd273"},
+    {main: "#ffffff", back: " #1134c3",third: "#eecacc"},
+    {main: "#c88b09", back: " #422104",third: "#ca9930"},
+    {main: "#990011FF", back: " #FCF6F5FF",third: "#249edb"},
+    {main: "#0a4278", back: "#ADEFD1FF", third: "#d19a19"},
     {main: "#f4ddc6", back: "#0c0c0d", third:"#b8a28e"},
 ];
 
@@ -26,11 +31,7 @@ function cyclePalettes() {
     }
     let newPalette = palettes[last_palette_i]
     last_palette_i++;
-    
-    // use a timeout to have graceful debounce handling for a11y
-    window.setTimeout(() => {
-        changePalette(newPalette.main, newPalette.back, newPalette.third);}, 
-    20);
+    changePalette(newPalette.main, newPalette.back, newPalette.third);
 }
 
 async function openPost(path) {
@@ -73,12 +74,6 @@ function progressBarScroll() {
     let winScroll = document.body.scrollTop || document.documentElement.scrollTop,
         height = document.documentElement.scrollHeight - document.documentElement.clientHeight,
         scrolled = (winScroll / height) * 100;
-    if (scrolled => 100) {
-        document.getElementsByClassName("progress-bar")[0].classList.add("wrapper");
-        window.setTimeout(() => {
-            document.getElementsByClassName("progress-bar")[0].classList.remove("wrapper");
-        }, 4500)
-    }
     document.getElementById("progressBar").style.width = scrolled + "%";
 }
 

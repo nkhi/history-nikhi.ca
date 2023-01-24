@@ -167,7 +167,7 @@ p:first-of-type {
 #title {
   margin: 0 0 2.5rem 0;
   padding: 0 2rem 0;
-  transition: color 0.15s;
+  transition: color 0.4s;
   /* color: #ffffff0d;
   background: rgb(12,12,13);
   background: linear-gradient(75deg, rgb(12, 12, 13) 0%, rgb(44, 44, 46) 100%);
@@ -466,10 +466,7 @@ p:first-of-type {
     margin-bottom: 1rem;
     width: 410px;
     min-width: 236px;
-  }
-
-  #title {
-    padding: 0 50px;
+    margin: 0 50px;
   }
 
   .bottom-divider {
@@ -505,7 +502,7 @@ p:first-of-type {
 
   #title {
     font-size: 1.75rem;
-    max-width: calc(100vw - 2rem)
+    max-width: calc(100vw - 4rem)
   }
 
   body {
@@ -547,10 +544,6 @@ p:first-of-type {
 @media screen and (max-width: 330px) {
   #date {
     font-size: 14px;
-  }
-
-  p {
-    text-align: justify;
   }
 
   #audiobutton {
