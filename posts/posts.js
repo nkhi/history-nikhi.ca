@@ -1,6 +1,7 @@
 // Posts index
 let idToFilenameIndex = {
-    '6':'06_AI_death_and_centrality_of_meaning.json'
+    'favs': '04_stuff_i_like.json',
+    'gqlparty':'06_AI_death_and_centrality_of_meaning.json'
 }
 
 // Color switcher
@@ -37,6 +38,7 @@ function cyclePalettes() {
 async function openPost(path) {
     let json_obj = await fetch(path).then((j) => j.json());
     document.getElementById("title").innerText = json_obj.title;
+    document.title = `"${json_obj.title}" by Nikhi Bhambra`;
     document.getElementById("date").innerText = json_obj.date;
     importJsonContent(json_obj.contentPath);
 }
@@ -78,7 +80,13 @@ function progressBarScroll() {
 }
 
 function main() {
-    openPost(idToFilenameIndex[6]);
+    const queryString = window.location.search.substring(1,);
+    if (queryString in idToFilenameIndex) {
+        openPost(idToFilenameIndex[queryString]);
+    } else {
+        openPost(idToFilenameIndex['gqlparty']);
+    };
+
     window.onscroll = function () {
         progressBarScroll();
     };

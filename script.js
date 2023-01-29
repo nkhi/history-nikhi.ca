@@ -19,11 +19,34 @@ var nameString = "Nikhi Bhambra";
 var postsString = "posts";
 var aboutString = "about";
 var currentMode = "home";
+var seeBackgroundModeString = "...whoa"
 
 let compressedText = `I write code at <a id="apollo" target="_blank" href="https://www.apollographql.com/studio/observe/" onmouseenter={tintBackgroundTo('2a0957')} onmouseleave={tintBackgroundTo('0c0c0d')}>Apollo</a>
 <br> & make gizmos at <a id="room" href="http://www.room738.xyz/" onmouseenter={tintBackgroundTo('540946')} onmouseleave={tintBackgroundTo('0c0c0d')}>room738</a>`;
 let aboutText ="I've spent two years working remotely at start ups in Toronto, and I like building things on the web that make life easier. In the future, I want to design better AI that can understand like us.";
-let postsListText = `<ul><li><a class="posts-link" href="/posts/">How to explain GraphQL at a party<br><span class="posts-date">In Progress</span></a></li></ul>`
+let postsListText = `<ul>
+<li id="gqlparty">
+  <div class="emoji-container">🪩</div>
+  <div id="text-story">
+      <a target="_blank" class="posts-link" href="/posts/?gqlparty">A Middling Title
+    </a>
+  </div>
+</li>
+<li id="favs">
+<div class="emoji-container">🤖</div>
+<div id="text-story">
+<a class="posts-link" target="_blank" href="/posts/?ml">An Incredible Title</a>
+</a>
+</div>
+</li>
+<li id="favs">
+<div class="emoji-container">🤩</div>
+<div id="text-story">
+<a class="posts-link" target="_blank" href="/posts/?favs">The Best Title Ever</a>
+</a>
+</div>
+</li>
+</ul>`;
 let detailedHomeText = `At <a id="apollo" target="_blank" href="https://www.apollographql.com/studio/observe/" onmouseenter={tintBackgroundTo('2a0957')} onmouseleave={tintBackgroundTo('0c0c0d')}>Apollo</a> I build analytics tools that give developers new ways to understand and improve their GraphQL APIs. <br><br><a id="room" href="http://www.room738.xyz/" onmouseenter={tintBackgroundTo('540946')} onmouseleave={tintBackgroundTo('0c0c0d')}>room738</a> makes free, open source browser tools.`;
 
 var desc = document.getElementById("desc");
@@ -448,7 +471,7 @@ function startBackgroundAnimation() {
       canv = document.createElement("canvas");
       canv.style.position = "absolute";
       canv.style.zIndex="-1";
-      canv.style.opacity=0.18;
+      canv.style.opacity=0.2;
       canv.style.transition="opacity 1s";
       document.documentElement.appendChild(canv);
       ctx = canv.getContext("2d");
@@ -489,10 +512,12 @@ function stopBackgroundAnimation() {
 
 /* Option to admire the background animation */
 function seeBackground() {
-  document.getElementsByTagName('canvas')[0].style.opacity=1;
-  document.getElementById('top-part').classList.add('hidden');
-  document.getElementById('main-copy').classList.add('hidden');
-  document.getElementById('socials').classList.add('hidden');
+  if (currentMode == "home" && !expandedText) {  
+    document.getElementsByTagName('canvas')[0].style.opacity=1;
+    document.getElementById('top-part').classList.add('hidden');
+    document.getElementById('main-copy').classList.add('hidden');
+    document.getElementById('socials').classList.add('hidden');
+  }
 }
 
 /* Reciprocal of hideText(), go back to default */
@@ -641,6 +666,7 @@ function showAbout() {
     document.getElementById('content-container').style.marginLeft=null;
     desc.style.margin="22px 0 27px";
   }
+  // document.body.classList.add('darken');
   // playXylophoneSound("g");
   currentMode = "about";
   // replace terminal chevron with back button
@@ -699,6 +725,7 @@ function showAbout() {
 function showPosts() {
   if (currentMode == "about") {
     document.getElementById("about").classList.remove("hidden");
+    // document.body.classList.remove('darken');
     desc.style.minHeight="";
     desc.style.maxWidth ="";
     desc.style.textAlign=null;
@@ -716,6 +743,7 @@ function showPosts() {
   if(expandedText) {
     document.getElementById('content-container').style.marginLeft=null;
     desc.removeAttribute('title');
+    desc.style.margin="22px 0 27px";
   }
   desc.style.minWidth="300px";
   desc.style.height="204px";
@@ -755,6 +783,7 @@ function showPosts() {
 function showHome() {
   if (currentMode=="about" || currentMode == "posts") {
     undoTranslucentMode();
+    // document.body.classList.remove('darken');
     desc.style.maxWidth ="";
     document.body.style.height="328px";
     document.getElementById("pen").style.marginRight="14px";
@@ -791,6 +820,8 @@ function showDetailedHome(){
     translucentMode();
     document.getElementById('right-container').style.paddingRight="2px";
     document.getElementById('main-copy').style.maxWidth="311px";
+    let button = document.getElementById("chevron");
+    button.innerText = "<";
     desc.title="Learn Less";
     desc.style.margin="27px 0 31.4px";
     desc.innerHTML=detailedHomeText;
@@ -856,6 +887,13 @@ function main() {
     });
     document.getElementById("about").addEventListener("click", () => {
       showAbout();
+    });
+    document.getElementById("top-part").addEventListener("mouseenter", () => {
+      seeBackground();
+      window.setTimeout(function () { undoSeeBackground() }, 20000);
+      window.setTimeout(function () { terminalText(seeBackgroundModeString) }, 20001);
+      window.setTimeout(function () { if (seeBackgroundModeString.length < 16) {seeBackgroundModeString += "a"} }, 20010);
+      window.setTimeout(function () { terminalText(nameString) }, 24000);
     });
   }, 6000);
 

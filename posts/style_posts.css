@@ -168,6 +168,9 @@ p:first-of-type {
   margin: 0 0 2.5rem 0;
   padding: 0 2rem 0;
   transition: color 0.4s;
+  min-height: 270px;
+  display: flex;
+  align-items: center;
   /* color: #ffffff0d;
   background: rgb(12,12,13);
   background: linear-gradient(75deg, rgb(12, 12, 13) 0%, rgb(44, 44, 46) 100%);
@@ -286,6 +289,7 @@ p:first-of-type {
 
 #title-row {
   display: flex;
+  align-items: center;
   flex-flow: row;
 }
 
@@ -440,6 +444,8 @@ p:first-of-type {
   #title {
     font-size: 3rem;
     line-height: 3.25rem;
+    min-height: 100%;
+    display: inline-block;
   }
 
   .bottom-divider {

@@ -37,7 +37,7 @@ body {
     -ms-overflow-style: none; 
     scrollbar-width: none;
     height: 328px;
-    transition: backdrop-filter 3.5s, border-color 1s, box-shadow 5s, background-color 1s width 4s, height 3s;
+    transition: backdrop-filter 3s, border-color 0.5s, box-shadow 4s, background-color 0.75s, width 4s, height 3s;
     transition-timing-function: cubic-bezier(.31,.57,.26,.84);
     cursor: default;
     border-radius: 50px;
@@ -51,8 +51,9 @@ p#desc::-webkit-scrollbar {
   
 .transparent-surface {
     border-radius: 50px;
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    background-color: rgba(0 ,0 ,0 , 0.4) !important;
     border: 2px solid #ffffff0d;
     box-shadow: rgba(0, 0, 0, 0.15) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.15) 0px -3px 5px;
 }
@@ -232,6 +233,9 @@ p#links{
 
 a.posts-link {
     margin-right: 14px;
+    display: flex;
+    flex-flow: column;
+    width: 135%;
 }
 
 a.posts-link:hover {
@@ -264,18 +268,42 @@ a.posts-link:hover {
 
 ul {
     margin: 0;
-    padding: 0 0 0 30px;
+    padding: 0 0 0 4px;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    flex-flow: column;
 }
 
 li {
     max-width: 240px;
     overflow: wrap;
-    padding: 8px 0 0 0;
+    padding: 0;
     list-style-type: none;
+    display: flex;
+    flex-flow: row;
+}
+
+
+.emoji-container {
+    display: flex;
+    align-items: center;
+    margin: 0 1rem 0 0 ;
+    font-size: 185%;
+    transition: transform 0.75s;
+}
+
+.emoji-container:hover {
+    transform: rotate(359deg);
+    transition: transform 1s;
 }
 
 li:first-child {
-    margin-bottom: 14px;
+    margin-top: 8px;
+}
+
+li:last-child {
+    margin-bottom: 8px;
 }
 
 /* You shouldn't code like this kids */
