@@ -471,7 +471,7 @@ function startBackgroundAnimation() {
       canv = document.createElement("canvas");
       canv.style.position = "absolute";
       canv.style.zIndex="-1";
-      canv.style.opacity=0.2;
+      canv.style.opacity=0.25;
       canv.style.transition="opacity 1s";
       document.documentElement.appendChild(canv);
       ctx = canv.getContext("2d");
@@ -773,7 +773,8 @@ function showPosts() {
   window.setTimeout(function () {
     terminalText(postsString);
   }, 2000);
-  desc.innerHTML=postsListText;
+  // desc.innerHTML=postsListText;
+  desc.innerHTML="<div style='display: flex; height: 90%; align-items: center; justify-content: center;'>crickets...</div>";
   translucentMode();
   // "<ul><li><a onmouseenter={showDate(0)} onmouseleave````````````````````````````````````={hideDate(0)} id='posts-link' href=''>Being a remote developer</a><span class='posts-date'>12/22</span></li><li><a onmouseenter={showDate(1)} onmouseleave={hideDate(1)} id='posts-link' href=''>The Internet isn't fun anymore</a><span class='posts-date'>08/22</span></li>";
 
@@ -887,13 +888,6 @@ function main() {
     });
     document.getElementById("about").addEventListener("click", () => {
       showAbout();
-    });
-    document.getElementById("top-part").addEventListener("mouseenter", () => {
-      seeBackground();
-      window.setTimeout(function () { undoSeeBackground() }, 20000);
-      window.setTimeout(function () { terminalText(seeBackgroundModeString) }, 20001);
-      window.setTimeout(function () { if (seeBackgroundModeString.length < 16) {seeBackgroundModeString += "a"} }, 20010);
-      window.setTimeout(function () { terminalText(nameString) }, 24000);
     });
   }, 6000);
 
