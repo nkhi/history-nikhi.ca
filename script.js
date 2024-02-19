@@ -21,8 +21,7 @@ var aboutString = "about";
 var currentMode = "home";
 var seeBackgroundModeString = "...whoa"
 
-let compressedText = `I write code at <a id="apollo" target="_blank" href="https://www.apollographql.com/studio/observe/" onmouseenter={tintBackgroundTo('2a0957')} onmouseleave={tintBackgroundTo('0c0c0d')}>Apollo</a>
-<br> & make gizmos at <a id="room" href="https://www.uncouth.website/" onmouseenter={tintBackgroundTo('540946')} onmouseleave={tintBackgroundTo('0c0c0d')}>Uncouth</a>`;
+let compressedText = `I write code at <a id="apollo" target="_blank" href="https://www.confluent.io/product/confluent-platform/" onmouseenter={tintBackgroundTo('2a0957')} onmouseleave={tintBackgroundTo('0c0c0d')}>Confluent</a>`;
 let aboutText ="I've spent two years working remotely at start ups in Toronto, and I like building things on the web that make life easier. In the future, I want to design better AI that can understand like us.";
 let postsListText = `<ul>
 <li id="gqlparty">
@@ -47,7 +46,7 @@ let postsListText = `<ul>
 </div>
 </li>
 </ul>`;
-let detailedHomeText = `At <a id="apollo" target="_blank" href="https://www.apollographql.com/studio/observe/" onmouseenter={tintBackgroundTo('2a0957')} onmouseleave={tintBackgroundTo('0c0c0d')}>Apollo</a> I build analytics tools that give developers new ways to understand and improve their GraphQL APIs. <br><br><a id="room" href="https://www.uncouth.website/" onmouseenter={tintBackgroundTo('540946')} onmouseleave={tintBackgroundTo('0c0c0d')}>Uncouth</a> makes free, open source browser tools.`;
+let detailedHomeText = `At <a id="apollo" target="_blank" href="https://www.confluent.io/product/confluent-platform/" onmouseenter={tintBackgroundTo('2a0957')} onmouseleave={tintBackgroundTo('0c0c0d')}>Confluent</a> I work on the infrastructure platform that enables millions of clusters to be seamlessly deployed across the globe. <br /> <br />Otherwise, I enjoy spicy foods, building keyboards, & playing with my cats 🪴`;
 
 var desc = document.getElementById("desc");
 let mainCopy = document.getElementById("main-copy").innerHTML;
@@ -810,8 +809,8 @@ function showHome() {
   // }
   document.getElementById("main-copy").innerHTML = mainCopy;
   document.getElementById("socials").style.padding = "0";
-  document.getElementById("pen").classList.remove("hidden");
-  document.getElementById("about").classList.remove("hidden");
+  // document.getElementById("pen").classList.remove("hidden");
+  // document.getElementById("about").classList.remove("hidden");
 }
 
 /* Switch to home mode with expanded text and bg*/
@@ -824,7 +823,7 @@ function showDetailedHome(){
     let button = document.getElementById("chevron");
     button.innerText = "<";
     desc.title="Learn Less";
-    desc.style.margin="27px 0 31.4px";
+    desc.style.margin="22px 0px 26.4px;";
     desc.innerHTML=detailedHomeText;
     desc.style.cursor=`url("media/check-cursor.svg"), pointer`;
     document.getElementById('content-container').classList.add('flexbox-util');
@@ -882,14 +881,14 @@ function main() {
   }, 5500);
 
   // make links accessible to avoid animation issues oop
-  window.setTimeout(function () {
-    document.getElementById("pen").addEventListener("click", () => {
-      showPosts();
-    });
-    document.getElementById("about").addEventListener("click", () => {
-      showAbout();
-    });
-  }, 6000);
+  // window.setTimeout(function () {
+  //   document.getElementById("pen").addEventListener("click", () => {
+  //     showPosts();
+  //   });
+  //   document.getElementById("about").addEventListener("click", () => {
+  //     showAbout();
+  //   });
+  // }, 6000);
 
   startBackgroundAnimation();
 }
