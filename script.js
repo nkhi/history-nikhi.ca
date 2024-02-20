@@ -46,7 +46,7 @@ let postsListText = `<ul>
 </div>
 </li>
 </ul>`;
-let detailedHomeText = `At <a id="apollo" target="_blank" href="https://www.confluent.io/product/confluent-platform/" onmouseenter={tintBackgroundTo('2a0957')} onmouseleave={tintBackgroundTo('0c0c0d')}>Confluent</a> I work on the infrastructure platform that enables millions of clusters to be seamlessly deployed across the globe. <br /> <br />Otherwise, I enjoy spicy foods, building keyboards, & playing with my cats 🪴`;
+let detailedHomeText = `At <a id="apollo" target="_blank" href="https://www.confluent.io/product/confluent-platform/" onmouseenter={tintBackgroundTo('2a0957')} onmouseleave={tintBackgroundTo('0c0c0d')}>Confluent</a> I work on the infrastructure platform that enables thousands of clusters to be deployed everyday across the globe. <br /> <br />Otherwise, I enjoy spicy foods, building keyboards, & playing with my cats 😊`;
 
 var desc = document.getElementById("desc");
 let mainCopy = document.getElementById("main-copy").innerHTML;
