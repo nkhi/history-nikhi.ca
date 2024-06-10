@@ -2,8 +2,8 @@
 <html lang="en">
   <head>
     <!-- Setup -->
-    <title>Nikhi Bhambra | Engineer & Designer</title>
-    <link rel="stylesheet" href="style_min.css">
+    <title>Nikhi Bhambra | Software Engineer</title>
+    <link rel="stylesheet" href="style.css">
     <!-- Settings -->
     <meta charset="UTF-8">
     <meta name="description" content="Nikhi Bhambra, Software Engineer and Designer">
@@ -19,18 +19,74 @@
     <meta name="msapplication-config" content="/icons/browserconfig.xml">
     <meta name="theme-color" content="#ffffff">
   </head>
-  <body>
-    <div id="content-container">
-      <!-- <div id="top-part" class="top-text">
+  <body class="transparent-surface">
+    <div id="content-container" class="emoji-cursor">
+      <div id="top" class="div1 hidden">
+        <div style="padding: 16px 0 8px 0">
+          <img src="/media/me.jpeg" width="60px" height="60px" style="border-radius: 40px; border: 1px solid #ffffff0d;" />
+        </div>
+        <div style="font-weight: 600; padding: 8px 0 8px 0; font-size: 1.3rem;">
+          Nikhi Bhambra
+        </div>
+        <div style="margin: 0 40px; padding: 8px 0px 20px 0px; color: rgb(255, 255, 255, 0.9); line-height: 1.3rem; font-size: 1rem;">
+          <!-- Co-founder of <a style="font-size: 1rem; color: white;" href="https://tab.health/">Tab</a>.  -->
+          Software Engineer who loves developer tools, observability, and machine learning. Can usually be found working on a mechanical keyboard.
+        </div>
+        <div style="display: flex; width: 25%; margin: 0 20px; justify-content: space-evenly; color: rgb(255, 255, 255, 1); opacity: 40%">
+          <div>
+            <a id="linkedin" class="social" target="_blank" title="LinkedIn" href="https://www.linkedin.com/in/nikhibhambra/" onmouseenter={tintBackgroundTo('063b18')} onmouseleave={tintBackgroundTo('0c0c0d')}>
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-briefcase"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg>
+            </a>
+          </div>
+          <div>
+              <a id="github" class="social" target="_blank" title="GitHub" href="https://github.com/nkhi" onmouseenter={tintBackgroundTo('07186e')} onmouseleave={tintBackgroundTo('0c0c0d')}>
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-github"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+              </a>
+          </div>
+          <div>
+            <a id="email" class="social" target="_blank" title="Email" href="mailto:public@nikhi.ca" onmouseenter={tintBackgroundTo('540946')} onmouseleave={tintBackgroundTo('0c0c0d')}>
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-at-sign"><circle cx="12" cy="12" r="4"></circle><path d="M16 8v5a3 3 0 0 0 6 0v-1a10 10 0 1 0-3.92 7.94"></path></svg>
+            </a>
+          </div>
+        </div>
+        <div style="padding: 8px 0 8px 0; color: rgb(255, 255, 255, 1); opacity: 25%;">
+          <div>
+            <div style="width: 100%; display: flex; align-items: center;" id="location" class="social" title="Location">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 256 256"><rect width="256" height="256" fill="none"/><circle cx="128" cy="104" r="32" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="24"/><path d="M208,104c0,72-80,128-80,128S48,176,48,104a80,80,0,0,1,160,0Z" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="24"/></svg>
+              <div style="padding: 1px 0 0 4px;">Toronto</div>
+            </div>
+          </div>
+        </div>
+        <hr/>
+      </div>
+      <div class="div2"> 
+
+
+      </div>
+      <div class="div3"> 
+
+
+      </div>
+      <!-- <div class="div1">      
+        <div id="top-part" class="top-text hidden">
           <span id="chevron" onclick="showHome()">&#62;</span>
           <span id="text"></span>
           <span class='console-underscore' id='console'>&nbsp;&#95;</span>
-        </span>
-      </div> -->
+      </div> 
+    </div>
+      <div class="div2"> </div>
+      <div class="div3"> </div>
+      <div class="div4"> </div>
+      <div class="div5"> </div> -->
+
+
+
 
       <div id="main-copy">
-        <!-- <p id="desc" title="Learn More" onclick={showDetailedHome()}> I write code at <a id="apollo" target="_blank" href="https://www.confluent.io/product/confluent-platform/" onmouseenter={tintBackgroundTo('540946')} onmouseleave={tintBackgroundTo('0c0c0d')}>Confluent</a>
-        </p> -->
+<!--
+        <p id="desc" title="Learn More" onclick={showDetailedHome()}> I write code at <a id="apollo" target="_blank" href="https://www.confluent.io/product/confluent-platform/" onmouseenter={tintBackgroundTo('540946')} onmouseleave={tintBackgroundTo('0c0c0d')}>Confluent</a>
+        </p>
+-->
       </div>
 
       <div id="socials">
@@ -42,11 +98,11 @@
             <a id="linkedin" class="social" target="_blank" title="LinkedIn" href="https://www.linkedin.com/in/nikhibhambra/" onmouseenter={tintBackgroundTo('07186e')}>
               <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-briefcase"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg>
             </a>
-            <a id="email" class="social" target="_blank" title="Email" href="mailto:heynikhi@gmail.com" onmouseenter={tintBackgroundTo('07186e')}>
+            <a id="email" class="social" target="_blank" title="Email" href="mailto:hi@nikhi.ca" onmouseenter={tintBackgroundTo('07186e')}>
               <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-at-sign"><circle cx="12" cy="12" r="4"></circle><path d="M16 8v5a3 3 0 0 0 6 0v-1a10 10 0 1 0-3.92 7.94"></path></svg>
             </a> -->
-
           </div>
+          
           <div id="right-container" class="stick-right">
             <!-- <a class="social-right" id="pen" target="_blank" title="Posts" onmouseenter={tintBackgroundTo('063b18')}>
               <svg stroke-width="13" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" viewBox="137.011 138.852 170.841 159.947" width="24" length="24" xmlns="http://www.w3.org/2000/svg">

@@ -470,12 +470,12 @@ function startBackgroundAnimation() {
       canv = document.createElement("canvas");
       canv.style.position = "absolute";
       canv.style.zIndex="-1";
-      canv.style.opacity=0.25;
+      canv.style.opacity=0.12;
       canv.style.transition="opacity 1s";
       document.documentElement.appendChild(canv);
       ctx = canv.getContext("2d");
       canv.setAttribute("title", "you feel a strange urge to click the background...");
-    } // création CANVAS
+    }
     canv.addEventListener("click", mouseClick); // just for initial position
     events = [{ event: "reset" }];
     requestAnimationFrame(animate);
@@ -857,28 +857,36 @@ MAIN!
 
 function main() {
   document.body.style.backgroundColor= "#ffffff00"
+  startBackgroundAnimation();
+
   // init background behavior for links
-  document.getElementById("left-container").addEventListener("mouseleave", () => {
-    document.documentElement.style.background = "#0c0c0d";
-  });
-  document
-    .getElementById("right-container")
-    .addEventListener("mouseleave", () => {
-      document.documentElement.style.background = "#0c0c0d";
+  // document.getElementById("linkedin").addEventListener("mouseleave", () => {
+  //   document.documentElement.style.background = "#0c0c0d";
+  // });
+  // document
+  //   .getElementById("right-container")
+  //   .addEventListener("mouseleave", () => {
+  //     document.documentElement.style.background = "#0c0c0d";
+  // });
+
+  document.body.addEventListener("animationend", (event) => {
+    document.getElementById("top").classList.remove('hidden');
+    document.getElementById("bottom").classList.remove('hidden');
   });
 
+  
   // write the first word immediately
-  terminalText(helloWorld);
+  // terminalText(helloWorld);
 
   // write name after 3 seconds
-  window.setTimeout(function () {
-    terminalText(nameString);
-  }, 3000);
+  // window.setTimeout(function () {
+  //   terminalText(nameString);
+  // }, 3000);
 
   // make cursor blink every half second, after 5.5s
-  window.setTimeout(function () {
-    window.setInterval(blinkingCursor, 500);
-  }, 5500);
+  // window.setTimeout(function () {
+  //   window.setInterval(blinkingCursor, 500);
+  // }, 5500);
 
   // make links accessible to avoid animation issues oop
   // window.setTimeout(function () {
@@ -890,7 +898,6 @@ function main() {
   //   });
   // }, 6000);
 
-  startBackgroundAnimation();
 }
 
 main();
