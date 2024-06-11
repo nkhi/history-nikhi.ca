@@ -19,10 +19,11 @@ var nameString = "Nikhi Bhambra";
 var postsString = "posts";
 var aboutString = "about";
 var currentMode = "home";
-var seeBackgroundModeString = "...whoa"
+var seeBackgroundModeString = "...whoa";
 
 let compressedText = `I write code at <a id="apollo" target="_blank" href="https://www.confluent.io/product/confluent-platform/" onmouseenter={tintBackgroundTo('2a0957')} onmouseleave={tintBackgroundTo('0c0c0d')}>Confluent</a>`;
-let aboutText ="I've spent two years working remotely at start ups in Toronto, and I like building things on the web that make life easier. In the future, I want to design better AI that can understand like us.";
+let aboutText =
+  "I've spent two years working remotely at start ups in Toronto, and I like building things on the web that make life easier. In the future, I want to design better AI that can understand like us.";
 let postsListText = `<ul>
 <li id="gqlparty">
   <div class="emoji-container">🪩</div>
@@ -459,9 +460,9 @@ function startBackgroundAnimation() {
 
     function mouseClick(event) {
       events.push({ event: "click" });
-      document.getElementsByTagName('canvas')[0].removeAttribute("title");
+      document.getElementsByTagName("canvas")[0].removeAttribute("title");
       panelCount += 1;
-      if (panelCount<=9) {
+      if (panelCount <= 9) {
         playPanelDingSoundEffect(panelCount);
       }
     } // mouseMove
@@ -469,12 +470,15 @@ function startBackgroundAnimation() {
     {
       canv = document.createElement("canvas");
       canv.style.position = "absolute";
-      canv.style.zIndex="-1";
-      canv.style.opacity=0.12;
-      canv.style.transition="opacity 1s";
+      canv.style.zIndex = "-1";
+      canv.style.opacity = 0.12;
+      canv.style.transition = "opacity 1s";
       document.documentElement.appendChild(canv);
       ctx = canv.getContext("2d");
-      canv.setAttribute("title", "you feel a strange urge to click the background...");
+      canv.setAttribute(
+        "title",
+        "you feel a strange urge to click the background..."
+      );
     }
     canv.addEventListener("click", mouseClick); // just for initial position
     events = [{ event: "reset" }];
@@ -484,52 +488,52 @@ function startBackgroundAnimation() {
 
 /* The first eight times you click the background, it will play a xylophone sound*/
 function playPanelDingSoundEffect(panelCount) {
-  let notes = ['c', 'd', 'e', 'f', 'g', 'a', 'b', 'c2']
+  let notes = ["c", "d", "e", "f", "g", "a", "b", "c2"];
   let audioPlayer = document.getElementById("audio-player");
 
-  if (panelCount<=8) {
-    if (panelCount==1) {
+  if (panelCount <= 8) {
+    if (panelCount == 1) {
       audioPlayer.play();
     }
     // Need to load a new sound file
     else {
-      var newFile = notes[panelCount-1]
-      audioPlayer.setAttribute('src', `media/xylophone/${newFile}.wav`);
+      var newFile = notes[panelCount - 1];
+      audioPlayer.setAttribute("src", `media/xylophone/${newFile}.wav`);
       audioPlayer.play();
     }
-  } 
+  }
   //  Last loop iteration removes audio tag
   else {
-    document.getElementsByTagName('audio')[0].remove();
+    document.getElementsByTagName("audio")[0].remove();
   }
 }
 
 /* Option to turn off background animation */
 function stopBackgroundAnimation() {
-  document.getElementsByTagName('canvas')[0].remove();
+  document.getElementsByTagName("canvas")[0].remove();
 }
 
 /* Option to admire the background animation */
 function seeBackground() {
-  if (currentMode == "home" && !expandedText) {  
-    document.getElementsByTagName('canvas')[0].style.opacity=1;
-    document.getElementById('top-part').classList.add('hidden');
-    document.getElementById('main-copy').classList.add('hidden');
-    document.getElementById('socials').classList.add('hidden');
+  if (currentMode == "home" && !expandedText) {
+    document.getElementsByTagName("canvas")[0].style.opacity = 1;
+    document.getElementById("top-part").classList.add("hidden");
+    document.getElementById("main-copy").classList.add("hidden");
+    document.getElementById("socials").classList.add("hidden");
   }
 }
 
 /* Reciprocal of hideText(), go back to default */
 function undoSeeBackground() {
-  document.getElementsByTagName('canvas')[0].style.opacity=0.18;
-  document.getElementById('top-part').classList.remove('hidden');
-  document.getElementById('main-copy').classList.remove('hidden');
-  document.getElementById('socials').classList.remove('hidden');
+  document.getElementsByTagName("canvas")[0].style.opacity = 0.18;
+  document.getElementById("top-part").classList.remove("hidden");
+  document.getElementById("main-copy").classList.remove("hidden");
+  document.getElementById("socials").classList.remove("hidden");
 }
 
 /* Add a translucent background to make text more ledgible */
 function translucentMode() {
-  document.body.classList.add('transparent-surface');
+  document.body.classList.add("transparent-surface");
   // document.body.classList.add('darken');
   // newOpacity = opacityMap(document.getElementById('opacity').value);
   // document.body.style.backgroundColor = `rgba(0 ,0 ,0 , ${newOpacity}) !important`;
@@ -537,13 +541,13 @@ function translucentMode() {
 
 /* Reciprocal of translucentMode(), remove translucent panel */
 function undoTranslucentMode() {
-  document.body.classList.remove('transparent-surface');
+  document.body.classList.remove("transparent-surface");
   // document.body.classList.remove('darken');
 }
 
 /* HTML sliders like whole numbers, so convert the slider value 0-100 to something between 0-0.4*/
-function opacityMap(inputValue){
-  return (0.4/100)*inputValue;
+function opacityMap(inputValue) {
+  return (0.4 / 100) * inputValue;
 }
 
 /*
@@ -635,13 +639,9 @@ function turnOffNarration() {
 }
 
 /* Body is the main panel, and if I want to */
-function changeBodySize() {
+function changeBodySize() {}
 
-}
-
-function makeNoteGrid() {
-
-}
+function makeNoteGrid() {}
 
 /*
 SECTIONS
@@ -651,19 +651,19 @@ SECTIONS
 function showAbout() {
   if (currentMode == "posts") {
     document.getElementById("pen").classList.remove("hidden");
-    document.getElementById("pen").style.marginRight="0px";
-    desc.style.minWidth="";
-    desc.style.height=null;
+    document.getElementById("pen").style.marginRight = "0px";
+    desc.style.minWidth = "";
+    desc.style.height = null;
   }
   if (currentMode == "home") {
-    document.getElementById("pen").style.marginRight="0px";
-    desc.style.cursor="default";
-    desc.removeAttribute('title');
+    document.getElementById("pen").style.marginRight = "0px";
+    desc.style.cursor = "default";
+    desc.removeAttribute("title");
   }
-  
-  if(expandedText) {
-    document.getElementById('content-container').style.marginLeft=null;
-    desc.style.margin="22px 0 27px";
+
+  if (expandedText) {
+    document.getElementById("content-container").style.marginLeft = null;
+    desc.style.margin = "22px 0 27px";
   }
   // document.body.classList.add('darken');
   // playXylophoneSound("g");
@@ -709,13 +709,13 @@ function showAbout() {
   // });
   translucentMode();
 
-  desc.style.minHeight="204px";
-  desc.style.margin="20px 0 10px";
+  desc.style.minHeight = "204px";
+  desc.style.margin = "20px 0 10px";
   desc.style.maxWidth = "325px";
-  desc.style.textAlign="justify";
+  desc.style.textAlign = "justify";
   // TODO write an about section
   desc.innerHTML = aboutText;
-  // desc.style.margin = "30px 0px 0px 0px"; 
+  // desc.style.margin = "30px 0px 0px 0px";
   document.getElementById("socials").style.padding = "16px 0 0 0";
   document.getElementById("about").classList.add("hidden");
 }
@@ -725,28 +725,28 @@ function showPosts() {
   if (currentMode == "about") {
     document.getElementById("about").classList.remove("hidden");
     // document.body.classList.remove('darken');
-    desc.style.minHeight="";
-    desc.style.maxWidth ="";
-    desc.style.textAlign=null;
-    document.getElementById("pen").style.marginRight="14px";
+    desc.style.minHeight = "";
+    desc.style.maxWidth = "";
+    desc.style.textAlign = null;
+    document.getElementById("pen").style.marginRight = "14px";
     // desc.style.minHeight="204px";
     // document.getElementById("socials").style.padding = "26px 0 0 0";
   }
   if (currentMode == "home" && expandedText) {
-    desc.style.margin="23px 0 26px";
+    desc.style.margin = "23px 0 26px";
   }
   if (currentMode == "home") {
-    desc.style.cursor="default";
-    desc.removeAttribute('title');
+    desc.style.cursor = "default";
+    desc.removeAttribute("title");
   }
-  if(expandedText) {
-    document.getElementById('content-container').style.marginLeft=null;
-    desc.removeAttribute('title');
-    desc.style.margin="22px 0 27px";
+  if (expandedText) {
+    document.getElementById("content-container").style.marginLeft = null;
+    desc.removeAttribute("title");
+    desc.style.margin = "22px 0 27px";
   }
-  desc.style.minWidth="300px";
-  desc.style.height="204px";
-  desc.innerText="";
+  desc.style.minWidth = "300px";
+  desc.style.height = "204px";
+  desc.innerText = "";
   // playXylophoneSound("f");
   // if (currentMode == "about") {
   //   let options = document.getElementById("options-container");
@@ -762,7 +762,7 @@ function showPosts() {
   // button.style.padding = "0 8px";
   document.getElementById("pen").classList.add("hidden");
   // remove text
-  
+
   // TODO blinking cursor breaks
   // remove text
   desc.innerHTML = " ";
@@ -773,21 +773,21 @@ function showPosts() {
     terminalText(postsString);
   }, 2000);
   // desc.innerHTML=postsListText;
-  desc.innerHTML="<div style='display: flex; height: 90%; align-items: center; justify-content: center;'>crickets...</div>";
+  desc.innerHTML =
+    "<div style='display: flex; height: 90%; align-items: center; justify-content: center;'>crickets...</div>";
   translucentMode();
   // "<ul><li><a onmouseenter={showDate(0)} onmouseleave````````````````````````````````````={hideDate(0)} id='posts-link' href=''>Being a remote developer</a><span class='posts-date'>12/22</span></li><li><a onmouseenter={showDate(1)} onmouseleave={hideDate(1)} id='posts-link' href=''>The Internet isn't fun anymore</a><span class='posts-date'>08/22</span></li>";
-
 }
 
 /* Switch to Home mode. Default. */
 function showHome() {
-  if (currentMode=="about" || currentMode == "posts") {
+  if (currentMode == "about" || currentMode == "posts") {
     undoTranslucentMode();
     // document.body.classList.remove('darken');
-    desc.style.maxWidth ="";
-    document.body.style.height="328px";
-    document.getElementById("pen").style.marginRight="14px";
-    desc.style.textAlign=null;
+    desc.style.maxWidth = "";
+    document.body.style.height = "328px";
+    document.getElementById("pen").style.marginRight = "14px";
+    desc.style.textAlign = null;
     // cleanupChevronHoverListeners();
   }
   if (expandedText) {
@@ -795,7 +795,7 @@ function showHome() {
   }
   desc.addEventListener("click", () => {
     showDetailedHome();
-  })
+  });
   currentMode = "home";
   // playXylophoneSound("c2");
   window.setTimeout(function () {
@@ -814,37 +814,39 @@ function showHome() {
 }
 
 /* Switch to home mode with expanded text and bg*/
-function showDetailedHome(){
-  if(currentMode == "home" && !expandedText){
+function showDetailedHome() {
+  if (currentMode == "home" && !expandedText) {
     expandedText = true;
     translucentMode();
-    document.getElementById('right-container').style.paddingRight="2px";
-    document.getElementById('main-copy').style.maxWidth="311px";
+    document.getElementById("right-container").style.paddingRight = "2px";
+    document.getElementById("main-copy").style.maxWidth = "311px";
     let button = document.getElementById("chevron");
     button.innerText = "<";
-    desc.title="Learn Less";
-    desc.style.margin="22px 0px 26.4px;";
-    desc.innerHTML=detailedHomeText;
-    desc.style.cursor=`url("media/check-cursor.svg"), pointer`;
-    document.getElementById('content-container').classList.add('flexbox-util');
+    desc.title = "Learn Less";
+    desc.style.margin = "22px 0px 26.4px;";
+    desc.innerHTML = detailedHomeText;
+    desc.style.cursor = `url("media/check-cursor.svg"), pointer`;
+    document.getElementById("content-container").classList.add("flexbox-util");
     desc.addEventListener("click", () => {
       compressText();
     });
   }
 }
 
-function compressText(){
-  if(currentMode == "home" && expandedText) {
+function compressText() {
+  if (currentMode == "home" && expandedText) {
     expandedText = false;
-    document.getElementById('right-container').style.paddingRight=null;
-    document.getElementById('main-copy').style.maxWidth="340px";
+    document.getElementById("right-container").style.paddingRight = null;
+    document.getElementById("main-copy").style.maxWidth = "340px";
     undoTranslucentMode();
-    desc.title="Learn More Again";
-    desc.style.margin="22px 0 27px";
-    desc.innerHTML=compressedText;
-    desc.style.cursor="url('media/question-cursor.svg'), help";
-    document.getElementById('content-container').style.marginLeft=null;
-    document.getElementById('content-container').classList.remove('flexbox-util');
+    desc.title = "Learn More Again";
+    desc.style.margin = "22px 0 27px";
+    desc.innerHTML = compressedText;
+    desc.style.cursor = "url('media/question-cursor.svg'), help";
+    document.getElementById("content-container").style.marginLeft = null;
+    document
+      .getElementById("content-container")
+      .classList.remove("flexbox-util");
     desc.addEventListener("click", () => {
       showDetailedHome();
     });
@@ -856,7 +858,7 @@ MAIN!
 */
 
 function main() {
-  document.body.style.backgroundColor= "#ffffff00"
+  document.body.style.backgroundColor = "#ffffff00";
   startBackgroundAnimation();
 
   // init background behavior for links
@@ -869,12 +871,14 @@ function main() {
   //     document.documentElement.style.background = "#0c0c0d";
   // });
 
-  document.body.addEventListener("animationend", (event) => {
-    document.getElementById("top").classList.remove('hidden');
-    document.getElementById("bottom").classList.remove('hidden');
-  });
+  // document.body.addEventListener("animationend", (event) => {
+  window.setTimeout(function () {
+    document.getElementById("top").classList.remove("hidden");
+    // document.getElementById("bottom").classList.remove('hidden');
+    document.getElementById("writing").classList.remove("hidden");
+    document.getElementById("previously").classList.remove("hidden");
+  }, 1800);
 
-  
   // write the first word immediately
   // terminalText(helloWorld);
 
@@ -897,7 +901,6 @@ function main() {
   //     showAbout();
   //   });
   // }, 6000);
-
 }
 
 main();

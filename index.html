@@ -20,19 +20,20 @@
     <meta name="theme-color" content="#ffffff">
   </head>
   <body class="transparent-surface">
-    <div id="content-container" class="emoji-cursor">
+    <div id="content-container">
       <div id="top" class="div1 hidden">
         <div style="padding: 16px 0 8px 0">
-          <img src="/media/me.jpeg" width="60px" height="60px" style="border-radius: 40px; border: 1px solid #ffffff0d;" />
+          <img id="rotatingImage" src="/media/me.jpeg" width="60px" height="60px" style="border-radius: 40px; border: 1px solid #ffffff0d;"/>
         </div>
-        <div style="font-weight: 600; padding: 8px 0 8px 0; font-size: 1.3rem;">
+        <div style="padding: 0px 0 4px 0; " class="title-text">
           Nikhi Bhambra
         </div>
-        <div style="margin: 0 40px; padding: 8px 0px 20px 0px; color: rgb(255, 255, 255, 0.9); line-height: 1.3rem; font-size: 1rem;">
+        <div style="margin: 0 48px; padding: 10px 0px 20px 0px; color: #abadba; line-height: 1.3rem; font-size: 16px;">
           <!-- Co-founder of <a style="font-size: 1rem; color: white;" href="https://tab.health/">Tab</a>.  -->
-          Software Engineer who loves developer tools, observability, and machine learning. Can usually be found working on a mechanical keyboard.
+          Software Engineer who loves developer tools, observability, and machine learning. Probably tinkering with CSS or a mechanical keyboard.
+           <!-- usually be found working on a mechanical keyboard. -->
         </div>
-        <div style="display: flex; width: 25%; margin: 0 20px; justify-content: space-evenly; color: rgb(255, 255, 255, 1); opacity: 40%">
+        <div style="display: flex; width: 40%; margin: 0 20px; justify-content: space-evenly; color: rgb(255, 255, 255, 1); opacity: 40%">
           <div>
             <a id="linkedin" class="social" target="_blank" title="LinkedIn" href="https://www.linkedin.com/in/nikhibhambra/" onmouseenter={tintBackgroundTo('063b18')} onmouseleave={tintBackgroundTo('0c0c0d')}>
               <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-briefcase"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg>
@@ -48,23 +49,116 @@
               <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-at-sign"><circle cx="12" cy="12" r="4"></circle><path d="M16 8v5a3 3 0 0 0 6 0v-1a10 10 0 1 0-3.92 7.94"></path></svg>
             </a>
           </div>
-        </div>
-        <div style="padding: 8px 0 8px 0; color: rgb(255, 255, 255, 1); opacity: 25%;">
-          <div>
-            <div style="width: 100%; display: flex; align-items: center;" id="location" class="social" title="Location">
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 256 256"><rect width="256" height="256" fill="none"/><circle cx="128" cy="104" r="32" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="24"/><path d="M208,104c0,72-80,128-80,128S48,176,48,104a80,80,0,0,1,160,0Z" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="24"/></svg>
-              <div style="padding: 1px 0 0 4px;">Toronto</div>
-            </div>
+
+          <div style="margin-top: -1px;">
+            <a id="toronto" target="_blank" title="Link to a Toronto themed video" href="https://youtu.be/KZnLjRi_g9o?t=37" onmouseenter={tintBackgroundTo('063b18')} onmouseleave={tintBackgroundTo('0c0c0d')}>
+              <div style="width: 100%; display: flex; align-items: center;" id="location" class="social" title="Location">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 256 256"><rect width="256" height="256" fill="none"/><circle cx="128" cy="104" r="32" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="24"/><path d="M208,104c0,72-80,128-80,128S48,176,48,104a80,80,0,0,1,160,0Z" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="24"/></svg>
+                <div style="padding: 1px 0 0 4px; font-size: 16px;">Toronto</div>
+              </div>
+            </a>
           </div>
         </div>
-        <hr/>
+        <!-- TODO make padding: 8px ... fix top  padding -->
+        <!-- <div style="padding: 0px 0 8px 0; color: rgb(255, 255, 255, 1); opacity: 25%;">
+          <a id="linkedin" target="_blank" title="LinkedIn" href="https://youtu.be/KZnLjRi_g9o?t=37" onmouseenter={tintBackgroundTo('540946')} onmouseleave={tintBackgroundTo('0c0c0d')}>
+            <div style="width: 100%; display: flex; align-items: center;" id="location" class="social" title="Location">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 256 256"><rect width="256" height="256" fill="none"/><circle cx="128" cy="104" r="32" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="24"/><path d="M208,104c0,72-80,128-80,128S48,176,48,104a80,80,0,0,1,160,0Z" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="24"/></svg>
+              <div style="padding: 1px 0 0 4px; font-size: 16px;">Toronto</div>
+            </div>
+          </a>
+        </div> -->
+        <!-- <hr/> -->
+
       </div>
-      <div class="div2"> 
+      <div class="div2 hide-scrollbars"> 
+        <div id="writing" class="hidden">
+          <!-- <div class="title-text section-title">Writing</div> -->
+          <div class="section-title">
+            <!-- <span class="fancy"></span> -->
+            <p class="subtitle fancy"><span>Writing</span></p>
+          </div>
+
+          <a title="Coming soon">
+            <div class="bubble-box">
+              <div class="bubble-icon">
+                <div class="articleImage"></div>
+              </div>
+              <div class="bubble-title"> Email aliases are awesome <span class="date">Coming Soon</span></div>
+              <div class="bubble-content">
+                You can make an unlimited number of anonymous email addresses really easily. They allow you to forward any incoming emails to a one (or more) inboxes. You'll still be able to send & receive [...] 
+              </div>
+            </div> 
+          </a>
+
+          <!-- <a href="https://en.wikipedia.org/wiki/Monopoly_(game)">
+            <div class="bubble-box">
+              <div class="bubble-icon">
+                <div class="articleImage anotherBackground"></div>
+              </div>
+              <div class="bubble-title"> Why health tech fails patients <span class="date">In Progress</span></div>
+              <div class="bubble-content">
+                The beginning of the article would be epic, like a great tale. It would be packed with deeper insight than any grand wizard could provide. Then, out of nowhere, it would also divert attention to a [...]
+              </div>
+            </div> 
+          </a>
+
+          <a href="https://en.wikipedia.org/wiki/Monopoly_(game)">
+            <div class="bubble-box">
+              <div class="bubble-icon">
+                <div class="articleImage anotherBackground2"></div>
+              </div>
+              <div class="bubble-title"> Modern, free, GraphQL <span class="date">In Progress</span></div>
+              <div class="bubble-content">
+                The beginning of the article would be epic, like a great tale. It would be packed with deeper insight than any grand wizard could provide. Then, out of nowhere, it would also divert attention to a [...]
+              </div>
+            </div> 
+          </a> -->
 
 
-      </div>
-      <div class="div3"> 
+          </div>
+          <div id="previously" class="hidden">
+            <div class="section-title">
+              <!-- <span class="fancy"></span> -->
+              <p class="subtitle fancy"><span>Experience</span></p>
+            </div>
+            <div class="previously-content-box">
+            
+              <a class="company-box" target="_blank" title="Confluent" href="https://confluent.io">
+                <img id="company-image" src="/media/logo/good/1.png" width="50px" height="50px"/>
+              </a>
+              <a class="company-box" target="_blank" title="Included Health" href="https://includedhealth.com">
+                <img id="company-image"  src="/media/logo/good/2.png" width="46px" height="46px"/>
+              </a>
+              <a class="company-box" target="_blank" title="Apollo GraphQL (Graph Query Language)" href="https://www.apollographql.com/">
+                <img id="company-image"  src="/media/logo/good/3.png" width="80px" height="80px"/>
+              </a>
+              <a class="company-box" target="_blank" title="Karat" href="https://www.karat.com/">
+                <img id="company-image" src="/media/logo/good/4.png" width="90px" height="90px"/>
+              </a>
+              <!-- <a class="company-box" target="_blank" title="League" href="https://www.league.com/">
+                <img id="company-image" src="/media/logo/good/5.png" width="60px" height="60px"/>
+              </a>
+              <a class="company-box" target="_blank" title="IBM" href="https://www.ibm.com/products/watsonx-orchestrate">
+                <img id="company-image" src="/media/logo/good/6.png" width="60px" height="60px"/>
+              </a>
+              <a class="company-box" target="_blank" title="MedMe Health" href="https://www.medmehealth.com">
+                <img id="company-image" src="/media/logo/good/7.png" width="60px" height="60px"/>
+              </a> -->
 
+            </div>
+
+          </div>
+          <!-- <div id="thanks">
+            handmade in toronto
+          </div> -->
+<!-- 
+          <div class="bubble-box">
+            <div class="bubble-icon">a </div>
+            <div class="bubble-title"> s</div>
+            <div class="bubble-content"> v</div>
+          </div> 
+        </div> -->
 
       </div>
       <!-- <div class="div1">      
