@@ -52,45 +52,7 @@
   }
 }
 
-@keyframes hiddenToVisible {
-  0% {
-    visibility: hidden;
-  }
-  100% {
-    visibility: visible;
-  }
-}
-
-@keyframes spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
 /* Fonts */
-
-@font-face {
-  font-family: "DM Mono Regular";
-  src: url("/fonts/DM_Mono/DMMono-Regular.ttf") format("truetype");
-}
-
-@font-face {
-  font-family: "DM Mono Medium";
-  src: url("/fonts/DM_Mono/DMMono-Medium.ttf") format("truetype");
-}
-
-@font-face {
-  font-family: "Tiny5";
-  src: url("/fonts/DM_Mono/Tiny5.ttf") format("truetype");
-}
-
-@font-face {
-  font-family: "Archivo";
-  src: url("/fonts/DM_Mono/Archivo.ttf") format("truetype");
-}
 
 @font-face {
   font-family: "Geist";
@@ -193,7 +155,7 @@ body {
   opacity: 0.5;
 }
 
-hr {
+/* hr {
   display: block;
   height: 1px;
   border: 0;
@@ -201,7 +163,7 @@ hr {
   margin: 1em 0;
   padding: 0;
   width: 100%;
-}
+} */
 
 p#desc::-webkit-scrollbar {
   display: none;
@@ -376,17 +338,6 @@ p#desc::-webkit-scrollbar {
    backdrop-filter: blur(0px);
    -webkit-backdrop-filter: blur(0px);
 } */
-
-.darken {
-  backdrop-filter: blur(75px);
-  -webkit-backdrop-filter: blur(75px);
-  background-color: rgba(0, 0, 0, 0.4) !important;
-}
-
-.large-panel {
-  height: 860px;
-  width: 738px;
-}
 
 body::-webkit-scrollbar {
   display: none;
@@ -566,21 +517,6 @@ a.posts-link:hover {
   color: #757575;
 }
 
-#main-copy {
-  transition: opacity 1s;
-  max-width: 340px;
-  max-height: 52vh;
-}
-
-#expand {
-  color: #d3d3d3;
-  padding-right: 10px;
-  position: fixed;
-  left: calc(50vw - 175px);
-  transition: opacity 1.5s;
-  opacity: 1;
-}
-
 .hidden-opacity {
   opacity: 0 !important;
 }
@@ -603,19 +539,6 @@ li {
   flex-flow: row;
 }
 
-.emoji-container {
-  display: flex;
-  align-items: center;
-  margin: 0 1rem 0 0;
-  font-size: 185%;
-  transition: transform 0.75s;
-}
-
-.emoji-container:hover {
-  transform: rotate(359deg);
-  transition: transform 1s;
-}
-
 li:first-child {
   margin-top: 8px;
 }
@@ -623,16 +546,3 @@ li:first-child {
 li:last-child {
   margin-bottom: 8px;
 }
-
-/* You shouldn't code like this kids */
-/* .flexbox-util { */
-/* #content-container { */
-/* display: flex; */
-/* align-items: center; */
-/* flex-flow: column;
-    justify-content: center;
-} */
-
-/* #emoji-cursor {
-    cursor:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'  width='85' height='102' viewport='0 0 100 100' style='fill:black;font-size:51px;'><text y='50%'>🪄</text></svg>") 16 0,auto;
-} */

@@ -6,51 +6,51 @@
 CONSTANTS
 */
 
-var terminal = document.getElementById("console");
-var letterCount = 0;
-var letterDelete = 0;
-var panelCount = 0;
-var visible = true;
-var expandedText = false;
-var newOpacity = 0;
+// var terminal = document.getElementById("console");
+// var letterCount = 0;
+// var letterDelete = 0;
+// var panelCount = 0;
+// var visible = true;
+// var expandedText = false;
+// var newOpacity = 0;
 
-var helloWorld = "hello world";
-var nameString = "Nikhi Bhambra";
-var postsString = "posts";
-var aboutString = "about";
-var currentMode = "home";
-var seeBackgroundModeString = "...whoa";
+// var helloWorld = "hello world";
+// var nameString = "Nikhi Bhambra";
+// var postsString = "posts";
+// var aboutString = "about";
+// var currentMode = "home";
+// var seeBackgroundModeString = "...whoa";
 
-let compressedText = `I write code at <a id="apollo" target="_blank" href="https://www.confluent.io/product/confluent-platform/" onmouseenter={tintBackgroundTo('2a0957')} onmouseleave={tintBackgroundTo('0c0c0d')}>Confluent</a>`;
-let aboutText =
-  "I've spent two years working remotely at start ups in Toronto, and I like building things on the web that make life easier. In the future, I want to design better AI that can understand like us.";
-let postsListText = `<ul>
-<li id="gqlparty">
-  <div class="emoji-container">🪩</div>
-  <div id="text-story">
-      <a target="_blank" class="posts-link" href="/posts/?gqlparty">A Middling Title
-    </a>
-  </div>
-</li>
-<li id="favs">
-<div class="emoji-container">🤖</div>
-<div id="text-story">
-<a class="posts-link" target="_blank" href="/posts/?ml">An Incredible Title</a>
-</a>
-</div>
-</li>
-<li id="favs">
-<div class="emoji-container">🤩</div>
-<div id="text-story">
-<a class="posts-link" target="_blank" href="/posts/?favs">The Best Title Ever</a>
-</a>
-</div>
-</li>
-</ul>`;
-let detailedHomeText = `At <a id="apollo" target="_blank" href="https://www.confluent.io/product/confluent-platform/" onmouseenter={tintBackgroundTo('2a0957')} onmouseleave={tintBackgroundTo('0c0c0d')}>Confluent</a> I work on the infrastructure platform that enables thousands of clusters to be deployed everyday across the globe. <br /> <br />Otherwise, I enjoy spicy foods, building keyboards, & playing with my cats 😊`;
+// let compressedText = `I write code at <a id="apollo" target="_blank" href="https://www.confluent.io/product/confluent-platform/" onmouseenter={tintBackgroundTo('2a0957')} onmouseleave={tintBackgroundTo('0c0c0d')}>Confluent</a>`;
+// let aboutText =
+//   "I've spent two years working remotely at start ups in Toronto, and I like building things on the web that make life easier. In the future, I want to design better AI that can understand like us.";
+// let postsListText = `<ul>
+// <li id="gqlparty">
+//   <div class="emoji-container">🪩</div>
+//   <div id="text-story">
+//       <a target="_blank" class="posts-link" href="/posts/?gqlparty">A Middling Title
+//     </a>
+//   </div>
+// </li>
+// <li id="favs">
+// <div class="emoji-container">🤖</div>
+// <div id="text-story">
+// <a class="posts-link" target="_blank" href="/posts/?ml">An Incredible Title</a>
+// </a>
+// </div>
+// </li>
+// <li id="favs">
+// <div class="emoji-container">🤩</div>
+// <div id="text-story">
+// <a class="posts-link" target="_blank" href="/posts/?favs">The Best Title Ever</a>
+// </a>
+// </div>
+// </li>
+// </ul>`;
+// let detailedHomeText = `At <a id="apollo" target="_blank" href="https://www.confluent.io/product/confluent-platform/" onmouseenter={tintBackgroundTo('2a0957')} onmouseleave={tintBackgroundTo('0c0c0d')}>Confluent</a> I work on the infrastructure platform that enables thousands of clusters to be deployed everyday across the globe. <br /> <br />Otherwise, I enjoy spicy foods, building keyboards, & playing with my cats 😊`;
 
 var desc = document.getElementById("desc");
-let mainCopy = document.getElementById("main-copy").innerHTML;
+// let mainCopy = document.getElementById("main-copy").innerHTML;
 
 // TODO audit event listener queue when moving between pages,
 // I suspect all of the control listener's on every page will
@@ -66,57 +66,57 @@ UI ELEMENTS
 */
 
 /* Write and delete words in the heading section */
-function terminalText(word) {
-  let docLoc = document.getElementById("text");
+// function terminalText(word) {
+//   let docLoc = document.getElementById("text");
 
-  window.setTimeout(function () {
-    // write out
-    window.setTimeout(function () {
-      if (letterCount === 0) {
-        while (letterCount <= word.length) {
-          (function (letterCount) {
-            window.setTimeout(function () {
-              if (letterCount === 1) {
-                terminal.innerHTML = "&#95;";
-              }
-              docLoc.innerHTML = word.substring(0, letterCount);
-            }, 100 * letterCount);
-          })(letterCount++);
-        }
-      }
-    }, 0);
+//   window.setTimeout(function () {
+//     // write out
+//     window.setTimeout(function () {
+//       if (letterCount === 0) {
+//         while (letterCount <= word.length) {
+//           (function (letterCount) {
+//             window.setTimeout(function () {
+//               if (letterCount === 1) {
+//                 terminal.innerHTML = "&#95;";
+//               }
+//               docLoc.innerHTML = word.substring(0, letterCount);
+//             }, 100 * letterCount);
+//           })(letterCount++);
+//         }
+//       }
+//     }, 0);
 
-    // backspace, but only for the first word
-    window.setTimeout(function () {
-      if (letterCount >= word.length && word != nameString) {
-        while (letterCount >= 0 && letterDelete != word.length + 1) {
-          (function (letterCount) {
-            window.setTimeout(function () {
-              if (letterCount < 1) {
-                terminal.innerHTML = "&nbsp;&#95;";
-              }
-              docLoc.innerHTML = word.substring(0, letterCount);
-            }, 1000 - letterCount * 40);
-          })(letterDelete++);
-        }
-      }
-    }, 2000);
+//     // backspace, but only for the first word
+//     window.setTimeout(function () {
+//       if (letterCount >= word.length && word != nameString) {
+//         while (letterCount >= 0 && letterDelete != word.length + 1) {
+//           (function (letterCount) {
+//             window.setTimeout(function () {
+//               if (letterCount < 1) {
+//                 terminal.innerHTML = "&nbsp;&#95;";
+//               }
+//               docLoc.innerHTML = word.substring(0, letterCount);
+//             }, 1000 - letterCount * 40);
+//           })(letterDelete++);
+//         }
+//       }
+//     }, 2000);
 
-    letterCount = 0;
-    letterDelete = 0;
-  }, 1500);
-}
+//     letterCount = 0;
+//     letterDelete = 0;
+//   }, 1500);
+// }
 
 /* Visually simulate active insert cursor */
-function blinkingCursor() {
-  if (visible) {
-    terminal.className = "console-underscore hidden";
-    visible = false;
-  } else {
-    terminal.className = "console-underscore";
-    visible = true;
-  }
-}
+// function blinkingCursor() {
+//   if (visible) {
+//     terminal.className = "console-underscore hidden";
+//     visible = false;
+//   } else {
+//     terminal.className = "console-underscore";
+//     visible = true;
+//   }
+// }
 
 /* Change background of the html element to hexString */
 function tintBackgroundTo(hexString) {
@@ -513,42 +513,42 @@ function stopBackgroundAnimation() {
   document.getElementsByTagName("canvas")[0].remove();
 }
 
-/* Option to admire the background animation */
-function seeBackground() {
-  if (currentMode == "home" && !expandedText) {
-    document.getElementsByTagName("canvas")[0].style.opacity = 1;
-    document.getElementById("top-part").classList.add("hidden");
-    document.getElementById("main-copy").classList.add("hidden");
-    document.getElementById("socials").classList.add("hidden");
-  }
-}
+// /* Option to admire the background animation */
+// function seeBackground() {
+//   if (currentMode == "home" && !expandedText) {
+//     document.getElementsByTagName("canvas")[0].style.opacity = 1;
+//     document.getElementById("top-part").classList.add("hidden");
+//     document.getElementById("main-copy").classList.add("hidden");
+//     document.getElementById("socials").classList.add("hidden");
+//   }
+// }
 
-/* Reciprocal of hideText(), go back to default */
-function undoSeeBackground() {
-  document.getElementsByTagName("canvas")[0].style.opacity = 0.18;
-  document.getElementById("top-part").classList.remove("hidden");
-  document.getElementById("main-copy").classList.remove("hidden");
-  document.getElementById("socials").classList.remove("hidden");
-}
+// /* Reciprocal of hideText(), go back to default */
+// function undoSeeBackground() {
+//   document.getElementsByTagName("canvas")[0].style.opacity = 0.18;
+//   document.getElementById("top-part").classList.remove("hidden");
+//   document.getElementById("main-copy").classList.remove("hidden");
+//   document.getElementById("socials").classList.remove("hidden");
+// }
 
 /* Add a translucent background to make text more ledgible */
-function translucentMode() {
-  document.body.classList.add("transparent-surface");
-  // document.body.classList.add('darken');
-  // newOpacity = opacityMap(document.getElementById('opacity').value);
-  // document.body.style.backgroundColor = `rgba(0 ,0 ,0 , ${newOpacity}) !important`;
-}
+// function translucentMode() {
+//   document.body.classList.add("transparent-surface");
+//   // document.body.classList.add('darken');
+//   // newOpacity = opacityMap(document.getElementById('opacity').value);
+//   // document.body.style.backgroundColor = `rgba(0 ,0 ,0 , ${newOpacity}) !important`;
+// }
 
-/* Reciprocal of translucentMode(), remove translucent panel */
-function undoTranslucentMode() {
-  document.body.classList.remove("transparent-surface");
-  // document.body.classList.remove('darken');
-}
+// /* Reciprocal of translucentMode(), remove translucent panel */
+// function undoTranslucentMode() {
+//   document.body.classList.remove("transparent-surface");
+//   // document.body.classList.remove('darken');
+// }
 
 /* HTML sliders like whole numbers, so convert the slider value 0-100 to something between 0-0.4*/
-function opacityMap(inputValue) {
-  return (0.4 / 100) * inputValue;
-}
+// function opacityMap(inputValue) {
+//   return (0.4 / 100) * inputValue;
+// }
 
 /*
 function addChevronBackgroundHover() {
@@ -638,220 +638,215 @@ function turnOffNarration() {
     });
 }
 
-/* Body is the main panel, and if I want to */
-function changeBodySize() {}
-
-function makeNoteGrid() {}
-
 /*
 SECTIONS
 */
 
 /* Swich to About mode */
-function showAbout() {
-  if (currentMode == "posts") {
-    document.getElementById("pen").classList.remove("hidden");
-    document.getElementById("pen").style.marginRight = "0px";
-    desc.style.minWidth = "";
-    desc.style.height = null;
-  }
-  if (currentMode == "home") {
-    document.getElementById("pen").style.marginRight = "0px";
-    desc.style.cursor = "default";
-    desc.removeAttribute("title");
-  }
+// function showAbout() {
+//   if (currentMode == "posts") {
+//     document.getElementById("pen").classList.remove("hidden");
+//     document.getElementById("pen").style.marginRight = "0px";
+//     desc.style.minWidth = "";
+//     desc.style.height = null;
+//   }
+//   if (currentMode == "home") {
+//     document.getElementById("pen").style.marginRight = "0px";
+//     desc.style.cursor = "default";
+//     desc.removeAttribute("title");
+//   }
 
-  if (expandedText) {
-    document.getElementById("content-container").style.marginLeft = null;
-    desc.style.margin = "22px 0 27px";
-  }
-  // document.body.classList.add('darken');
-  // playXylophoneSound("g");
-  currentMode = "about";
-  // replace terminal chevron with back button
-  let button = document.getElementById("chevron");
-  button.innerText = "<";
-  button.setAttribute("title", "Back to Home");
-  button.style.cursor = "pointer";
-  // TODO blinkingh cursor breaks
+//   if (expandedText) {
+//     document.getElementById("content-container").style.marginLeft = null;
+//     desc.style.margin = "22px 0 27px";
+//   }
+//   // document.body.classList.add('darken');
+//   // playXylophoneSound("g");
+//   currentMode = "about";
+//   // replace terminal chevron with back button
+//   let button = document.getElementById("chevron");
+//   button.innerText = "<";
+//   button.setAttribute("title", "Back to Home");
+//   button.style.cursor = "pointer";
+//   // TODO blinkingh cursor breaks
 
-  // remove text
-  let text = document.getElementById("text");
-  text.innerHTML = " ";
+//   // remove text
+//   let text = document.getElementById("text");
+//   text.innerHTML = " ";
 
-  // show 'back'
-  window.setTimeout(function () {
-    terminalText(aboutString);
-  }, 2000);
+//   // show 'back'
+//   window.setTimeout(function () {
+//     terminalText(aboutString);
+//   }, 2000);
 
-  // show new icons
-  // if (document.getElementById("options-container") == null) {
-  //   document.getElementById(
-  //     "top-part"
-  //   ).innerHTML += `<div id='options-container' class='options'>
-  //       <span id='button' class='first-option' title='Turn on narration' onmouseenter={tintBackgroundTo('251101')}>
-  //         <svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><circle cx='12' cy='12' r='10'></circle><polygon points='10 8 16 12 10 16 10 8'></polygon></svg>
-  //       </span>
-  //     </div>`;
-  //   // document.getElementById("top-part").innerHTML +=
-  //   //   "<div id='options-container' class='options'><span id='button' class='first-option' title='Turn on narration' onmouseenter={tintBackgroundTo('251101')}><svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' class='feather feather-play-circle'><circle cx='12' cy='12' r='10'></circle><polygon points='10 8 16 12 10 16 10 8'></polygon></svg></span></div>";
-  // } else {
-  //   document.getElementById("options-container").classList.remove("hidden");
-  // }
+//   // show new icons
+//   // if (document.getElementById("options-container") == null) {
+//   //   document.getElementById(
+//   //     "top-part"
+//   //   ).innerHTML += `<div id='options-container' class='options'>
+//   //       <span id='button' class='first-option' title='Turn on narration' onmouseenter={tintBackgroundTo('251101')}>
+//   //         <svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><circle cx='12' cy='12' r='10'></circle><polygon points='10 8 16 12 10 16 10 8'></polygon></svg>
+//   //       </span>
+//   //     </div>`;
+//   //   // document.getElementById("top-part").innerHTML +=
+//   //   //   "<div id='options-container' class='options'><span id='button' class='first-option' title='Turn on narration' onmouseenter={tintBackgroundTo('251101')}><svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' class='feather feather-play-circle'><circle cx='12' cy='12' r='10'></circle><polygon points='10 8 16 12 10 16 10 8'></polygon></svg></span></div>";
+//   // } else {
+//   //   document.getElementById("options-container").classList.remove("hidden");
+//   // }
 
-  // document
-  //   .getElementById("options-container")
-  //   .addEventListener("mouseleave", () => {
-  //     document.documentElement.style.background = "#0c0c0d";
-  //   });
-  // document.getElementById("button").addEventListener("click", () => {
-  //   turnOnNarration();
-  // });
-  translucentMode();
+//   // document
+//   //   .getElementById("options-container")
+//   //   .addEventListener("mouseleave", () => {
+//   //     document.documentElement.style.background = "#0c0c0d";
+//   //   });
+//   // document.getElementById("button").addEventListener("click", () => {
+//   //   turnOnNarration();
+//   // });
+//   translucentMode();
 
-  desc.style.minHeight = "204px";
-  desc.style.margin = "20px 0 10px";
-  desc.style.maxWidth = "325px";
-  desc.style.textAlign = "justify";
-  // TODO write an about section
-  desc.innerHTML = aboutText;
-  // desc.style.margin = "30px 0px 0px 0px";
-  document.getElementById("socials").style.padding = "16px 0 0 0";
-  document.getElementById("about").classList.add("hidden");
-}
+//   desc.style.minHeight = "204px";
+//   desc.style.margin = "20px 0 10px";
+//   desc.style.maxWidth = "325px";
+//   desc.style.textAlign = "justify";
+//   // TODO write an about section
+//   desc.innerHTML = aboutText;
+//   // desc.style.margin = "30px 0px 0px 0px";
+//   document.getElementById("socials").style.padding = "16px 0 0 0";
+//   document.getElementById("about").classList.add("hidden");
+// }
 
 /* Switch to posts mode*/
-function showPosts() {
-  if (currentMode == "about") {
-    document.getElementById("about").classList.remove("hidden");
-    // document.body.classList.remove('darken');
-    desc.style.minHeight = "";
-    desc.style.maxWidth = "";
-    desc.style.textAlign = null;
-    document.getElementById("pen").style.marginRight = "14px";
-    // desc.style.minHeight="204px";
-    // document.getElementById("socials").style.padding = "26px 0 0 0";
-  }
-  if (currentMode == "home" && expandedText) {
-    desc.style.margin = "23px 0 26px";
-  }
-  if (currentMode == "home") {
-    desc.style.cursor = "default";
-    desc.removeAttribute("title");
-  }
-  if (expandedText) {
-    document.getElementById("content-container").style.marginLeft = null;
-    desc.removeAttribute("title");
-    desc.style.margin = "22px 0 27px";
-  }
-  desc.style.minWidth = "300px";
-  desc.style.height = "204px";
-  desc.innerText = "";
-  // playXylophoneSound("f");
-  // if (currentMode == "about") {
-  //   let options = document.getElementById("options-container");
-  //   options.classList.add("hidden");
-  // }
-  currentMode = "posts";
-  let button = document.getElementById("chevron");
-  button.innerText = "<";
-  button.setAttribute("title", "Back to Home");
-  button.style.cursor = "pointer";
-  // button.setAttribute(onmouseenter, addChevronBackgroundHover);
-  // button.setAttribute(onmouseleave, removeChevronBackgroundHover);
-  // button.style.padding = "0 8px";
-  document.getElementById("pen").classList.add("hidden");
-  // remove text
+// function showPosts() {
+//   if (currentMode == "about") {
+//     document.getElementById("about").classList.remove("hidden");
+//     // document.body.classList.remove('darken');
+//     desc.style.minHeight = "";
+//     desc.style.maxWidth = "";
+//     desc.style.textAlign = null;
+//     document.getElementById("pen").style.marginRight = "14px";
+//     // desc.style.minHeight="204px";
+//     // document.getElementById("socials").style.padding = "26px 0 0 0";
+//   }
+//   if (currentMode == "home" && expandedText) {
+//     desc.style.margin = "23px 0 26px";
+//   }
+//   if (currentMode == "home") {
+//     desc.style.cursor = "default";
+//     desc.removeAttribute("title");
+//   }
+//   if (expandedText) {
+//     document.getElementById("content-container").style.marginLeft = null;
+//     desc.removeAttribute("title");
+//     desc.style.margin = "22px 0 27px";
+//   }
+//   desc.style.minWidth = "300px";
+//   desc.style.height = "204px";
+//   desc.innerText = "";
+//   // playXylophoneSound("f");
+//   // if (currentMode == "about") {
+//   //   let options = document.getElementById("options-container");
+//   //   options.classList.add("hidden");
+//   // }
+//   currentMode = "posts";
+//   let button = document.getElementById("chevron");
+//   button.innerText = "<";
+//   button.setAttribute("title", "Back to Home");
+//   button.style.cursor = "pointer";
+//   // button.setAttribute(onmouseenter, addChevronBackgroundHover);
+//   // button.setAttribute(onmouseleave, removeChevronBackgroundHover);
+//   // button.style.padding = "0 8px";
+//   document.getElementById("pen").classList.add("hidden");
+//   // remove text
 
-  // TODO blinking cursor breaks
-  // remove text
-  desc.innerHTML = " ";
-  desc.style.minWidth = "325px";
-  let text = document.getElementById("text");
-  text.innerHTML = " ";
-  window.setTimeout(function () {
-    terminalText(postsString);
-  }, 2000);
-  // desc.innerHTML=postsListText;
-  desc.innerHTML =
-    "<div style='display: flex; height: 90%; align-items: center; justify-content: center;'>crickets...</div>";
-  translucentMode();
-  // "<ul><li><a onmouseenter={showDate(0)} onmouseleave````````````````````````````````````={hideDate(0)} id='posts-link' href=''>Being a remote developer</a><span class='posts-date'>12/22</span></li><li><a onmouseenter={showDate(1)} onmouseleave={hideDate(1)} id='posts-link' href=''>The Internet isn't fun anymore</a><span class='posts-date'>08/22</span></li>";
-}
+//   // TODO blinking cursor breaks
+//   // remove text
+//   desc.innerHTML = " ";
+//   desc.style.minWidth = "325px";
+//   let text = document.getElementById("text");
+//   text.innerHTML = " ";
+//   window.setTimeout(function () {
+//     terminalText(postsString);
+//   }, 2000);
+//   // desc.innerHTML=postsListText;
+//   desc.innerHTML =
+//     "<div style='display: flex; height: 90%; align-items: center; justify-content: center;'>crickets...</div>";
+//   translucentMode();
+//   // "<ul><li><a onmouseenter={showDate(0)} onmouseleave````````````````````````````````````={hideDate(0)} id='posts-link' href=''>Being a remote developer</a><span class='posts-date'>12/22</span></li><li><a onmouseenter={showDate(1)} onmouseleave={hideDate(1)} id='posts-link' href=''>The Internet isn't fun anymore</a><span class='posts-date'>08/22</span></li>";
+// }
 
 /* Switch to Home mode. Default. */
-function showHome() {
-  if (currentMode == "about" || currentMode == "posts") {
-    undoTranslucentMode();
-    // document.body.classList.remove('darken');
-    desc.style.maxWidth = "";
-    document.body.style.height = "328px";
-    document.getElementById("pen").style.marginRight = "14px";
-    desc.style.textAlign = null;
-    // cleanupChevronHoverListeners();
-  }
-  if (expandedText) {
-    compressText();
-  }
-  desc.addEventListener("click", () => {
-    showDetailedHome();
-  });
-  currentMode = "home";
-  // playXylophoneSound("c2");
-  window.setTimeout(function () {
-    terminalText(nameString);
-  }, 2000);
-  let button = document.getElementById("chevron");
-  button.innerText = ">";
-  // if (currentMode == "about") {
-  //   let options = document.getElementById("options-container");
-  //   options.classList.add("hidden");
-  // }
-  document.getElementById("main-copy").innerHTML = mainCopy;
-  document.getElementById("socials").style.padding = "0";
-  // document.getElementById("pen").classList.remove("hidden");
-  // document.getElementById("about").classList.remove("hidden");
-}
+// function showHome() {
+//   if (currentMode == "about" || currentMode == "posts") {
+//     undoTranslucentMode();
+//     // document.body.classList.remove('darken');
+//     desc.style.maxWidth = "";
+//     document.body.style.height = "328px";
+//     document.getElementById("pen").style.marginRight = "14px";
+//     desc.style.textAlign = null;
+//     // cleanupChevronHoverListeners();
+//   }
+//   if (expandedText) {
+//     compressText();
+//   }
+//   desc.addEventListener("click", () => {
+//     showDetailedHome();
+//   });
+//   currentMode = "home";
+//   // playXylophoneSound("c2");
+//   window.setTimeout(function () {
+//     terminalText(nameString);
+//   }, 2000);
+//   let button = document.getElementById("chevron");
+//   button.innerText = ">";
+//   // if (currentMode == "about") {
+//   //   let options = document.getElementById("options-container");
+//   //   options.classList.add("hidden");
+//   // }
+//   document.getElementById("main-copy").innerHTML = mainCopy;
+//   document.getElementById("socials").style.padding = "0";
+//   // document.getElementById("pen").classList.remove("hidden");
+//   // document.getElementById("about").classList.remove("hidden");
+// }
 
 /* Switch to home mode with expanded text and bg*/
-function showDetailedHome() {
-  if (currentMode == "home" && !expandedText) {
-    expandedText = true;
-    translucentMode();
-    document.getElementById("right-container").style.paddingRight = "2px";
-    document.getElementById("main-copy").style.maxWidth = "311px";
-    let button = document.getElementById("chevron");
-    button.innerText = "<";
-    desc.title = "Learn Less";
-    desc.style.margin = "22px 0px 26.4px;";
-    desc.innerHTML = detailedHomeText;
-    desc.style.cursor = `url("media/check-cursor.svg"), pointer`;
-    document.getElementById("content-container").classList.add("flexbox-util");
-    desc.addEventListener("click", () => {
-      compressText();
-    });
-  }
-}
+// function showDetailedHome() {
+//   if (currentMode == "home" && !expandedText) {
+//     expandedText = true;
+//     translucentMode();
+//     document.getElementById("right-container").style.paddingRight = "2px";
+//     document.getElementById("main-copy").style.maxWidth = "311px";
+//     let button = document.getElementById("chevron");
+//     button.innerText = "<";
+//     desc.title = "Learn Less";
+//     desc.style.margin = "22px 0px 26.4px;";
+//     desc.innerHTML = detailedHomeText;
+//     desc.style.cursor = `url("media/check-cursor.svg"), pointer`;
+//     document.getElementById("content-container").classList.add("flexbox-util");
+//     desc.addEventListener("click", () => {
+//       compressText();
+//     });
+//   }
+// }
 
-function compressText() {
-  if (currentMode == "home" && expandedText) {
-    expandedText = false;
-    document.getElementById("right-container").style.paddingRight = null;
-    document.getElementById("main-copy").style.maxWidth = "340px";
-    undoTranslucentMode();
-    desc.title = "Learn More Again";
-    desc.style.margin = "22px 0 27px";
-    desc.innerHTML = compressedText;
-    desc.style.cursor = "url('media/question-cursor.svg'), help";
-    document.getElementById("content-container").style.marginLeft = null;
-    document
-      .getElementById("content-container")
-      .classList.remove("flexbox-util");
-    desc.addEventListener("click", () => {
-      showDetailedHome();
-    });
-  }
-}
+// function compressText() {
+//   if (currentMode == "home" && expandedText) {
+//     expandedText = false;
+//     document.getElementById("right-container").style.paddingRight = null;
+//     document.getElementById("main-copy").style.maxWidth = "340px";
+//     undoTranslucentMode();
+//     desc.title = "Learn More Again";
+//     desc.style.margin = "22px 0 27px";
+//     desc.innerHTML = compressedText;
+//     desc.style.cursor = "url('media/question-cursor.svg'), help";
+//     document.getElementById("content-container").style.marginLeft = null;
+//     document
+//       .getElementById("content-container")
+//       .classList.remove("flexbox-util");
+//     desc.addEventListener("click", () => {
+//       showDetailedHome();
+//     });
+//   }
+// }
 
 /*
 MAIN!
