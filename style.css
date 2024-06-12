@@ -279,9 +279,12 @@ p#desc::-webkit-scrollbar {
 .articleImage {
   border-radius: 8px;
   /* border: 1px solid #ffffff0d; */
-  background: linear-gradient(to right, #6a11cb, #2575fc);
+  /* background: linear-gradient(to right, #6b11cb80, #2575fc80); */
   height: 32px;
   width: 32px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .anotherBackground {

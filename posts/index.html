@@ -3,7 +3,7 @@
   <head>
     <!-- Setup -->
     <title>Nikhi Bhambra | Engineer & Designer</title>
-    <link rel="stylesheet" href="style_posts.css">
+    <link rel="stylesheet" href="style_posts_min.css">
     <!-- Settings -->
     <meta charset="UTF-8">
     <meta name="description" content="Nikhi Bhambra, Software Engineer and Designer">
@@ -20,7 +20,11 @@
     <meta name="theme-color" content="#ffffff">
   </head>
   <body>
+    <a href="/">
+    <div class="back-button">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256"><rect width="256" height="256" fill="none"/><circle cx="128" cy="128" r="96" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/><line x1="88" y1="128" x2="168" y2="128" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/><polyline points="120 96 88 128 120 160" fill="none" stroke="var(--third-color)" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/></svg>    </div>
     <div id="meta">
+      </a>
       <div id="title-row">
         <h1 id="title"></h1>
       </div>
@@ -28,18 +32,19 @@
         <h2 id="date"></h2>
         <h2 id="dot" onclick={cyclePalettes()}>✦</h2>
         <h2 id="name">
-          <div id="audiobutton" class="no-link-style" >Play narration</a></div>
+          <div id="audiobutton" class="no-link-style" >
+            <svg xmlns="http://www.w3.org/2000/svg" style="margin-bottom: -3px; margin-right: 4px;" height="20px" width="20px" viewBox="0 0 256 256"><rect width="256" height="256" fill="none"/><circle cx="108" cy="108" r="60" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/><path d="M24,208c20.55-24.45,49.56-40,84-40s63.45,15.55,84,40" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/><path d="M200,68.74a100.33,100.33,0,0,1,0,78.52" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/><path d="M229.36,56a132.39,132.39,0,0,1,0,104" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/></svg>            Play narration</div>
         </h2>
       </div>
-      <div id="meta-row" class="bottom-divider"></div>
+      <!-- <div id="meta-row" class="bottom-divider"></div> -->
     </div>
     <div id="content-container">
       <div id="content">
       </div>
       <div id="see-more">
-        <h2 class="see-more-text">See more</h2>
+        <!-- <h2 class="see-more-text">See more</h2> -->
         <div id="return-home">
-          <a id="return-home-text" href="/" class="no-link-style">Return home</a>
+          <a id="return-home-text" href="/" class="no-link-style">Home</a>
         </div>
       </div>
     </div>
