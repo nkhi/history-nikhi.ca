@@ -471,7 +471,7 @@ function startBackgroundAnimation() {
       canv = document.createElement("canvas");
       canv.style.position = "absolute";
       canv.style.zIndex = "-1";
-      canv.style.opacity = 0.12;
+      canv.style.opacity = 0.25;
       canv.style.transition = "opacity 1s";
       document.documentElement.appendChild(canv);
       ctx = canv.getContext("2d");
