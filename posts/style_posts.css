@@ -72,9 +72,9 @@ h2 {
 }
 
 p {
-  text-indent: 2rem;
-  font-size: 0.9rem;
-  line-height: 1.8rem;
+  text-indent: 1.5rem;
+  font-size: 18px;
+  line-height: 26px;
 }
 
 .no-indent {
