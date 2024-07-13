@@ -479,6 +479,7 @@ function startBackgroundAnimation() {
         "title",
         "you feel a strange urge to click the background..."
       );
+      canv.setAttribute('data-umami-event', "Clicked Background Mosaic")
     }
     canv.addEventListener("click", mouseClick); // just for initial position
     events = [{ event: "reset" }];
