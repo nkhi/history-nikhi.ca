@@ -1,122 +1,7 @@
-"use strict"; // single JS file, not dangerous
+"use strict";
 
-/* This is a simple website. why make it complicated? */
-
-/*
-CONSTANTS
-*/
-
-// var terminal = document.getElementById("console");
-// var letterCount = 0;
-// var letterDelete = 0;
-// var panelCount = 0;
-// var visible = true;
-// var expandedText = false;
-// var newOpacity = 0;
-
-// var helloWorld = "hello world";
-// var nameString = "Nikhi Bhambra";
-// var postsString = "posts";
-// var aboutString = "about";
-// var currentMode = "home";
-// var seeBackgroundModeString = "...whoa";
-
-// let compressedText = `I write code at <a id="apollo" target="_blank" href="https://www.confluent.io/product/confluent-platform/" onmouseenter={tintBackgroundTo('2a0957')} onmouseleave={tintBackgroundTo('0c0c0d')}>Confluent</a>`;
-// let aboutText =
-//   "I've spent two years working remotely at start ups in Toronto, and I like building things on the web that make life easier. In the future, I want to design better AI that can understand like us.";
-// let postsListText = `<ul>
-// <li id="gqlparty">
-//   <div class="emoji-container">🪩</div>
-//   <div id="text-story">
-//       <a target="_blank" class="posts-link" href="/posts/?gqlparty">A Middling Title
-//     </a>
-//   </div>
-// </li>
-// <li id="favs">
-// <div class="emoji-container">🤖</div>
-// <div id="text-story">
-// <a class="posts-link" target="_blank" href="/posts/?ml">An Incredible Title</a>
-// </a>
-// </div>
-// </li>
-// <li id="favs">
-// <div class="emoji-container">🤩</div>
-// <div id="text-story">
-// <a class="posts-link" target="_blank" href="/posts/?favs">The Best Title Ever</a>
-// </a>
-// </div>
-// </li>
-// </ul>`;
-// let detailedHomeText = `At <a id="apollo" target="_blank" href="https://www.confluent.io/product/confluent-platform/" onmouseenter={tintBackgroundTo('2a0957')} onmouseleave={tintBackgroundTo('0c0c0d')}>Confluent</a> I work on the infrastructure platform that enables thousands of clusters to be deployed everyday across the globe. <br /> <br />Otherwise, I enjoy spicy foods, building keyboards, & playing with my cats 😊`;
-
-var desc = document.getElementById("desc");
-// let mainCopy = document.getElementById("main-copy").innerHTML;
-
-// TODO audit event listener queue when moving between pages,
-// I suspect all of the control listener's on every page will
-// need to be reinvoked when switchng.
-
-// TODO break out these sections into different js files so this
-// isn't impossible to reason through
-
-// TODO website shouldn't break when you click too quickly
-
-/*
-UI ELEMENTS
-*/
-
-/* Write and delete words in the heading section */
-// function terminalText(word) {
-//   let docLoc = document.getElementById("text");
-
-//   window.setTimeout(function () {
-//     // write out
-//     window.setTimeout(function () {
-//       if (letterCount === 0) {
-//         while (letterCount <= word.length) {
-//           (function (letterCount) {
-//             window.setTimeout(function () {
-//               if (letterCount === 1) {
-//                 terminal.innerHTML = "&#95;";
-//               }
-//               docLoc.innerHTML = word.substring(0, letterCount);
-//             }, 100 * letterCount);
-//           })(letterCount++);
-//         }
-//       }
-//     }, 0);
-
-//     // backspace, but only for the first word
-//     window.setTimeout(function () {
-//       if (letterCount >= word.length && word != nameString) {
-//         while (letterCount >= 0 && letterDelete != word.length + 1) {
-//           (function (letterCount) {
-//             window.setTimeout(function () {
-//               if (letterCount < 1) {
-//                 terminal.innerHTML = "&nbsp;&#95;";
-//               }
-//               docLoc.innerHTML = word.substring(0, letterCount);
-//             }, 1000 - letterCount * 40);
-//           })(letterDelete++);
-//         }
-//       }
-//     }, 2000);
-
-//     letterCount = 0;
-//     letterDelete = 0;
-//   }, 1500);
-// }
-
-/* Visually simulate active insert cursor */
-// function blinkingCursor() {
-//   if (visible) {
-//     terminal.className = "console-underscore hidden";
-//     visible = false;
-//   } else {
-//     terminal.className = "console-underscore";
-//     visible = true;
-//   }
-// }
+// How many times the user has clicked the background
+var panelCount = 0;
 
 /* Change background of the html element to hexString */
 function tintBackgroundTo(hexString) {
@@ -473,11 +358,12 @@ function startBackgroundAnimation() {
       canv.style.zIndex = "-1";
       canv.style.opacity = 0.25;
       canv.style.transition = "opacity 1s";
+      // canv.style.cursor = "url('media/cursor/arrow.svg'), auto";
       document.documentElement.appendChild(canv);
       ctx = canv.getContext("2d");
       canv.setAttribute(
         "title",
-        "you feel a strange urge to click the background..."
+        "Psst. Hey! Click me."
       );
       canv.setAttribute('data-umami-event', "Clicked Background Mosaic")
     }
@@ -485,6 +371,18 @@ function startBackgroundAnimation() {
     events = [{ event: "reset" }];
     requestAnimationFrame(animate);
   }); // window load listener
+}
+
+function triggerCanvasClick() {
+    var canvas = document.getElementsByTagName('canvas')[0];
+    if (canvas) {
+        var clickEvent = new MouseEvent('click', {
+            bubbles: true,
+            cancelable: true,
+            view: window
+        });
+        canvas.dispatchEvent(clickEvent);
+    }
 }
 
 /* The first eight times you click the background, it will play a xylophone sound*/
@@ -514,93 +412,20 @@ function stopBackgroundAnimation() {
   document.getElementsByTagName("canvas")[0].remove();
 }
 
-// /* Option to admire the background animation */
-// function seeBackground() {
-//   if (currentMode == "home" && !expandedText) {
-//     document.getElementsByTagName("canvas")[0].style.opacity = 1;
-//     document.getElementById("top-part").classList.add("hidden");
-//     document.getElementById("main-copy").classList.add("hidden");
-//     document.getElementById("socials").classList.add("hidden");
-//   }
-// }
-
-// /* Reciprocal of hideText(), go back to default */
-// function undoSeeBackground() {
-//   document.getElementsByTagName("canvas")[0].style.opacity = 0.18;
-//   document.getElementById("top-part").classList.remove("hidden");
-//   document.getElementById("main-copy").classList.remove("hidden");
-//   document.getElementById("socials").classList.remove("hidden");
-// }
-
-/* Add a translucent background to make text more ledgible */
-// function translucentMode() {
-//   document.body.classList.add("transparent-surface");
-//   // document.body.classList.add('darken');
-//   // newOpacity = opacityMap(document.getElementById('opacity').value);
-//   // document.body.style.backgroundColor = `rgba(0 ,0 ,0 , ${newOpacity}) !important`;
-// }
-
-// /* Reciprocal of translucentMode(), remove translucent panel */
-// function undoTranslucentMode() {
-//   document.body.classList.remove("transparent-surface");
-//   // document.body.classList.remove('darken');
-// }
-
 /* HTML sliders like whole numbers, so convert the slider value 0-100 to something between 0-0.4*/
 // function opacityMap(inputValue) {
 //   return (0.4 / 100) * inputValue;
 // }
 
-/*
-function addChevronBackgroundHover() {
-  button.classList.add('chevron-background-hover');
-}
-
-function removeChevronBackgroundHover() {
-  button.classList.remove('chevron-background-hover');
-}
-
-function cleanupChevronHoverListeners() {
-  let button = document.getElementById("chevron");
-  button.removeAttribute(onmouseenter, addChevronBackgroundHover);
-  button.removeAttribute(onmouseleave, removeChevronBackgroundHover);
-}
-
-TODO method to switch text icon to open eye
-function showEyeIcon() {
-  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-eye"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
-}
-
-TODO method to switch eye icon to hide eye icon
-function showHideEyeIcon() {
-  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"></path><line x1="1" y1="1" x2="23" y2="23"></line></svg>
-}
-/*
-
-// /* Show date of posts post, used onHoverEnter */
-// function showDate(list_position) {
-//   let theDate =
-//     document.getElementsByTagName("ul")[0].childNodes[list_position]
-//       .childNodes[1];
-//   theDate.style.opacity = 1;
-// }
-
-// /* Hide date of posts post, used onHoverLeave */
-// function hideDate(list_position) {
-//   let theDate =
-//     document.getElementsByTagName("ul")[0].childNodes[list_position]
-//       .childNodes[1];
-//   theDate.style.opacity = 0;
-// }
-
-// plays an audio file on the about page when clicked
+// <-- 1 Used in the /posts/ section, plays an audio file on the about page when clicked
 function turnOnNarration() {
   if (!document.body.getElementsByClassName("audio").length > 0) {
-    document.body.innerHTML +=
-      "<audio id='audio-player' preload='auto' src='/media/about_narration.mp3'></audio>";
-  }
+  //   document.body.innerHTML +=
+  //     "<audio id='audio-player' preload='auto' src='/media/about_narration.mp3'></audio>";
+  // }
   let narrationAudio = document.getElementById("audio-player");
   narrationAudio.play();
+  }
 
   let button = document.getElementById("button");
   button.innerHTML =
@@ -619,7 +444,6 @@ function turnOnNarration() {
     });
 }
 
-// do the opposite of ^^^ and cleanup
 function turnOffNarration() {
   let button = document.getElementById("button");
   let narrationAudio = document.getElementById("audio-player");
@@ -639,264 +463,46 @@ function turnOffNarration() {
     });
 }
 
-/*
-SECTIONS
-*/
+// 1 -->
 
-/* Swich to About mode */
-// function showAbout() {
-//   if (currentMode == "posts") {
-//     document.getElementById("pen").classList.remove("hidden");
-//     document.getElementById("pen").style.marginRight = "0px";
-//     desc.style.minWidth = "";
-//     desc.style.height = null;
-//   }
-//   if (currentMode == "home") {
-//     document.getElementById("pen").style.marginRight = "0px";
-//     desc.style.cursor = "default";
-//     desc.removeAttribute("title");
-//   }
+// <--- 2 Changing the text of the Experience section
 
-//   if (expandedText) {
-//     document.getElementById("content-container").style.marginLeft = null;
-//     desc.style.margin = "22px 0 27px";
-//   }
-//   // document.body.classList.add('darken');
-//   // playXylophoneSound("g");
-//   currentMode = "about";
-//   // replace terminal chevron with back button
-//   let button = document.getElementById("chevron");
-//   button.innerText = "<";
-//   button.setAttribute("title", "Back to Home");
-//   button.style.cursor = "pointer";
-//   // TODO blinkingh cursor breaks
+function handleHover(event) {
+  const displaySpan = document.getElementById('experience-and-job-title');
+  if (displaySpan) {
+      displaySpan.innerText = event.currentTarget.title;
+  }
+}
 
-//   // remove text
-//   let text = document.getElementById("text");
-//   text.innerHTML = " ";
+function handleMouseOut(event) {
+  const displaySpan = document.getElementById('experience-and-job-title');
+  if (displaySpan) {
+      displaySpan.innerText = "Experience";
+  }
+}
 
-//   // show 'back'
-//   window.setTimeout(function () {
-//     terminalText(aboutString);
-//   }, 2000);
+function setupHoverListeners() {
+  const companyBoxes = document.querySelectorAll('a.company-box');
+    companyBoxes.forEach(companyBox => {
+      companyBox.addEventListener('mouseover', handleHover);
+      companyBox.addEventListener('mouseout', handleMouseOut);
+  });
+}
 
-//   // show new icons
-//   // if (document.getElementById("options-container") == null) {
-//   //   document.getElementById(
-//   //     "top-part"
-//   //   ).innerHTML += `<div id='options-container' class='options'>
-//   //       <span id='button' class='first-option' title='Turn on narration' onmouseenter={tintBackgroundTo('251101')}>
-//   //         <svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><circle cx='12' cy='12' r='10'></circle><polygon points='10 8 16 12 10 16 10 8'></polygon></svg>
-//   //       </span>
-//   //     </div>`;
-//   //   // document.getElementById("top-part").innerHTML +=
-//   //   //   "<div id='options-container' class='options'><span id='button' class='first-option' title='Turn on narration' onmouseenter={tintBackgroundTo('251101')}><svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' class='feather feather-play-circle'><circle cx='12' cy='12' r='10'></circle><polygon points='10 8 16 12 10 16 10 8'></polygon></svg></span></div>";
-//   // } else {
-//   //   document.getElementById("options-container").classList.remove("hidden");
-//   // }
-
-//   // document
-//   //   .getElementById("options-container")
-//   //   .addEventListener("mouseleave", () => {
-//   //     document.documentElement.style.background = "#0c0c0d";
-//   //   });
-//   // document.getElementById("button").addEventListener("click", () => {
-//   //   turnOnNarration();
-//   // });
-//   translucentMode();
-
-//   desc.style.minHeight = "204px";
-//   desc.style.margin = "20px 0 10px";
-//   desc.style.maxWidth = "325px";
-//   desc.style.textAlign = "justify";
-//   // TODO write an about section
-//   desc.innerHTML = aboutText;
-//   // desc.style.margin = "30px 0px 0px 0px";
-//   document.getElementById("socials").style.padding = "16px 0 0 0";
-//   document.getElementById("about").classList.add("hidden");
-// }
-
-/* Switch to posts mode*/
-// function showPosts() {
-//   if (currentMode == "about") {
-//     document.getElementById("about").classList.remove("hidden");
-//     // document.body.classList.remove('darken');
-//     desc.style.minHeight = "";
-//     desc.style.maxWidth = "";
-//     desc.style.textAlign = null;
-//     document.getElementById("pen").style.marginRight = "14px";
-//     // desc.style.minHeight="204px";
-//     // document.getElementById("socials").style.padding = "26px 0 0 0";
-//   }
-//   if (currentMode == "home" && expandedText) {
-//     desc.style.margin = "23px 0 26px";
-//   }
-//   if (currentMode == "home") {
-//     desc.style.cursor = "default";
-//     desc.removeAttribute("title");
-//   }
-//   if (expandedText) {
-//     document.getElementById("content-container").style.marginLeft = null;
-//     desc.removeAttribute("title");
-//     desc.style.margin = "22px 0 27px";
-//   }
-//   desc.style.minWidth = "300px";
-//   desc.style.height = "204px";
-//   desc.innerText = "";
-//   // playXylophoneSound("f");
-//   // if (currentMode == "about") {
-//   //   let options = document.getElementById("options-container");
-//   //   options.classList.add("hidden");
-//   // }
-//   currentMode = "posts";
-//   let button = document.getElementById("chevron");
-//   button.innerText = "<";
-//   button.setAttribute("title", "Back to Home");
-//   button.style.cursor = "pointer";
-//   // button.setAttribute(onmouseenter, addChevronBackgroundHover);
-//   // button.setAttribute(onmouseleave, removeChevronBackgroundHover);
-//   // button.style.padding = "0 8px";
-//   document.getElementById("pen").classList.add("hidden");
-//   // remove text
-
-//   // TODO blinking cursor breaks
-//   // remove text
-//   desc.innerHTML = " ";
-//   desc.style.minWidth = "325px";
-//   let text = document.getElementById("text");
-//   text.innerHTML = " ";
-//   window.setTimeout(function () {
-//     terminalText(postsString);
-//   }, 2000);
-//   // desc.innerHTML=postsListText;
-//   desc.innerHTML =
-//     "<div style='display: flex; height: 90%; align-items: center; justify-content: center;'>crickets...</div>";
-//   translucentMode();
-//   // "<ul><li><a onmouseenter={showDate(0)} onmouseleave````````````````````````````````````={hideDate(0)} id='posts-link' href=''>Being a remote developer</a><span class='posts-date'>12/22</span></li><li><a onmouseenter={showDate(1)} onmouseleave={hideDate(1)} id='posts-link' href=''>The Internet isn't fun anymore</a><span class='posts-date'>08/22</span></li>";
-// }
-
-/* Switch to Home mode. Default. */
-// function showHome() {
-//   if (currentMode == "about" || currentMode == "posts") {
-//     undoTranslucentMode();
-//     // document.body.classList.remove('darken');
-//     desc.style.maxWidth = "";
-//     document.body.style.height = "328px";
-//     document.getElementById("pen").style.marginRight = "14px";
-//     desc.style.textAlign = null;
-//     // cleanupChevronHoverListeners();
-//   }
-//   if (expandedText) {
-//     compressText();
-//   }
-//   desc.addEventListener("click", () => {
-//     showDetailedHome();
-//   });
-//   currentMode = "home";
-//   // playXylophoneSound("c2");
-//   window.setTimeout(function () {
-//     terminalText(nameString);
-//   }, 2000);
-//   let button = document.getElementById("chevron");
-//   button.innerText = ">";
-//   // if (currentMode == "about") {
-//   //   let options = document.getElementById("options-container");
-//   //   options.classList.add("hidden");
-//   // }
-//   document.getElementById("main-copy").innerHTML = mainCopy;
-//   document.getElementById("socials").style.padding = "0";
-//   // document.getElementById("pen").classList.remove("hidden");
-//   // document.getElementById("about").classList.remove("hidden");
-// }
-
-/* Switch to home mode with expanded text and bg*/
-// function showDetailedHome() {
-//   if (currentMode == "home" && !expandedText) {
-//     expandedText = true;
-//     translucentMode();
-//     document.getElementById("right-container").style.paddingRight = "2px";
-//     document.getElementById("main-copy").style.maxWidth = "311px";
-//     let button = document.getElementById("chevron");
-//     button.innerText = "<";
-//     desc.title = "Learn Less";
-//     desc.style.margin = "22px 0px 26.4px;";
-//     desc.innerHTML = detailedHomeText;
-//     desc.style.cursor = `url("media/check-cursor.svg"), pointer`;
-//     document.getElementById("content-container").classList.add("flexbox-util");
-//     desc.addEventListener("click", () => {
-//       compressText();
-//     });
-//   }
-// }
-
-// function compressText() {
-//   if (currentMode == "home" && expandedText) {
-//     expandedText = false;
-//     document.getElementById("right-container").style.paddingRight = null;
-//     document.getElementById("main-copy").style.maxWidth = "340px";
-//     undoTranslucentMode();
-//     desc.title = "Learn More Again";
-//     desc.style.margin = "22px 0 27px";
-//     desc.innerHTML = compressedText;
-//     desc.style.cursor = "url('media/question-cursor.svg'), help";
-//     document.getElementById("content-container").style.marginLeft = null;
-//     document
-//       .getElementById("content-container")
-//       .classList.remove("flexbox-util");
-//     desc.addEventListener("click", () => {
-//       showDetailedHome();
-//     });
-//   }
-// }
-
-/*
-MAIN!
-*/
+// 2 --->
 
 function main() {
   document.body.style.backgroundColor = "#ffffff00";
   startBackgroundAnimation();
 
-  // init background behavior for links
-  // document.getElementById("linkedin").addEventListener("mouseleave", () => {
-  //   document.documentElement.style.background = "#0c0c0d";
-  // });
-  // document
-  //   .getElementById("right-container")
-  //   .addEventListener("mouseleave", () => {
-  //     document.documentElement.style.background = "#0c0c0d";
-  // });
-
-  // document.body.addEventListener("animationend", (event) => {
   window.setTimeout(function () {
     document.getElementById("top").classList.remove("hidden");
-    // document.getElementById("bottom").classList.remove('hidden');
     document.getElementById("writing").classList.remove("hidden");
     document.getElementById("previously").classList.remove("hidden");
   }, 1800);
 
-  // write the first word immediately
-  // terminalText(helloWorld);
+  document.addEventListener('DOMContentLoaded', setupHoverListeners);
 
-  // write name after 3 seconds
-  // window.setTimeout(function () {
-  //   terminalText(nameString);
-  // }, 3000);
-
-  // make cursor blink every half second, after 5.5s
-  // window.setTimeout(function () {
-  //   window.setInterval(blinkingCursor, 500);
-  // }, 5500);
-
-  // make links accessible to avoid animation issues oop
-  // window.setTimeout(function () {
-  //   document.getElementById("pen").addEventListener("click", () => {
-  //     showPosts();
-  //   });
-  //   document.getElementById("about").addEventListener("click", () => {
-  //     showAbout();
-  //   });
-  // }, 6000);
 }
 
 main();

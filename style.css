@@ -553,3 +553,11 @@ li:first-child {
 li:last-child {
   margin-bottom: 8px;
 }
+
+.linebreak {
+  margin: 0 4px;
+}
+
+#restart {
+  cursor: pointer;
+}

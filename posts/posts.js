@@ -60,7 +60,6 @@ async function importJsonContent(path) {
 function pauseNarration() {
   let narrationAudio = document.getElementById("audio-player");
   narrationAudio.pause();
-  document.getElementById("name").innerText = "Play audio recording";
   document
     .getElementById("audiobutton")
     .setAttribute("onclick", "playNarration()");
@@ -69,9 +68,9 @@ function pauseNarration() {
 function playNarration() {
   let narrationAudio = document.getElementById("audio-player");
   narrationAudio.play();
-  document.getElementById("name").innerText = "Pause audio recording";
-  document.getElementById("audiobutton").onclick = "pauseNarration()";
-  link.setAttribute("onclick", "pauseNarration()");
+  document
+    .getElementById("audiobutton")
+    .setAttribute("onclick", "pauseNarration()");
 }
 
 // Scrollbar
