@@ -50,7 +50,8 @@
   }
   100% {
     width: 480px;
-    height: calc(100vh - 100px);
+    /* height: calc(800px); */
+    height: min(800px, calc(100vh - 100px));
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
   }
