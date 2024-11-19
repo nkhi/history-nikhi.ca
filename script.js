@@ -373,6 +373,8 @@ function startBackgroundAnimation() {
   }); // window load listener
 }
 
+
+
 function triggerCanvasClick() {
     var canvas = document.getElementsByTagName('canvas')[0];
     if (canvas) {
@@ -467,27 +469,26 @@ function turnOffNarration() {
 
 // <--- 2 Changing the text of the Experience section
 
-function handleHover(event) {
-  const displaySpan = document.getElementById('experience-and-job-title');
-  if (displaySpan) {
-      displaySpan.innerText = event.currentTarget.title;
-  }
-}
+let hoverTimeout;
 
-function handleMouseOut(event) {
-  const displaySpan = document.getElementById('experience-and-job-title');
-  if (displaySpan) {
-      displaySpan.innerText = "Experience";
-  }
-}
+document.querySelectorAll('.company-box').forEach(box => {
+    box.addEventListener('mouseenter', (e) => {
+        // Clear any existing timeout
+        if (hoverTimeout) {
+            clearTimeout(hoverTimeout);
+        }
+        
+        // Update the text immediately
+        document.getElementById('experience-and-job-title').textContent = e.currentTarget.title;
+    });
 
-function setupHoverListeners() {
-  const companyBoxes = document.querySelectorAll('a.company-box');
-    companyBoxes.forEach(companyBox => {
-      companyBox.addEventListener('mouseover', handleHover);
-      companyBox.addEventListener('mouseout', handleMouseOut);
-  });
-}
+    box.addEventListener('mouseleave', (e) => {
+        // Set a timeout to revert the text after 1 second
+        hoverTimeout = setTimeout(() => {
+            document.getElementById('experience-and-job-title').textContent = 'Experience';
+        }, 400);
+    });
+});
 
 // 2 --->
 
@@ -500,8 +501,6 @@ function main() {
     document.getElementById("writing").classList.remove("hidden");
     document.getElementById("previously").classList.remove("hidden");
   }, 1800);
-
-  document.addEventListener('DOMContentLoaded', setupHoverListeners);
 
 }
 
