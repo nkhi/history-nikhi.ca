@@ -522,3 +522,68 @@ li:last-child {
 #restart {
   cursor: pointer;
 }
+
+.control-panel {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background: rgba(0, 0, 0, 0.85);
+  padding: 20px;
+  border-radius: 12px;
+  color: white;
+  z-index: 1000;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  min-width: 250px;
+}
+
+.control-group {
+  margin-bottom: 10px;
+}
+
+.control-group label {
+  display: block;
+  margin-bottom: 5px;
+  font-size: 12px;
+  opacity: 0.8;
+  cursor: help;
+}
+
+.control-group input[type="range"] {
+  width: 200px;
+  margin: 0;
+  padding: 0;
+}
+
+.control-group select {
+  width: 100%;
+  padding: 5px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 4px;
+  color: white;
+  margin-top: 5px;
+}
+
+.control-group select option {
+  background: #333;
+}
+
+.control-group label {
+  cursor: help;
+}
+
+.control-group label:hover::after {
+  content: attr(title);
+  position: absolute;
+  left: -220px;
+  width: 200px;
+  padding: 8px;
+  border-radius: 4px;
+  background: rgba(0, 0, 0, 0.9);
+  color: white;
+  font-size: 12px;
+  line-height: 1.4;
+  pointer-events: none;
+  z-index: 1001;
+}

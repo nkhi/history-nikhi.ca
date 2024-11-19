@@ -370,6 +370,94 @@ function startBackgroundAnimation() {
     canv.addEventListener("click", mouseClick); // just for initial position
     events = [{ event: "reset" }];
     requestAnimationFrame(animate);
+
+    // Add control panel
+    const controlPanel = document.createElement('div');
+    controlPanel.id = 'animation-controls';
+    controlPanel.className = 'control-panel';
+    controlPanel.innerHTML = `
+    <div class="control-group">
+      <label title="Controls the size of each mosaic tile. Larger values create a more pixelated effect">Square Size (5-20px)</label>
+      <input type="range" id="squareSize" min="5" max="20" value="${sqWidthMin}">
+    </div>
+    <div class="control-group">
+      <label title="How quickly colors shift through the rainbow. Higher values create more dramatic color transitions">Hue Change (1-30)</label>
+      <input type="range" id="hueChange" min="1" max="30" value="${DHUE}">
+    </div>
+    <div class="control-group">
+      <label title="How quickly brightness changes. Higher values create more contrast between adjacent tiles">Lightness Change (0.1-10)</label>
+      <input type="range" id="lumChange" min="0.1" max="10" step="0.1" value="${DLUM}">
+    </div>
+    <div class="control-group">
+      <label title="Speed of pattern growth. Higher values make the pattern spread faster">Animation Speed (0.01-0.5)</label>
+      <input type="range" id="animSpeed" min="0.01" max="0.5" step="0.01" value="${SPEED}">
+    </div>
+    <div class="control-group">
+      <label title="Space between tiles. Higher values create more distinct separation">Square Margin (0-5)</label>
+      <input type="range" id="sqMargin" min="0" max="5" step="0.1" value="${MARGIN}">
+    </div>
+    <div class="control-group">
+      <label title="Hue Only: Rainbow effect with constant brightness
+  Lightness Only: Pulsing brightness with fixed color
+  Hue + Lightness: Combined rainbow and brightness variation">Color Mode</label>
+      <select id="colorMode">
+        <option value="0">Hue Only</option>
+        <option value="1">Lightness Only</option>
+        <option value="2">Hue + Lightness</option>
+      </select>
+    </div>
+    <div class="control-group">
+      <label title="How quickly tile sizes evolve over time. Higher values create more dynamic size variations">Width Evolution (0.1-5)</label>
+      <input type="range" id="widthChange" min="0.1" max="5" step="0.1" value="0.1">
+    </div>
+    <div class="control-group">
+      <label title="Starting brightness level of the pattern. Higher values create a brighter initial state">Initial Lightness (20-90)</label>
+      <input type="range" id="initLum" min="20" max="90" value="60">
+    </div>
+  `;
+    document.documentElement.appendChild(controlPanel);
+
+    // Add event listeners for controls
+    document.getElementById('squareSize').addEventListener('input', (e) => {
+      sqWidthMin = parseInt(e.target.value);
+      sqWidthMax = sqWidthMin + 5;
+      triggerCanvasClick();
+    });
+
+    document.getElementById('hueChange').addEventListener('input', (e) => {
+      DHUE = parseInt(e.target.value);
+      triggerCanvasClick();
+    });
+
+    document.getElementById('lumChange').addEventListener('input', (e) => {
+      DLUM = parseFloat(e.target.value);
+      triggerCanvasClick();
+    });
+
+    document.getElementById('animSpeed').addEventListener('input', (e) => {
+      SPEED = parseFloat(e.target.value);
+    });
+
+    document.getElementById('sqMargin').addEventListener('input', (e) => {
+      MARGIN = parseFloat(e.target.value);
+      triggerCanvasClick();
+    });
+
+    document.getElementById('colorMode').addEventListener('change', (e) => {
+      colorMode = parseInt(e.target.value);
+      triggerCanvasClick();
+    });
+
+    document.getElementById('widthChange').addEventListener('input', (e) => {
+      evolColor.dWidth = parseFloat(e.target.value);
+      triggerCanvasClick();
+    });
+
+    document.getElementById('initLum').addEventListener('input', (e) => {
+      const newLum = parseInt(e.target.value);
+      evolColor.lum = newLum;
+      triggerCanvasClick();
+    });
   }); // window load listener
 }
 
