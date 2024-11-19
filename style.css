@@ -212,9 +212,8 @@ p#desc::-webkit-scrollbar {
   position: absolute;
   height: 5px;
   border-bottom: 2px solid #ffffff0d;
-  /* border-top: 1px solid white; */
   top: 0;
-  width: 600px;
+  width: min(50vw, 300px);
 }
 .fancy span:before {
   right: 100%;
