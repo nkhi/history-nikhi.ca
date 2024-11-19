@@ -383,7 +383,7 @@ function startBackgroundAnimation() {
     controlPanel.innerHTML = `
       <div class="control-group">
         <label>Square Size</label>
-        <div class="control-description">Larger = more pixelated</div>
+        <div class="control-description">Larger = less pixelated</div>
         <input type="range" id="squareSize" min="5" max="20" value="${sqWidthMin}">
       </div>
       <div class="control-group">
@@ -403,16 +403,12 @@ function startBackgroundAnimation() {
       </div>
       <div class="control-group">
         <label>Animation Speed</label>
-        <div class="control-description">Lower = faster animation</div>
+        <div class="control-description">Higher = faster animation</div>
         <input type="range" id="animSpeed" min="0.01" max="1" step="0.01" value="${SPEED}">
       </div>
-      <div class="control-group">
-        <label>Pattern Size</label>
-        <div class="control-description">Higher = larger patterns</div>
-        <input type="range" id="patternSize" min="1" max="8" value="1">
-      </div>
       <div class="reset-controls">
-        <button id="reset-default" title="Reset to default values">↺ Reset Page</button>
+        <button id="reset-default" title="Reset">Reset</button>
+        <button id="randomize" title="Randomize">Randomize</button>
       </div>
     `;
     document.documentElement.appendChild(controlPanel);
@@ -443,14 +439,36 @@ function startBackgroundAnimation() {
       triggerCanvasClick();
     });
 
-    document.getElementById('patternSize').addEventListener('input', (e) => {
-        PATTERN_SIZE = parseInt(e.target.value);
-        triggerCanvasClick();
-    });
-
     // Add this event listener with the other control listeners
     document.getElementById('reset-default').addEventListener('click', () => {
         window.location.reload();
+    });
+
+    // Add randomize button functionality
+    document.getElementById('randomize').addEventListener('click', () => {
+        // Randomize square size (5-20)
+        sqWidthMin = Math.floor(Math.random() * 15) + 5;
+        sqWidthMax = sqWidthMin + 5;
+        document.getElementById('squareSize').value = sqWidthMin;
+        
+        // Randomize hue change (1-30)
+        DHUE = Math.floor(Math.random() * 29) + 1;
+        document.getElementById('hueChange').value = DHUE;
+        
+        // Randomize lightness change (0.1-10)
+        DLUM = Math.round((Math.random() * 9.9 + 0.1) * 10) / 10;
+        document.getElementById('lumChange').value = DLUM;
+        
+        // Randomize margin (0-3)
+        MARGIN = Math.round(Math.random() * 30) / 10;
+        document.getElementById('sqMargin').value = MARGIN;
+        
+        // Randomize animation speed (0.01-1)
+        SPEED = Math.round(Math.random() * 99 + 1) / 100;
+        document.getElementById('animSpeed').value = SPEED;
+        
+        // Trigger canvas redraw twice to ensure animation restarts
+        triggerCanvasClick();
     });
   }); // window load listener
 }
