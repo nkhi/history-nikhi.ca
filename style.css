@@ -212,9 +212,8 @@ p#desc::-webkit-scrollbar {
   position: absolute;
   height: 5px;
   border-bottom: 2px solid #ffffff0d;
-  /* border-top: 1px solid white; */
   top: 0;
-  width: 600px;
+  width: min(50vw, 300px);
 }
 .fancy span:before {
   right: 100%;
@@ -515,10 +514,98 @@ li:last-child {
   margin-bottom: 8px;
 }
 
-.linebreak {
-  margin: 0 4px;
+#linebreak {
+  opacity: 0.5;
+  margin: 0 12px;
 }
 
-#restart {
+#restart, #settings {
   cursor: pointer;
+}
+
+.control-panel {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  padding: 15px;
+  color: white;
+  width: 220px;
+  z-index: 1000;
+  display: none; /* Hidden by default */
+  opacity: 0.6; /* Less visible when not hovered */
+  transition: opacity 0.3s ease;
+  
+  /* Match main body styling */
+  border-radius: 8px;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  background-color: rgba(110, 110, 110, 0.1) !important;
+  border: 2px solid #ffffff0d;
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 54px 55px,
+    rgba(0, 0, 0, 0.12) 0px -12px 30px, 
+    rgba(0, 0, 0, 0.12) 0px 4px 6px,
+    rgba(0, 0, 0, 0.17) 0px 12px 13px, 
+    rgba(0, 0, 0, 0.15) 0px -3px 5px;
+}
+
+.control-panel:hover {
+  opacity: 1;
+}
+
+.control-group {
+  margin-bottom: 12px;
+}
+
+.control-group label {
+  display: block;
+  font-size: 12px;
+  margin-bottom: 2px;
+}
+
+.control-group input[type="range"] {
+  width: 100%;
+  margin: 0;
+}
+
+.control-group select {
+  width: 100%;
+  padding: 5px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 4px;
+  color: white;
+  margin-top: 5px;
+}
+
+.control-group select option {
+  background: #333;
+}
+
+.control-description {
+  font-size: 11px;
+  opacity: 0.7;
+  margin-bottom: 4px;
+}
+
+.reset-controls {
+    margin-top: 0.5rem;
+    display: flex;
+    justify-content: space-between;
+    gap: 8px;
+}
+
+.reset-controls button {
+    padding: 0.5rem 1rem;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 4px;
+    background: rgba(0, 0, 0, 0.2);
+    color: white;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    flex: 1;
+}
+
+.reset-controls button:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.3);
 }

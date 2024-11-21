@@ -11,12 +11,12 @@ function tintBackgroundTo(hexString) {
 /* Instantiate a new canvas that fills in the background with a cool fractal */
 function startBackgroundAnimation() {
   window.addEventListener("load", function () {
-    const sqWidthMin = 5; // length of square side 5..sqWidthMax
-    const sqWidthMax = 10; // length of square side sqWidthMin..50
-    const DHUE = 1; // integer 1-10 - hue change by step
-    const DLUM = 1; // 0.1 - 5 - lightness change by step
-    const SPEED = 0.01; // 0 to 100
-    const MARGIN = 0.5; // black marging around each square
+    let sqWidthMin = 5; // length of square side 5..sqWidthMax
+    let sqWidthMax = 10; // length of square side sqWidthMin..50
+    let DHUE = 1; // integer 1-10 - hue change by step
+    let DLUM = 1; // 0.1 - 5 - lightness change by step
+    let SPEED = 0.01; // 0 to 100
+    let MARGIN = 0.5; // black marging around each square
 
     let canv, ctx; // canvas and context
 
@@ -154,6 +154,10 @@ function startBackgroundAnimation() {
         window.requestAnimationFrame(animate);
 
         tinit = performance.now();
+        
+        // Modify this loop to use SPEED as a multiplier
+        // Lower SPEED = more iterations = faster animation
+        let maxTime = 20 * SPEED; // This will make higher values = slower animation
         do {
           switch (animState) {
             case 0:
@@ -214,7 +218,7 @@ function startBackgroundAnimation() {
           } // switch
         } while (
           (animState == 2 || animState == 3) &&
-          performance.now() - tinit < SPEED
+          performance.now() - tinit < maxTime
         );
       }; // animate
     } // scope for animate
@@ -370,6 +374,102 @@ function startBackgroundAnimation() {
     canv.addEventListener("click", mouseClick); // just for initial position
     events = [{ event: "reset" }];
     requestAnimationFrame(animate);
+
+    // Add control panel
+    const controlPanel = document.createElement('div');
+    controlPanel.id = 'animation-controls';
+    controlPanel.className = 'control-panel';
+    controlPanel.style.display = 'none';  // Initially hidden
+    controlPanel.innerHTML = `
+      <div class="control-group">
+        <label>Square Size</label>
+        <div class="control-description">Larger = less pixelated</div>
+        <input type="range" id="squareSize" min="5" max="20" value="${sqWidthMin}">
+      </div>
+      <div class="control-group">
+        <label>Hue Change</label>
+        <div class="control-description">Higher = faster color shifts</div>
+        <input type="range" id="hueChange" min="1" max="30" value="${DHUE}">
+      </div>
+      <div class="control-group">
+        <label>Lightness Change</label>
+        <div class="control-description">Higher = more contrast</div>
+        <input type="range" id="lumChange" min="0.1" max="10" step="0.1" value="${DLUM}">
+      </div>
+      <div class="control-group">
+        <label>Square Margin</label>
+        <div class="control-description">Space between tiles</div>
+        <input type="range" id="sqMargin" min="0" max="3" step="0.1" value="${MARGIN}">
+      </div>
+      <div class="control-group">
+        <label>Animation Speed</label>
+        <div class="control-description">Higher = faster animation</div>
+        <input type="range" id="animSpeed" min="0.01" max="1" step="0.01" value="${SPEED}">
+      </div>
+      <div class="reset-controls">
+        <button id="reset-default" title="Reset">Reset</button>
+        <button id="randomize" title="Randomize">Randomize</button>
+      </div>
+    `;
+    document.documentElement.appendChild(controlPanel);
+
+    // Add event listeners for controls
+    document.getElementById('squareSize').addEventListener('input', (e) => {
+      sqWidthMin = parseInt(e.target.value);
+      sqWidthMax = sqWidthMin + 5;
+      triggerCanvasClick();
+    });
+
+    document.getElementById('hueChange').addEventListener('input', (e) => {
+      DHUE = parseInt(e.target.value);
+      triggerCanvasClick();
+    });
+
+    document.getElementById('lumChange').addEventListener('input', (e) => {
+      DLUM = parseFloat(e.target.value);
+      triggerCanvasClick();
+    });
+
+    document.getElementById('animSpeed').addEventListener('input', (e) => {
+      SPEED = parseFloat(e.target.value);
+    });
+
+    document.getElementById('sqMargin').addEventListener('input', (e) => {
+      MARGIN = parseFloat(e.target.value);
+      triggerCanvasClick();
+    });
+
+    // Add this event listener with the other control listeners
+    document.getElementById('reset-default').addEventListener('click', () => {
+        window.location.reload();
+    });
+
+    // Add randomize button functionality
+    document.getElementById('randomize').addEventListener('click', () => {
+        // Randomize square size (5-20)
+        sqWidthMin = Math.floor(Math.random() * 15) + 5;
+        sqWidthMax = sqWidthMin + 5;
+        document.getElementById('squareSize').value = sqWidthMin;
+        
+        // Randomize hue change (1-30)
+        DHUE = Math.floor(Math.random() * 29) + 1;
+        document.getElementById('hueChange').value = DHUE;
+        
+        // Randomize lightness change (0.1-10)
+        DLUM = Math.round((Math.random() * 9.9 + 0.1) * 10) / 10;
+        document.getElementById('lumChange').value = DLUM;
+        
+        // Randomize margin (0-3)
+        MARGIN = Math.round(Math.random() * 30) / 10;
+        document.getElementById('sqMargin').value = MARGIN;
+        
+        // Randomize animation speed (0.01-1)
+        SPEED = Math.round(Math.random() * 99 + 1) / 100;
+        document.getElementById('animSpeed').value = SPEED;
+        
+        // Trigger canvas redraw twice to ensure animation restarts
+        triggerCanvasClick();
+    });
   }); // window load listener
 }
 
@@ -505,3 +605,13 @@ function main() {
 }
 
 main();
+
+// Add this function
+function toggleControlPanel() {
+    const panel = document.getElementById('animation-controls');
+    if (panel.style.display === 'none' || !panel.style.display) {
+        panel.style.display = 'block';
+    } else {
+        panel.style.display = 'none';
+    }
+}
