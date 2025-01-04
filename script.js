@@ -474,6 +474,45 @@ function startBackgroundAnimation() {
         // Trigger canvas redraw twice to ensure animation restarts
         triggerCanvasClick();
     });
+
+    // Add event listener for spacebar
+    window.addEventListener('keydown', function(event) {
+        // Check if the pressed key is spacebar and we're not in an input/textarea/contenteditable element
+        if (event.code === 'Space' && 
+            !['INPUT', 'TEXTAREA'].includes(event.target.tagName) && 
+            !(event.target.getAttribute('contenteditable') === 'true')) {
+            event.preventDefault(); // Prevent page scrolling
+            mouseClick(event);  // Use the existing mouseClick function
+        }
+    });
+
+    // Add keyboard xylophone controls
+    window.addEventListener('keydown', function(event) {
+        if (!['INPUT', 'TEXTAREA'].includes(event.target.tagName) && 
+            !(event.target.getAttribute('contenteditable') === 'true')) {
+            
+            const keyToNote = {
+                'q': 'c',
+                'w': 'd',
+                'e': 'e',
+                'r': 'f',
+                't': 'g',
+                'y': 'a',
+                'u': 'b',
+                'i': 'c2'
+            };
+
+            const key = event.key.toLowerCase();
+            if (keyToNote[key]) {
+                const audioPlayer = document.getElementById(`audio-player-${keyToNote[key]}`);
+                if (audioPlayer) {
+                    audioPlayer.volume = 0.15;
+                    audioPlayer.currentTime = 0; // Reset the audio to start
+                    audioPlayer.play();
+                }
+            }
+        }
+    });
   }); // window load listener
 }
 

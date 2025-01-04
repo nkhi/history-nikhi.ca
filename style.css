@@ -66,7 +66,7 @@ html {
   transition-timing-function: ease-out;
 }
 
-body {
+/* body { */
   /* i think these are old and unneeded */
   /* animation: openBox 5s forwards; */
   /* padding: 58px 0px; */
@@ -92,7 +92,7 @@ body {
   border-radius: 50px;
   border: 0px solid #ffffff00;
   background-color: #ffffff00; */
-}
+/* } */
 
 #content-container {
   /* animation: hiddenToVisible 8s forwards; */
