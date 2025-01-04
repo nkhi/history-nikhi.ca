@@ -67,15 +67,19 @@ html {
 }
 
 body {
-  animation: openBox 4s forwards;
+  /* i think these are old and unneeded */
   /* animation: openBox 5s forwards; */
   /* padding: 58px 0px; */
-  position: relative;
-  /* width: 444px; */
-  overflow-x: hidden;
-  /* display: flex;
+    /* display: flex;
     align-items: center; TODO can I uncomment do i want to
     justify-content: center; */
+  /* width: 444px; */
+
+  /* IF YOU EVER WANT TO BRING THE CONTENT PANEL BACK, UNCOMMENT THIS */
+  /* ALSO REAPPLY transparent-surface to the body */
+  /* position: relative;
+  animation: openBox 4s forwards;
+  overflow-x: hidden;
   min-width: 140px;
   min-height: 140px;
   -ms-overflow-style: none;
@@ -87,7 +91,7 @@ body {
   cursor: default;
   border-radius: 50px;
   border: 0px solid #ffffff00;
-  background-color: #ffffff00;
+  background-color: #ffffff00; */
 }
 
 #content-container {
@@ -531,7 +535,7 @@ li:last-child {
   color: white;
   width: 220px;
   z-index: 1000;
-  display: none; /* Hidden by default */
+  /* display: none; Hidden by default */
   opacity: 0.6; /* Less visible when not hovered */
   transition: opacity 0.3s ease;
   

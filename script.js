@@ -379,39 +379,38 @@ function startBackgroundAnimation() {
     const controlPanel = document.createElement('div');
     controlPanel.id = 'animation-controls';
     controlPanel.className = 'control-panel';
-    controlPanel.style.display = 'none';  // Initially hidden
-    controlPanel.innerHTML = `
-      <div class="control-group">
-        <label>Square Size</label>
-        <div class="control-description">Larger = less pixelated</div>
-        <input type="range" id="squareSize" min="5" max="20" value="${sqWidthMin}">
-      </div>
-      <div class="control-group">
-        <label>Hue Change</label>
-        <div class="control-description">Higher = faster color shifts</div>
-        <input type="range" id="hueChange" min="1" max="30" value="${DHUE}">
-      </div>
-      <div class="control-group">
-        <label>Lightness Change</label>
-        <div class="control-description">Higher = more contrast</div>
-        <input type="range" id="lumChange" min="0.1" max="10" step="0.1" value="${DLUM}">
-      </div>
-      <div class="control-group">
-        <label>Square Margin</label>
-        <div class="control-description">Space between tiles</div>
-        <input type="range" id="sqMargin" min="0" max="3" step="0.1" value="${MARGIN}">
-      </div>
-      <div class="control-group">
-        <label>Animation Speed</label>
-        <div class="control-description">Higher = faster animation</div>
-        <input type="range" id="animSpeed" min="0.01" max="1" step="0.01" value="${SPEED}">
-      </div>
-      <div class="reset-controls">
-        <button id="reset-default" title="Reset">Reset</button>
-        <button id="randomize" title="Randomize">Randomize</button>
-      </div>
-    `;
+
+    // Create minimized indicator
+    const minimizedIndicator = document.createElement('div');
+    minimizedIndicator.id = 'minimized-controls';
+    minimizedIndicator.innerHTML = '!';
+    minimizedIndicator.style.cssText = `position:fixed;bottom:20px;right:20px;width:30px;height:30px;display:none;justify-content:center;align-items:center;background:rgba(110,110,110,0.1);color:white;border-radius:4px;cursor:pointer;opacity:0.3;transition:opacity 0.3s ease;backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border:1px solid rgba(255,255,255,0.1);z-index:1000;`;
+
+    // Append both elements to document
+    document.body.appendChild(minimizedIndicator);
     document.documentElement.appendChild(controlPanel);
+
+    // Add the control panel HTML content
+    controlPanel.innerHTML = `<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px"><span style="font-size:12px;opacity:0.7">Pattern Controls</span><svg id="minimize-controls" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="cursor:pointer;opacity:0.6;transition:opacity 0.3s ease"><line x1="5" y1="12" x2="19" y2="12"></line></svg></div><div style="width:100%;height:1px;background:rgba(255,255,255,0.1);margin-bottom:12px"></div><div class="control-group"><label>Square Size</label><div class="control-description">Larger = less pixelated</div><input type="range" id="squareSize" min="5" max="20" value="${sqWidthMin}"></div><div class="control-group"><label>Hue Change</label><div class="control-description">Higher = faster color shifts</div><input type="range" id="hueChange" min="1" max="30" value="${DHUE}"></div><div class="control-group"><label>Lightness Change</label><div class="control-description">Higher = more contrast</div><input type="range" id="lumChange" min="0.1" max="10" step="0.1" value="${DLUM}"></div><div class="control-group"><label>Square Margin</label><div class="control-description">Space between tiles</div><input type="range" id="sqMargin" min="0" max="3" step="0.1" value="${MARGIN}"></div><div class="control-group"><label>Animation Speed</label><div class="control-description">Higher = faster animation</div><input type="range" id="animSpeed" min="0.01" max="1" step="0.01" value="${SPEED}"></div><div class="control-group"><label>Canvas Opacity</label><div class="control-description">Overall visibility of the background pattern</div><input type="range" id="canvasOpacity" min="0" max="100" value="25"></div><div class="reset-controls"><button id="reset-default" title="Reset">Reset</button><button id="randomize" title="Randomize">Randomize</button></div>`;
+
+    // Add minimize/maximize event listeners
+    document.getElementById('minimize-controls').addEventListener('click', () => {
+      controlPanel.style.display = 'none';
+      minimizedIndicator.style.display = 'flex';
+    });
+
+    minimizedIndicator.addEventListener('mouseenter', () => {
+      minimizedIndicator.style.opacity = '1';
+    });
+
+    minimizedIndicator.addEventListener('mouseleave', () => {
+      minimizedIndicator.style.opacity = '0.1';
+    });
+
+    minimizedIndicator.addEventListener('click', () => {
+      controlPanel.style.display = 'block';
+      minimizedIndicator.style.display = 'none';
+    });
 
     // Add event listeners for controls
     document.getElementById('squareSize').addEventListener('input', (e) => {
@@ -437,6 +436,11 @@ function startBackgroundAnimation() {
     document.getElementById('sqMargin').addEventListener('input', (e) => {
       MARGIN = parseFloat(e.target.value);
       triggerCanvasClick();
+    });
+
+    document.getElementById('canvasOpacity').addEventListener('input', (e) => {
+      const opacity = parseInt(e.target.value) / 100;
+      document.getElementsByTagName('canvas')[0].style.opacity = opacity;
     });
 
     // Add this event listener with the other control listeners
@@ -491,6 +495,7 @@ function triggerCanvasClick() {
 function playPanelDingSoundEffect(panelCount) {
   let notes = ["c", "d", "e", "f", "g", "a", "b", "c2"];
   let audioPlayer = document.getElementById("audio-player");
+  audioPlayer.volume = 0.15;
 
   if (panelCount <= 8) {
     if (panelCount == 1) {
@@ -602,6 +607,7 @@ function main() {
     document.getElementById("previously").classList.remove("hidden");
   }, 1800);
 
+  document.getElementById("audio-player").volume = 0.15;
 }
 
 main();
@@ -609,9 +615,12 @@ main();
 // Add this function
 function toggleControlPanel() {
     const panel = document.getElementById('animation-controls');
+    const indicator = document.getElementById('minimized-controls');
     if (panel.style.display === 'none' || !panel.style.display) {
         panel.style.display = 'block';
+        indicator.style.display = 'none';
     } else {
         panel.style.display = 'none';
+        indicator.style.display = 'flex';
     }
 }
