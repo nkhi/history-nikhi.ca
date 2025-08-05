@@ -102,13 +102,10 @@ html {
   grid-column-gap: 0px;
   grid-row-gap: 0px;
   height: 100%;
-
   overflow: hidden;
-
   transition-property: display;
   transition-duration: 2s;
   transition-behavior: allow-discrete;
-
   color: white;
 }
 
