@@ -369,7 +369,6 @@ function startBackgroundAnimation() {
         "title",
         "Psst. Hey! Click me."
       );
-      canv.setAttribute('data-umami-event', "Clicked Background Mosaic")
     }
     canv.addEventListener("click", mouseClick); // just for initial position
     events = [{ event: "reset" }];
